@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<VBox prefWidth="650.0" styleClass="thebackground" xmlns="http://javafx.com/javafx/8.0.121"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.hp.jetadvantage.link.pkgmgt.hpkutil.activities.LocalizationActivity">
+    <children>
+        <VBox fx:id="localizationBox">
+            <children>
+            </children>
+        </VBox>
+    </children>
+
+    <padding>
+        <Insets top="10.0" />
+    </padding>
+
+    <stylesheets>
+        <URL value="@sample.css"/>
+    </stylesheets>
+</VBox>

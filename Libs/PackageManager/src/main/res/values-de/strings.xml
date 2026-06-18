@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Abbrechen"</string>
+    <string name="install">"Installieren"</string>
+    <string name="launch">"Öffnen"</string>
+    <string name="ok">"OK"</string>
+    <string name="next">"Weiter"</string>
+    <string name="done">"Fertig"</string>
+
+    <string name="install_confirm_dlg_title">"Installieren"</string>
+    <string name="install_untrusted_dlg_title">"Installieren (Unbekannt)"</string>
+    <string name="install_confirm_dlg_text">"Möchtest du diese App installieren?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"App deinstallieren"</string>
+    <string name="uninstall_confirm_dlg_text">"Möchtest du diese App deinstallieren?"</string>
+
+    <string name="error_dlg_title">"Fehler"</string>
+
+    <string name="installing">"Wird installiert..."</string>
+    <string name="install_done">"App wurde installiert."</string>
+    <string name="install_failed">"App wurde nicht installiert."</string>
+
+    <string name="install_confirm_question">"Möchtest du diese App installieren? Sie erhält dann folgende Berechtigungen:"</string>
+    <string name="install_confirm_question_no_perms">"Möchtest du diese App installieren? Sie benötigt keinen besonderen Zugriff."</string>
+    <string name="install_confirm_question_update">"Möchtest du ein Update für diese vorhandene App installieren? Deine vorhandenen Daten bleiben erhalten. Die aktualisierte App erhält Zugriff auf:"</string>
+    <string name="install_confirm_question_update_system">"Möchtest du ein Update für diese integrierte App installieren? Deine vorhandenen Daten bleiben erhalten. Die aktualisierte App erhält Zugriff auf:"</string>
+    <string name="install_confirm_question_update_no_perms">"Möchtest du ein Update für diese bestehende App installieren? Deine vorhandenen Daten bleiben erhalten. Die App benötigt keine besonderen Zugriffsrechte."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Möchtest du ein Update für diese integrierte App installieren? Deine vorhandenen Daten bleiben erhalten. Die App benötigt keine besonderen Zugriffsrechte."</string>
+
+    <string name="uninstall_application_title">"App deinstallieren"</string>
+    <string name="uninstall_update_title">"Update deinstallieren"</string>
+    <string name="uninstalling">"Wird deinstalliert..."</string>
+    <string name="uninstall_done">"Deinstallation abgeschlossen"</string>
+    <string name="uninstall_failed">"Deinstallation fehlgeschlagen"</string>
+    <string name="uninstall_unauthorized">"Der aktuelle Nutzer ist nicht dazu berechtigt, diese Deinstallation auszuführen."</string>
+    <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g> konnte nicht installiert werden. Gib Speicherplatz frei und versuche es erneut."</string>
+    <string name="newPerms">"Neu"</string>
+    <string name="allPerms">"Alle"</string>
+    <string name="privacyPerms">"Datenschutz"</string>
+    <string name="devicePerms">"Gerätezugriff"</string>
+    <string name="no_new_perms">"Für dieses Update sind keine neuen Berechtigungen erforderlich."</string>
+    <string name="manage_device_administrators">"Apps zur Geräteverwaltung"</string>
+</resources>

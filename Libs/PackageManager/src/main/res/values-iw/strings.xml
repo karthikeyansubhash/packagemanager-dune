@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"ביטול"</string>
+    <string name="install">"התקן"</string>
+    <string name="launch">"פתח"</string>
+    <string name="ok">"אישור"</string>
+    <string name="next">"הבא"</string>
+    <string name="done">"סיום"</string>
+
+    <string name="install_confirm_dlg_title">"התקן"</string>
+    <string name="install_untrusted_dlg_title">"התקן (לא ידוע)"</string>
+    <string name="install_confirm_dlg_text">"האם ברצונך להתקין את האפליקציה?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"הסר את התקנת האפליקציה"</string>
+    <string name="uninstall_confirm_dlg_text">"האם ברצונך להסיר את ההתקנה של אפליקציה זו?"</string>
+
+    <string name="error_dlg_title">"שגיאה"</string>
+
+    <string name="installing">"מתקין..."</string>
+    <string name="install_done">"האפליקציה הותקנה.</string>
+    <string name="install_failed">"האפליקציה לא הותקנה."</string>
+
+    <string name="install_confirm_question">"האם ברצונך להתקין את האפליקציה? היא תקבל גישה אל:"</string>
+    <string name="install_confirm_question_no_perms">"האם ברצונך להתקין את האפליקציה? היא אינה דורשת גישה מיוחדת."</string>
+    <string name="install_confirm_question_update">"האם ברצונך להתקין עדכון לאפליקציה קיימת זו? הנתונים הקיימים שלך לא יאבדו. האפליקציה המעודכנת תקבל גישה אל:"</string>
+    <string name="install_confirm_question_update_system">"האם ברצונך להתקין עדכון לאפליקציה מובנית זו? הנתונים הקיימים שלך לא יאבדו. האפליקציה המעודכנת תקבל גישה אל:"</string>
+    <string name="install_confirm_question_update_no_perms">"האם ברצונך להתקין עדכון עבור אפליקציה קיימת זו? הנתונים הקיימים שלך לא יאבדו. אין צורך בגישה מיוחדת."</string>
+    <string name="install_confirm_question_update_system_no_perms">"האם ברצונך להתקין עדכון עבור אפליקציה מובנית זו? הנתונים הקיימים שלך לא יאבדו. אין צורך בגישה מיוחדת."</string>
+
+    <string name="uninstall_application_title">"הסר את התקנת האפליקציה"</string>
+    <string name="uninstall_update_title">"הסר את התקנת העדכון"</string>
+    <string name="uninstalling">"מסיר התקנה..."</string>
+    <string name="uninstall_done">"הסרת ההתקנה הסתיימה."</string>
+    <string name="uninstall_failed">"הסרת התקנה נכשלה."</string>
+    <string name="uninstall_unauthorized">"המשתמש הנוכחי אינו מורשה להסיר את ההתקנה הזו."</string>
+    <string name="out_of_space_dlg_text">"לא ניתן להתקין את <xliff:g id="APP_NAME">%1$s</xliff:g>. פנה שטח ונסה שוב."</string>
+    <string name="newPerms">"חדש"</string>
+    <string name="allPerms">"הכל"</string>
+    <string name="privacyPerms">"פרטיות"</string>
+    <string name="devicePerms">"גישה למכשיר"</string>
+    <string name="no_new_perms">"עדכון זה לא דורש הרשאות חדשות."</string>
+    <string name="manage_device_administrators">"אפליקציות למנהל המערכת של מכשיר מנוהל"</string>
+</resources>

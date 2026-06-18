@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Odustani"</string>
+    <string name="install">"Instaliraj"</string>
+    <string name="launch">"Otvori"</string>
+    <string name="ok">"U redu"</string>
+    <string name="next">"Sljedeća"</string>
+    <string name="done">"Gotovo"</string>
+
+    <string name="install_confirm_dlg_title">"Instaliraj"</string>
+    <string name="install_untrusted_dlg_title">"Instaliraj (Nepoznato)"</string>
+    <string name="install_confirm_dlg_text">"Želite li instalirati ovu aplikaciju?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"Deinstaliraj aplikaciju"</string>
+    <string name="uninstall_confirm_dlg_text">"Želite li deinstalirati ovu aplikaciju?"</string>
+
+    <string name="error_dlg_title">"Pogreška"</string>
+
+    <string name="installing">"Instaliranje..."</string>
+    <string name="install_done">"Aplikacija je instalirana."</string>
+    <string name="install_failed">"Aplikacija nije instalirana."</string>
+
+    <string name="install_confirm_question">"Želite li instalirati ovu aplikaciju? Aplikacija će moći sljedeće:"</string>
+    <string name="install_confirm_question_no_perms">"Želite li instalirati ovu aplikaciju? Aplikacija ne zahtijeva nikakav poseban pristup."</string>
+    <string name="install_confirm_question_update">"Želite li instalirati ažuriranje postojeće aplikacije? Vaši postojeći podaci neće biti izgubljeni. Ažurirana aplikacija dobit će pristup sljedećem:"</string>
+    <string name="install_confirm_question_update_system">"Želite li instalirati ažuriranje za ovu ugrađenu aplikaciju? Vaši postojeći podaci neće biti izgubljeni. Ažurirana aplikacija dobit će pristup sljedećem:"</string>
+    <string name="install_confirm_question_update_no_perms">"Želite li instalirati ažuriranje postojeće aplikacije? Vaši postojeći podaci neće se izgubiti. Nije potreban nikakav poseban pristup."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Želite li instalirati ažuriranje te ugrađene aplikacije? Vaši postojeći podaci neće se izgubiti. Nije potreban nikakav poseban pristup."</string>
+
+    <string name="uninstall_application_title">"Deinstaliraj aplikaciju"</string>
+    <string name="uninstall_update_title">"Deinstalacija ažuriranja"</string>
+    <string name="uninstalling">"Deinstaliranje..."</string>
+    <string name="uninstall_done">"Deinstalacija je završena."</string>
+    <string name="uninstall_failed">"Deinstalacija nije uspjela."</string>
+    <string name="uninstall_unauthorized">"Trenutačni korisnik nema dopuštenje za to deinstaliranje."</string>
+    <string name="out_of_space_dlg_text">"Aplikaciju <xliff:g id="APP_NAME">%1$s</xliff:g> nije moguće instalirati. Oslobodite dio prostora i pokušajte ponovo."</string>
+    <string name="newPerms">"Novo"</string>
+    <string name="allPerms">"Sve"</string>
+    <string name="privacyPerms">"Privatnost"</string>
+    <string name="devicePerms">"Pristup uređaja"</string>
+    <string name="no_new_perms">"Ovo ažuriranje ne zahtijeva nove dozvole."</string>
+    <string name="manage_device_administrators">"Upravljaj aplikacijama administratora uređaja"</string>
+</resources>

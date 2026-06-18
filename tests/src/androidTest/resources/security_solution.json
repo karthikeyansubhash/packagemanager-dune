@@ -1,0 +1,164 @@
+{
+  "contextProfile": {
+    "contextDefinitions": []
+  },
+  "description": {
+    "date": "20240711",
+    "description": "Access Sample Desc",
+    "name": "Access Sample",
+    "supportEmail": "",
+    "supportPhone": "",
+    "supportUrl": "",
+    "vendor": "HP",
+    "version": "1.6.2"
+  },
+  "initializedState": "isSuccess",
+  "installCodeState": "icsPending",
+  "installationDetails": {
+    "installationDate": "2025-04-30T11:38:15.408Z",
+    "packageName": ""
+  },
+  "packages": [
+    {
+      "workpathPlatformPackage": {
+        "platformVersion": "31.8",
+        "workpathPackagePath": "AccessSample.apk"
+      }
+    }
+  ],
+  "registrations": [
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.application.version.1.type.i18nAssetRegistrationRecord",
+        "value": {
+          "assetContent": {
+            "i18nAssetInlineContent": {
+              "languages": [
+                {
+                  "languageTag": "en-US",
+                  "strings": [
+                    {
+                      "stringId": "application_title0",
+                      "value": "Access Sample"
+                    },
+                    {
+                      "stringId": "application_description0",
+                      "value": "Access Sample"
+                    },
+                    {
+                      "stringId": "securityAgent_title",
+                      "value": "Access Sample_securityAgent"
+                    },
+                    {
+                      "stringId": "securityAgent_description",
+                      "value": "Access Sample_securityAgent"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "assetId": "3f7e3fca-1f05-4e83-9923-793bd211b7d4"
+        }
+      }
+    },
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.application.version.1.type.applicationAgentRegistrationRecord",
+        "value": {
+          "agentId": "840c7a10-b8b4-4f3c-bea7-4982e9bc6abb",
+          "category": "acStandardWalkup",
+          "icon": {
+            "localImage": {
+              "fileType": "image/png",
+              "path": "/assets/icons/ic_launcher.png"
+            }
+          },
+          "iconSet": [
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/140x140/ic_launcher.png"
+                }
+              },
+              "key": "140x140"
+            },
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/90x90/ic_launcher.png"
+                }
+              },
+              "key": "90x90"
+            },
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/179x179/ic_launcher.png"
+                }
+              },
+              "key": "179x179"
+            }
+          ],
+          "localizedDescription": {
+            "i18nAssetId": "3f7e3fca-1f05-4e83-9923-793bd211b7d4",
+            "stringId": "application_description0"
+          },
+          "localizedName": {
+            "i18nAssetId": "3f7e3fca-1f05-4e83-9923-793bd211b7d4",
+            "stringId": "application_title0"
+          },
+          "localizedTitle": {
+            "i18nAssetId": "3f7e3fca-1f05-4e83-9923-793bd211b7d4",
+            "stringId": "application_title0"
+          },
+          "name": "Access Sample",
+          "target": {
+            "workpathApplicationTarget": {
+              "package": "main=com.hp.workpath.sample.accesssample/com.hp.workpath.sample.accesssample.MainActivity"
+            }
+          }
+        }
+      }
+    },
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.security.version.1.type.securityAgentRegistrationRecord",
+        "value": {
+          "declaredExpressionOperators": [
+            "EMAIL_ADDRESS",
+            "USER_NAME",
+            "USER_DOMAIN",
+            "AUTH_TYPE",
+            "FQ_USER_NAME",
+            "DISPLAY_NAME",
+            "AUTH_AGENT_ID",
+            "HOME_FOLDER"
+          ],
+          "agentId": "79686f62-5a7e-4fc7-95bc-81de0e6673e0",
+          "localizedDescription": {
+            "i18nAssetId": "c877f782-817c-4f2a-abc6-525a071c8d18",
+            "stringId": "securityAgent_description"
+          },
+          "localizedName": {
+            "i18nAssetId": "c877f782-817c-4f2a-abc6-525a071c8d18",
+            "stringId": "securityAgent_title"
+          },
+          "name": "Access Sample_securityAgent"
+        }
+      }
+    }
+  ],
+  "solutionId": "11111111-1111-1111-9992-111111111111",
+  "state": "ssInstalled",
+  "trustedSites": {
+    "sites": {
+      "explicit": {
+        "explicitValue": "*"
+      }
+    }
+  }
+}

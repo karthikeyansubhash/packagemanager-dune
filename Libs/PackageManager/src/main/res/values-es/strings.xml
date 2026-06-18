@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Cancelar"</string>
+    <string name="install">"Instalar"</string>
+    <string name="launch">"Abrir"</string>
+    <string name="ok">"Aceptar"</string>
+    <string name="next">"Siguiente"</string>
+    <string name="done">"Listo"</string>
+
+    <string name="install_confirm_dlg_title">"Instalar"</string>
+    <string name="install_untrusted_dlg_title">"Instalar (Desconocida)"</string>
+    <string name="install_confirm_dlg_text">"¿Quieres instalar esta aplicación?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"Desinstalar aplicación"</string>
+    <string name="uninstall_confirm_dlg_text">"¿Quieres desinstalar esta aplicación?"</string>
+
+    <string name="error_dlg_title">"Error"</string>
+
+    <string name="installing">"Instalando…"</string>
+    <string name="install_done">"Aplicación instalada"</string>
+    <string name="install_failed">"Aplicación no instalada"</string>
+
+    <string name="install_confirm_question">"¿Quieres instalar esta aplicación? Tendrá los siguientes permisos:"</string>
+    <string name="install_confirm_question_no_perms">"¿Quieres instalar esta aplicación? No requiere accesos especiales."</string>
+    <string name="install_confirm_question_update">"¿Quieres instalar una actualización de la aplicación? Tus datos no se perderán. La aplicación actualizada podrá acceder a:"</string>
+    <string name="install_confirm_question_update_system">"¿Quieres instalar una actualización de esta aplicación integrada? Tus datos no se perderán. La aplicación actualizada podrá acceder a:"</string>
+    <string name="install_confirm_question_update_no_perms">"¿Quieres instalar una actualización de esta aplicación? Tus datos no se perderán. No requiere ningún acceso especial."</string>
+    <string name="install_confirm_question_update_system_no_perms">"¿Quieres instalar una actualización de esta aplicación integrada? Tus datos no se perderán. No requiere ningún acceso especial."</string>
+
+    <string name="uninstall_application_title">"Desinstalar aplicación"</string>
+    <string name="uninstall_update_title">"Desinstalar actualización"</string>
+    <string name="uninstalling">"Desinstalando..."</string>
+    <string name="uninstall_done">"Desinstalación completada"</string>
+    <string name="uninstall_failed">"Desinstalación correcta"</string>
+    <string name="uninstall_unauthorized">"El usuario actual no puede iniciar el proceso de desinstalación."</string>
+    <string name="out_of_space_dlg_text">"No se ha podido instalar la aplicación <xliff:g id="APP_NAME">%1$s</xliff:g>. Libera espacio y vuelve a intentarlo."</string>
+    <string name="newPerms">"Nuevo"</string>
+    <string name="allPerms">"Todos"</string>
+    <string name="privacyPerms">"Privacidad"</string>
+    <string name="devicePerms">"Acceso al dispositivo"</string>
+    <string name="no_new_perms">"Esta actualización no requiere permisos nuevos."</string>
+    <string name="manage_device_administrators">"Gestionar aplicaciones de admón. de dispositivos"</string>
+</resources>

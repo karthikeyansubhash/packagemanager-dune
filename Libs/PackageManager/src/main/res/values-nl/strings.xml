@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Annuleren"</string>
+    <string name="install">"Installeren"</string>
+    <string name="launch">"Openen"</string>
+    <string name="ok">"OK"</string>
+    <string name="next">"Volgende"</string>
+    <string name="done">"Gereed"</string>
+
+    <string name="install_confirm_dlg_title">"Installeren"</string>
+    <string name="install_untrusted_dlg_title">"Installeren (Onbekend)"</string>
+    <string name="install_confirm_dlg_text">"Wil je deze app installeren?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"App verwijderen"</string>
+    <string name="uninstall_confirm_dlg_text">"Wil je deze app verwijderen?"</string>
+
+    <string name="error_dlg_title">"Fout"</string>
+
+    <string name="installing">"Installeren..."</string>
+    <string name="install_done">"App geïnstalleerd."</string>
+    <string name="install_failed">"App niet geïnstalleerd."</string>
+
+    <string name="install_confirm_question">"Wil je deze app installeren? Deze krijgt toegang tot:"</string>
+    <string name="install_confirm_question_no_perms">"Wil je deze app installeren? Hiervoor is geen speciale toegang vereist."</string>
+    <string name="install_confirm_question_update">"Wil je een update voor deze bestaande app installeren? Je huidige gegevens gaan niet verloren. De bijgewerkte app krijgt toegang tot:"</string>
+    <string name="install_confirm_question_update_system">"Wil je een update van deze ingebouwde app installeren? Je huidige gegevens gaan niet verloren. De bijgewerkte app krijgt toegang tot:"</string>
+    <string name="install_confirm_question_update_no_perms">"Wil je een update voor deze bestaande app installeren? Je huidige gegevens gaan niet verloren. Hiervoor is geen speciale toegang vereist."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Wil je een update voor deze ingebouwde app installeren? Je huidige gegevens gaan niet verloren. Hiervoor is geen speciale toegang vereist."</string>
+
+    <string name="uninstall_application_title">"App verwijderen"</string>
+    <string name="uninstall_update_title">"Update verwijderen"</string>
+    <string name="uninstalling">"Verwijderen..."</string>
+    <string name="uninstall_done">"Verwijdering voltooid."</string>
+    <string name="uninstall_failed">"Verwijdering mislukt."</string>
+    <string name="uninstall_unauthorized">"De huidige gebruiker mag deze verwijdering niet uitvoeren."</string>
+    <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g> kan niet worden geïnstalleerd. Maak ruimte vrij en probeer het opnieuw."</string>
+    <string name="newPerms">"Nieuw"</string>
+    <string name="allPerms">"Alle"</string>
+    <string name="privacyPerms">"Privacy"</string>
+    <string name="devicePerms">"Apparaattoegang"</string>
+    <string name="no_new_perms">"Voor deze update zijn geen nieuwe machtigingen vereist."</string>
+    <string name="manage_device_administrators">"Apparaatbeheer-apps beheren"</string>
+</resources>

@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"İptal"</string>
+    <string name="install">"Yükle"</string>
+    <string name="launch">"Aç"</string>
+    <string name="ok">"Tamam"</string>
+    <string name="next">"Sonraki"</string>
+    <string name="done">"Bitti"</string>
+
+    <string name="install_confirm_dlg_title">"Yükle"</string>
+    <string name="install_untrusted_dlg_title">"Yükle (Bilinmiyor)"</string>
+    <string name="install_confirm_dlg_text">"Bu uygulamayı yüklemek istiyor musunuz?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"Uygulamayı kaldır"</string>
+    <string name="uninstall_confirm_dlg_text">"Bu uygulamanın yüklemesini kaldırmak istiyor musunuz?"</string>
+
+    <string name="error_dlg_title">"Hata"</string>
+
+    <string name="installing">"Yükleniyor…"</string>
+    <string name="install_done">"Uygulama yüklendi."</string>
+    <string name="install_failed">"Uygulama yüklenmedi."</string>
+
+    <string name="install_confirm_question">"Bu uygulamayı yüklemek istiyor musunuz? Uygulama şunlara erişebilecektir:"</string>
+    <string name="install_confirm_question_no_perms">"Bu uygulamayı yüklemek istiyor musunuz? Herhangi bir özel erişim gerektirmez."</string>
+    <string name="install_confirm_question_update">"Bu mevcut uygulamaya ait bir güncellemeyi yüklemek istiyor musunuz? Mevcut verileriniz silinmeyecektir. Güncellenen uygulama şunlara erişebilecektir:"</string>
+    <string name="install_confirm_question_update_system">"Bu yerleşik uygulamaya ait bir güncellemeyi yüklemek istiyor musunuz? Mevcut verileriniz silinmeyecektir. Güncellenen uygulama şunlara erişebilecektir:"</string>
+    <string name="install_confirm_question_update_no_perms">"Bu mevcut uygulamaya ait bir güncellemeyi yüklemek istiyor musunuz? Mevcut verileriniz kaybolacaktır. Herhangi bir özel erişim gerektirmez."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Bu yerleşik uygulamaya ait bir güncellemeyi yüklemek istiyor musunuz? Mevcut verileriniz kaybolacaktır. Herhangi bir özel erişim gerektirmez."</string>
+
+    <string name="uninstall_application_title">"Uygulamayı kaldır"</string>
+    <string name="uninstall_update_title">"Güncelleme kaldırılsın mı?"</string>
+    <string name="uninstalling">"Kaldırılıyor…"</string>
+    <string name="uninstall_done">"Kaldırma işlemi tamamlandı."</string>
+    <string name="uninstall_failed">"Yükleme kaldırılamadı."</string>
+    <string name="uninstall_unauthorized">"Geçerli kullanıcının bu yüklemeyi kaldırma izni yok."</string>
+    <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g> yüklenemedi. Boş alan açın ve yeniden deneyin."</string>
+    <string name="newPerms">"Yeni"</string>
+    <string name="allPerms">"Tümü"</string>
+    <string name="privacyPerms">"Gizlilik"</string>
+    <string name="devicePerms">"Cihaz Erişimi"</string>
+    <string name="no_new_perms">"Bu güncelleme yeni izin gerektirmiyor."</string>
+    <string name="manage_device_administrators">"Cihaz yönetimi uygulamalarını yönet"</string>
+</resources>

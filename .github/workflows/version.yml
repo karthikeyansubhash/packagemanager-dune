@@ -1,0 +1,214 @@
+name: Auto Merge PR on Label
+
+on:
+  pull_request:
+    branches: [ "master", "main", "develop", "dune_*"]
+    types: [labeled]
+
+jobs:
+  ready-to-merge-label-check:
+    runs-on: self-hosted
+    if: contains(github.event.pull_request.labels.*.name, 'ready to merge')
+    steps:
+      - name: Check ready to merge label
+        run: Write-Output "ready to merge label detected. Passing check."
+
+  version-up:
+    needs: ready-to-merge-label-check
+    runs-on: [ self-hosted ]
+    if: contains(github.event.pull_request.labels.*.name, 'ready to merge')
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: "1. Read current version and compute new version"
+        id: version
+        run: |
+          $versionFilePath = "version.properties"
+          $currentDate = Get-Date -Format "yyyyMMdd"
+          $fileContent = Get-Content -Path $versionFilePath -Raw
+
+          # Match: version = X.Y.Z-branchName.N+DyyyyMMdd
+          $versionPattern = 'version\s*=\s*((\d+\.\d+\.\d+)-([\w]+)\.(\d+)\+D\d+)'
+          if ($fileContent -match $versionPattern) {
+            $oldVersion = $matches[1]
+            $versionCore = $matches[2]
+            $branchName = $matches[3]
+            $serialNumber = [int]$matches[4]
+            $newSerial = $serialNumber + 1
+            $newVersion = "$versionCore-$branchName.$newSerial+D$currentDate"
+            Write-Output "Old version: $oldVersion"
+            Write-Output "New version: $newVersion"
+            echo "NEW_VERSION=$newVersion" | Out-File -FilePath $env:GITHUB_ENV -Append
+          } else {
+            Write-Output "::error::Cannot find version pattern in $versionFilePath"
+            exit 1
+          }
+
+          # Match: versionCode = N
+          $codePattern = 'versionCode\s*=\s*(\d+)'
+          if ($fileContent -match $codePattern) {
+            $oldCode = [int]$matches[1]
+            $newCode = $oldCode + 1
+            Write-Output "Old versionCode: $oldCode"
+            Write-Output "New versionCode: $newCode"
+            echo "NEW_VERSION_CODE=$newCode" | Out-File -FilePath $env:GITHUB_ENV -Append
+          } else {
+            Write-Output "::error::Cannot find versionCode pattern in $versionFilePath"
+            exit 1
+          }
+
+      - name: "2. Update version file and push"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $versionFilePath = "version.properties"
+          $fileContent = Get-Content -Path $versionFilePath -Raw
+
+          # Replace version
+          $fileContent = $fileContent -replace 'version\s*=\s*(\d+\.\d+\.\d+-[\w]+\.\d+\+D\d+)', "version = $env:NEW_VERSION"
+          # Replace versionCode
+          $fileContent = $fileContent -replace 'versionCode\s*=\s*\d+', "versionCode = $env:NEW_VERSION_CODE"
+
+          Set-Content -Path $versionFilePath -Value $fileContent.TrimEnd() -NoNewline
+          Write-Output "Updated version.properties:"
+          Get-Content -Path $versionFilePath
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add $versionFilePath
+          if (git diff --cached --quiet) {
+            Write-Output "No changes to commit."
+          } else {
+            git commit -m "$env:NEW_VERSION (versionCode=$env:NEW_VERSION_CODE), PR #${{ github.event.pull_request.number }}"
+            git push
+            Write-Output "Changes committed and pushed."
+          }
+
+          # Set required status check on the new commit so merge is not blocked
+          $newSha = git rev-parse HEAD
+          Write-Output "Setting status check on commit: $newSha"
+          $headers = @{
+            "Authorization" = "token $env:GITHUB_TOKEN"
+            "Content-Type" = "application/json"
+          }
+          $body = @{
+            "state" = "success"
+            "context" = "ready-to-merge-label-check"
+            "description" = "Label check passed (set by version-up)"
+          } | ConvertTo-Json
+          $statusUrl = "https://github.azc.ext.hp.com/api/v3/repos/${{ github.repository }}/statuses/$newSha"
+          Invoke-RestMethod -Uri $statusUrl -Method Post -Headers $headers -Body $body
+          Write-Output "Status check set successfully."
+
+  merge-pr:
+    needs: version-up
+    runs-on: [ self-hosted ]
+    if: contains(github.event.pull_request.labels.*.name, 'ready to merge')
+    steps:
+      - name: "Wait for status check to be registered"
+        run: Start-Sleep -Seconds 5
+      - name: "Merge PR"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Headers for API request
+          $headers = @{
+            "Authorization" = "token $env:GITHUB_TOKEN"
+            "Content-Type" = "application/json"
+          }
+
+          # First, check PR status
+          $checkUrl = "https://github.azc.ext.hp.com/api/v3/repos/workpath-dune/packagemanager-dune/pulls/${{ github.event.pull_request.number }}"
+          Write-Output "Checking PR ${{ github.event.pull_request.number }} status via $checkUrl"
+
+          try {
+            $prStatus = Invoke-RestMethod -Uri $checkUrl -Method Get -Headers $headers -ErrorAction Stop
+
+            Write-Output "PR State: $($prStatus.state)"
+            Write-Output "PR Merged: $($prStatus.merged)"
+            Write-Output "PR Mergeable: $($prStatus.mergeable)"
+            Write-Output "PR Mergeable State: $($prStatus.mergeable_state)"
+
+            if ($prStatus.merged -eq $true) {
+              Write-Output "PR ${{ github.event.pull_request.number }} is already merged. Workflow succeeded."
+              exit 0
+            }
+
+            if ($prStatus.state -eq "closed") {
+              Write-Output "PR ${{ github.event.pull_request.number }} is closed but not merged. Exiting."
+              exit 1
+            }
+
+            # Check if PR is actually mergeable
+            if ($prStatus.mergeable -eq $false) {
+              Write-Output "Warning: PR is not mergeable. State: $($prStatus.mergeable_state)"
+              Write-Output "Attempting merge anyway (may be temporarily not mergeable)..."
+            }
+          }
+          catch {
+            Write-Output "Failed to check PR status: $($_.Exception.Message)"
+            # Continue to try merge anyway
+          }
+
+          # GitHub API endpoint for merging PR
+          $url = "https://github.azc.ext.hp.com/api/v3/repos/workpath-dune/packagemanager-dune/pulls/${{ github.event.pull_request.number }}/merge"
+          Write-Output "Merging PR ${{ github.event.pull_request.number }} via $url"
+          Write-Output "${env:GITHUB_REPOSITORY}"
+
+          # Body specifying merge method (optional)
+          $body = @{
+            "merge_method" = "rebase"  # Specify merge method: merge, squash, rebase
+          } | ConvertTo-Json
+
+          # Send HTTP PUT request to merge PR
+          try {
+            Invoke-RestMethod -Uri $url -Method Put -Headers $headers -Body $body -ErrorAction Stop
+            Write-Output "PR ${{ github.event.pull_request.number }} successfully merged."
+          }
+          catch {
+            $errorMessage = $_.Exception.Message
+            $errorMessage2 = $_
+            Write-Output "Failed to merge PR ${{ github.event.pull_request.number }} with error: $errorMessage"
+            Write-Output "Failed to merge PR ${{ github.event.pull_request.number }} with error: $errorMessage2"
+            $errorMessageJson = $errorMessage2 | ConvertFrom-Json
+            if ($errorMessageJson.message) {
+              Write-Output "Error message: $($errorMessageJson.message)"
+              $errorMessage = $errorMessageJson.message
+            }
+
+            # Check again if PR was merged by someone else during the workflow
+            try {
+              $prStatusFinal = Invoke-RestMethod -Uri $checkUrl -Method Get -Headers $headers -ErrorAction Stop
+              Write-Output "Final PR State: $($prStatusFinal.state), Merged: $($prStatusFinal.merged)"
+
+              if ($prStatusFinal.merged -eq $true) {
+                Write-Output "PR ${{ github.event.pull_request.number }} was merged by another process. Treating as success."
+                exit 0
+              }
+            }
+            catch {
+              Write-Output "Failed to recheck PR status: $($_.Exception.Message)"
+            }
+
+            $comment_url = "https://github.azc.ext.hp.com/api/v3/repos/${env:GITHUB_REPOSITORY}/issues/${{ github.event.pull_request.number }}/comments"
+            Write-Output "Comment via $comment_url"
+
+            # Body for the comment
+            $comment_body = @{
+              "body" = "Failed to merge PR #${{ github.event.pull_request.number }}: $errorMessage"
+            } | ConvertTo-Json
+
+            # Send HTTP POST request to create a comment
+            Invoke-RestMethod -Uri $comment_url -Method Post -Headers $headers -Body $comment_body -ErrorAction Stop
+            Write-Output "Commented on PR ${{ github.event.pull_request.number }} about the merge failure."
+
+            $encodedLabelName = [Uri]::EscapeDataString("ready to merge")
+            $label_url = "https://github.azc.ext.hp.com/api/v3/repos/${env:GITHUB_REPOSITORY}/issues/${{ github.event.pull_request.number }}/labels/${encodedLabelName}"
+            Invoke-RestMethod -Uri $label_url -Method Delete -Headers $headers -ErrorAction Stop
+            Write-Output "Removed 'ready to merge' label from PR ${{ github.event.pull_request.number }}."
+
+            exit 1
+          }

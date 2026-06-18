@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Batal"</string>
+    <string name="install">"Instal"</string>
+    <string name="launch">"Buka"</string>
+    <string name="ok">"Oke"</string>
+    <string name="next">"Berikutnya"</string>
+    <string name="done">"Selesai"</string>
+
+    <string name="install_confirm_dlg_title">"Instal"</string>
+    <string name="install_untrusted_dlg_title">"Instal (Tidak diketahui)"</string>
+    <string name="install_confirm_dlg_text">"Apakah Anda ingin memasang aplikasi ini?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"Uninstal apl"</string>
+    <string name="uninstall_confirm_dlg_text">"Apakah Anda ingin mencopot pemasangan apl ini?"</string>
+
+    <string name="error_dlg_title">"Kesalahan"</string>
+
+    <string name="installing">"Memasang..."</string>
+    <string name="install_done">"Apl terpasang."</string>
+    <string name="install_failed">"Apl tidak terpasang."</string>
+
+    <string name="install_confirm_question">"Apakah Anda ingin memasang aplikasi ini? Aplikasi akan memiliki akses ke:"</string>
+    <string name="install_confirm_question_no_perms">"Apakah Anda ingin memasang aplikasi ini? Aplikasi tidak memerlukan akses khusus apa pun."</string>
+    <string name="install_confirm_question_update">"Apakah Anda ingin memasang pembaruan ke aplikasi yang ada? Data Anda yang ada tidak akan hilang. Aplikasi yang diperbarui akan mendapatkan akses ke:"</string>
+    <string name="install_confirm_question_update_system">"Apakah Anda ingin memasang pembaruan ke aplikasi yang tertanam? Data Anda yang ada tidak akan hilang. Aplikasi yang diperbarui akan mendapatkan akses ke:"</string>
+    <string name="install_confirm_question_update_no_perms">"Anda ingin memasang pembaruan ke aplikasi yang ada ini? Data Anda yang ada akan hilang. Tindakan ini tidak memerlukan akses khusus apa pun."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Anda ingin memasang pembaruan ke aplikasi yang ada di dalamnya? Data Anda yang ada akan hilang. Tindakan ini tidak memerlukan akses khusus apa pun."</string>
+
+    <string name="uninstall_application_title">"Uninstal apl"</string>
+    <string name="uninstall_update_title">"Uninstal pembaruan"</string>
+    <string name="uninstalling">"Mencopot pemasangan..."</string>
+    <string name="uninstall_done">"Pencopotan pemasangan selesai."</string>
+    <string name="uninstall_failed">"Pencopotan pemasangan tidak berhasil."</string>
+    <string name="uninstall_unauthorized">"Pengguna saat ini tidak diizinkan mencopot pemasangan."</string>
+    <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g> tidak dapat dipasang. Kosongkan sebagian ruang dan coba lagi."</string>
+    <string name="newPerms">"Baru"</string>
+    <string name="allPerms">"Semua"</string>
+    <string name="privacyPerms">"Privasi"</string>
+    <string name="devicePerms">"Akses Perangkat"</string>
+    <string name="no_new_perms">"Pembaruan ini tidak memerlukan izin baru."</string>
+    <string name="manage_device_administrators">"Kelola aplikasi admin perangkat"</string>
+</resources>

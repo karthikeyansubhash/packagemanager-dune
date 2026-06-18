@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"キャンセル"</string>
+    <string name="install">"インストール"</string>
+    <string name="launch">"開く"</string>
+    <string name="ok">"OK"</string>
+    <string name="next">"次へ"</string>
+    <string name="done">"完了"</string>
+
+    <string name="install_confirm_dlg_title">"インストール"</string>
+    <string name="install_untrusted_dlg_title">"インストール (不明)"</string>
+    <string name="install_confirm_dlg_text">"このアプリケーションをインストールしてもよろしいですか？"</string>
+
+    <string name="uninstall_confirm_dlg_title">"アプリをアンインストール"</string>
+    <string name="uninstall_confirm_dlg_text">"このアプリをアンインストールしますか？"</string>
+
+    <string name="error_dlg_title">"エラー"</string>
+
+    <string name="installing">"インストール中..."</string>
+    <string name="install_done">"アプリをインストールしました。"</string>
+    <string name="install_failed">"アプリはインストールされていません。"</string>
+
+    <string name="install_confirm_question">"このアプリケーションをインストールしてもよろしいですか？このアプリケーションは下記にアクセスする場合があります:"</string>
+    <string name="install_confirm_question_no_perms">"このアプリケーションをインストールしてもよろしいですか？このアプリケーションは特別なアクセス許可を必要としません。"</string>
+    <string name="install_confirm_question_update">"この既存のアプリケーションへのアップデートをインストールしてもよろしいですか？既存のデータは失われません。アップデート後のアプリケーションは下記にアクセスする場合があります:"</string>
+    <string name="install_confirm_question_update_system">"この内蔵アプリケーションへのアップデートをインストールしてもよろしいですか？既存のデータは失われません。アップデート後のアプリケーションは下記にアクセスする場合があります:"</string>
+    <string name="install_confirm_question_update_no_perms">"この既存のアプリにアップデートをインストールしますか？既存のデータが失われることはありません。特別なアクセス権も必要ありません。"</string>
+    <string name="install_confirm_question_update_system_no_perms">"この内蔵アプリにアップデートをインストールしますか？既存のデータが失われることはありません。特別なアクセス権も必要ありません。"</string>
+
+    <string name="uninstall_application_title">"アプリをアンインストール"</string>
+    <string name="uninstall_update_title">"アップデートをアンインストール"</string>
+    <string name="uninstalling">"アンインストール中..."</string>
+    <string name="uninstall_done">"アンインストールが完了しました。"</string>
+    <string name="uninstall_failed">"アンインストールできませんでした。"</string>
+    <string name="uninstall_unauthorized">"このアンインストール操作は現在のユーザーには許可されていません。"</string>
+    <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g>をインストールできませんでした。空き容量を増やしてもう一度お試しください。"</string>
+    <string name="newPerms">"New"</string>
+    <string name="allPerms">"すべて"</string>
+    <string name="privacyPerms">"プライバシー"</string>
+    <string name="devicePerms">"端末アクセス"</string>
+    <string name="no_new_perms">"このアップデートでは新たな許可は必要ありません。"</string>
+    <string name="manage_device_administrators">"端末管理アプリを管理"</string>
+</resources>

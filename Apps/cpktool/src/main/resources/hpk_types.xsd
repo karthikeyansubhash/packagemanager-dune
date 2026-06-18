@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 
+	targetNamespace="http://www.hp.com/schemas/jetadvantage/link/hpk_types/v2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:hpk_types="http://www.hp.com/schemas/jetadvantage/link/hpk_types/v2">
+	 
+    <xs:annotation>
+    	<xs:documentation>Common types for .hpk</xs:documentation></xs:annotation>
+    <xs:simpleType name="limitedString">
+    	<xs:annotation>
+            <xs:documentation>
+                <summary>Restriction used for string values (min length=1, max length=1024, UTF-8).</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="1024"/>
+        </xs:restriction>
+  	</xs:simpleType>
+    
+  	<xs:simpleType name="dateType">
+  		<xs:annotation>
+			<xs:documentation>Date Software Vendor created app YYYYMMDD.</xs:documentation>
+		</xs:annotation>
+			
+		<xs:restriction base="xs:string">
+			<xs:minLength value="8"/>
+			<xs:maxLength value="8"/>
+	    	<xs:pattern value="\d{4}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+	   	</xs:restriction>
+  	</xs:simpleType>
+  
+  	<xs:simpleType name="uuidType" >
+  		<xs:annotation>
+			<xs:documentation>Date Software Vendor created app YYYYMMDD.</xs:documentation>
+		</xs:annotation>
+			
+		<xs:restriction base="xs:string">
+	    	<xs:pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"/>
+	   	</xs:restriction>
+  	</xs:simpleType>
+  	
+	
+	<xs:simpleType name="platformType">
+		<xs:annotation>
+			<xs:documentation>
+				This indicates the type of the app. For ISV apps value
+				should be "custom"
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Web" />
+			<xs:enumeration value="Device" />
+			<xs:enumeration value="value"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+    
+
+</xs:schema>

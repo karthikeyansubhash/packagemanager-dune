@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"取消"</string>
+    <string name="install">"安装"</string>
+    <string name="launch">"打开"</string>
+    <string name="ok">"确定"</string>
+    <string name="next">"下一步"</string>
+    <string name="done">"完成"</string>
+
+    <string name="install_confirm_dlg_title">"安装"</string>
+    <string name="install_untrusted_dlg_title">"安装 (未知)"</string>
+    <string name="install_confirm_dlg_text">"要安装此应用吗？"</string>
+
+    <string name="uninstall_confirm_dlg_title">"卸载应用"</string>
+    <string name="uninstall_confirm_dlg_text">"要卸载此应用吗？"</string>
+
+    <string name="error_dlg_title">"错误"</string>
+
+    <string name="installing">"正在安装..."</string>
+    <string name="install_done">"应用安装完成。"</string>
+    <string name="install_failed">"应用未安装。"</string>
+
+    <string name="install_confirm_question">"要安装此应用吗？它将获得以下权限："</string>
+    <string name="install_confirm_question_no_perms">"您要安装此应用吗？此应用不需要任何特殊权限。"</string>
+    <string name="install_confirm_question_update">"您要安装此应用的新版本吗？您现有的数据不会丢失。更新后的应用将具备以下权限："</string>
+    <string name="install_confirm_question_update_system">"您要安装此内置应用的新版本吗？您现有的数据不会丢失。更新后的应用将具备以下权限："</string>
+    <string name="install_confirm_question_update_no_perms">"是否要为这一现有应用安装更新？您现有的数据不会丢失，且安装过程无需任何特殊权限。"</string>
+    <string name="install_confirm_question_update_system_no_perms">"是否要为这一内置应用安装更新？您现有的数据不会丢失，且安装过程无需任何特殊权限。"</string>
+
+    <string name="uninstall_application_title">"卸载应用"</string>
+    <string name="uninstall_update_title">"卸载更新"</string>
+    <string name="uninstalling">"正在卸载..."</string>
+    <string name="uninstall_done">"卸载完成。"</string>
+    <string name="uninstall_failed">"卸载失败。"</string>
+    <string name="uninstall_unauthorized">"当前用户无法执行这项卸载操作。"</string>
+    <string name="out_of_space_dlg_text">"无法安装“<xliff:g id="APP_NAME">%1$s</xliff:g>”，请释放一些存储空间并重试。"</string>
+    <string name="newPerms">"新权限"</string>
+    <string name="allPerms">"全部"</string>
+    <string name="privacyPerms">"隐私相关权限"</string>
+    <string name="devicePerms">"设备相关权限"</string>
+    <string name="no_new_perms">"新版本不需要任何新的权限。"</string>
+    <string name="manage_device_administrators">"管理设备管理应用"</string>
+</resources>

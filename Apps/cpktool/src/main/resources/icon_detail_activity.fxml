@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefWidth="650.0" styleClass="thebackground" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hp.jetadvantage.link.pkgmgt.hpkutil.activities.IconDetailActivity">
+    <children>
+        <VBox>
+            <children>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                    <children>
+                        <Label fx:id="labelName" prefHeight="24.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="20.0" top="20.0" />
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                    <children>
+                        <Button fx:id="btnIcon" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: white; -fx-text-fill: black; -fx-font-size: 20.0" />
+                        <VBox>
+                            <children>
+                                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                    <children>
+                                        <Label prefHeight="24.0" prefWidth="100.0" text="%menu_uuid" />
+                                        <TextArea fx:id="textUuid" editable="false" minHeight="-Infinity" prefHeight="24.0" prefWidth="300.0" styleClass="detail" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets left="30.0" right="10.0"  />
+                                    </padding>
+                                </HBox>
+                                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                    <children>
+                                        <Label prefHeight="24.0" prefWidth="100.0" text="%menu_vendor_name" />
+                                        <TextArea fx:id="textVendor" editable="false" minHeight="-Infinity" prefHeight="24.0" prefWidth="300.0" HBox.hgrow="ALWAYS" styleClass="detail" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets left="30.0" right="10.0" />
+                                    </padding>
+                                </HBox>
+                                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                    <children>
+                                        <Label prefHeight="24.0" prefWidth="100.0" text="%menu_date" />
+                                        <TextArea fx:id="textDate" editable="false" minHeight="-Infinity" prefHeight="24.0" prefWidth="300.0" HBox.hgrow="ALWAYS" styleClass="detail" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets left="30.0" right="10.0" />
+                                    </padding>
+                                </HBox>
+                                <HBox fx:id="hBoxVersion" layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                    <children>
+                                        <Label fx:id="labelVersionTitle" prefHeight="24.0" prefWidth="100.0" text="%menu_version" />
+                                        <TextArea fx:id="textVersion" editable="false" minHeight="-Infinity" prefHeight="24.0" prefWidth="300.0" HBox.hgrow="ALWAYS" styleClass="detail" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets left="30.0" right="10.0" />
+                                    </padding>
+                                </HBox>
+                                <HBox fx:id="hBoxPackageName" layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                    <children>
+                                        <Label fx:id="labelPackageNameTitle" prefHeight="24.0" prefWidth="100.0" text="%package_name" />
+                                        <TextArea fx:id="textPackageName" editable="false" minHeight="-Infinity" prefHeight="24.0" prefWidth="300.0" HBox.hgrow="ALWAYS" styleClass="detail" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets left="30.0" right="10.0" />
+                                    </padding>
+                                </HBox>
+                                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                                    <children>
+                                        <Label fx:id="labelDescriptionTitle" prefHeight="24.0" prefWidth="100.0" text="%menu_description" />
+                                        <TextArea fx:id="textDescription" editable="false" prefHeight="100.0" prefWidth="300.0" HBox.hgrow="ALWAYS" styleClass="detail" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets left="30.0" right="10.0" />
+                                    </padding>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets bottom="30.0" left="30.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </children>
+    <stylesheets>
+        <URL value="@sample.css" />
+    </stylesheets>
+</VBox>

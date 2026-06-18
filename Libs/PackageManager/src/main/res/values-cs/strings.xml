@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Zrušit"</string>
+    <string name="install">"Instalovat"</string>
+    <string name="launch">"Otevřít"</string>
+    <string name="ok">"OK"</string>
+    <string name="next">"Další"</string>
+    <string name="done">"Hotovo"</string>
+
+    <string name="install_confirm_dlg_title">"Instalovat"</string>
+    <string name="install_untrusted_dlg_title">"Instalovat (Neznámé)"</string>
+    <string name="install_confirm_dlg_text">"Chcete tuto aplikaci nainstalovat?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"Odinstalovat aplikaci"</string>
+    <string name="uninstall_confirm_dlg_text">"Chcete tuto aplikaci odinstalovat?"</string>
+
+    <string name="error_dlg_title">"Chyba"</string>
+
+    <string name="installing">"Probíhá instalace..."</string>
+    <string name="install_done">"Aplikace je nainstalována."</string>
+    <string name="install_failed">"Aplikaci nelze nainstalovat."</string>
+
+    <string name="install_confirm_question">"Chcete tuto aplikaci nainstalovat? Aplikace získá přístup k těmto oprávněním:"</string>
+    <string name="install_confirm_question_no_perms">"Chcete tuto aplikaci nainstalovat? Aplikace nevyžaduje žádná zvláštní oprávnění."</string>
+    <string name="install_confirm_question_update">"Chcete nainstalovat aktualizaci této existující aplikace? Stávající data nebudou ztracena. Aktualizovaná aplikace získá přístup k následujícímu:"</string>
+    <string name="install_confirm_question_update_system">"Chcete nainstalovat aktualizaci této integrované aplikace? Stávající data nebudou ztracena. Aktualizovaná aplikace získá přístup k následujícímu:"</string>
+    <string name="install_confirm_question_update_no_perms">"Chcete nainstalovat aktualizaci této existující aplikace? Vaše existující data nebudou ztracena. Není vyžadován žádný zvláštní přístup."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Chcete nainstalovat aktualizaci této integrované aplikace? Vaše existující data nebudou ztracena. Není vyžadován žádný zvláštní přístup."</string>
+
+    <string name="uninstall_application_title">"Odinstalovat aplikaci"</string>
+    <string name="uninstall_update_title">"Odinstalovat aktualizaci"</string>
+    <string name="uninstalling">"Probíhá odinstalace..."</string>
+    <string name="uninstall_done">"Odinstalace byla dokončena."</string>
+    <string name="uninstall_failed">"Odinstalace se nezdařila."</string>
+    <string name="uninstall_unauthorized">"Aktuální uživatel nemá k odinstalaci oprávnění."</string>
+    <string name="out_of_space_dlg_text">"Aplikaci <xliff:g id="APP_NAME">%1$s</xliff:g> nelze nainstalovat. Uvolněte místo v paměti a zkuste to znovu."</string>
+    <string name="newPerms">"Nově"</string>
+    <string name="allPerms">"Vše"</string>
+    <string name="privacyPerms">"Ochrana soukromí"</string>
+    <string name="devicePerms">"Přístup k zařízení"</string>
+    <string name="no_new_perms">"Tato aktualizace nevyžaduje žádná nová oprávnění."</string>
+    <string name="manage_device_administrators">"Přejít do nastavení aplikací pro správu zařízení"</string>
+</resources>

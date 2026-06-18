@@ -1,0 +1,7 @@
+<resources>
+
+    <!-- added non-translatable items below -->
+
+    <!--suppress CheckTagEmptyBody -->
+    <string translatable="false" name="oxpd_application_id"></string>
+</resources>

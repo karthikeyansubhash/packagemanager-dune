@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'com.hp.jetadvantage.link.pkgmgt.lib.deviceconnectutil'
+
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), rootProject.ext.proguardFile
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation rootProject.ext.support_v4
+
+    api 'com.squareup.okhttp3:okhttp:4.8.1'
+    api 'com.google.code.gson:gson:2.9.0'
+    api ('org.simpleframework:simple-xml:2.7.1') {
+        exclude group: 'stax'
+        exclude module: 'stax-api'
+        exclude group: 'xpp3'
+    }
+
+    api project(':Libs:DeviceConnect')
+}

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:sharedUserId="android.uid.system">
+
+    <permission-group
+        android:name="com.hp.packagemanager.permission.PACKAGE_MANAGER"
+        android:label="@string/smartux_pacman_permissions"
+        android:description="@string/smartux_pacman_permissions_desc"/>
+
+    <permission android:name="android.permission.ACCOUNT_MANAGER"
+        android:protectionLevel="signature"
+        tools:ignore="ReservedSystemPermission" />
+
+    <permission
+        android:name="com.hp.packagemanager.permission.PACKAGE_LIFECYCLE_EVENTS"
+        android:permissionGroup="com.hp.packagemanager.permission.PACKAGE_MANAGER"
+        android:protectionLevel="signatureOrSystem"
+        android:description="@string/use_smartux_pacman_install_desc"
+        android:label="@string/use_smartux_pacman_install_label" />
+
+    <permission
+        android:name="com.hp.packagemanager.permission.LIST_PACKAGES"
+        android:permissionGroup="com.hp.packagemanager.permission.PACKAGE_MANAGER"
+        android:protectionLevel="signatureOrSystem"
+        android:description="@string/use_smartux_pacman_get_packages_desc"
+        android:label="@string/use_smartux_pacman_get_packages_label" />
+
+    <permission
+        android:name="com.hp.packagemanager.permission.READ_WRITE_CONFIG"
+        android:permissionGroup="com.hp.packagemanager.permission.PACKAGE_MANAGER"
+        android:protectionLevel="signatureOrSystem"
+        android:description="@string/use_smartux_pacman_get_config_desc"
+        android:label="@string/use_smartux_pacman_get_config_label" />
+
+    <permission
+        android:name="com.hp.packagemanager.permission.READ_WRITE_SYSTEMCONFIG"
+        android:permissionGroup="com.hp.packagemanager.permission.PACKAGE_MANAGER"
+        android:protectionLevel="signatureOrSystem"
+        android:description="@string/use_smartux_pacman_get_systemconfig_desc"
+        android:label="@string/use_smartux_pacman_get_systemconfig_label" />
+
+    <permission
+        android:name="com.hp.packagemanager.permission.READ_WRITE_AVATAR_REGISTRATION"
+        android:permissionGroup="com.hp.packagemanager.permission.PACKAGE_MANAGER"
+        android:protectionLevel="signatureOrSystem"
+        android:description="@string/use_smartux_pacman_avatar_desc"
+        android:label="@string/use_smartux_pacman_avatar_label" />
+
+    <permission
+        android:name="com.hp.packagemanager.permission.READ_PROVIDERS"
+        android:permissionGroup="com.hp.packagemanager.permission.PACKAGE_MANAGER"
+        android:protectionLevel="signatureOrSystem"
+        android:description="@string/use_smartux_pacman_get_providers_desc"
+        android:label="@string/use_smartux_pacman_get_providers_label" />
+
+    <permission
+        android:name="com.hp.packagemanager.permission.READ_WRITE_ATTESTATION"
+        android:permissionGroup="com.hp.packagemanager.permission.PACKAGE_MANAGER"
+        android:protectionLevel="signatureOrSystem"
+        android:description="@string/use_smartux_pacman_get_providers_desc"
+        android:label="@string/use_smartux_pacman_get_providers_label" />
+
+    <permission
+        android:name="com.hp.workpath.permission.ACCESS_CUSTOM_AUTH"
+        android:permissionGroup="com.hp.packagemanager.permission.PACKAGE_MANAGER"
+        android:protectionLevel="normal"
+        android:description="@string/use_smartux_pacman_get_providers_desc"
+        android:label="@string/use_smartux_pacman_get_providers_label" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.DELETE_PACKAGES"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <uses-permission android:name="android.permission.GRANT_RUNTIME_PERMISSIONS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <uses-permission android:name="com.hp.packagemanager.permission.PACKAGE_LIFECYCLE_EVENTS" />
+    <uses-permission android:name="com.hp.packagemanager.permission.LIST_PACKAGES" />
+    <uses-permission android:name="com.hp.packagemanager.permission.READ_WRITE_CONFIG" />
+    <uses-permission android:name="com.hp.packagemanager.permission.READ_WRITE_SYSTEMCONFIG" />
+    <uses-permission android:name="com.hp.packagemanager.permission.READ_WRITE_AVATAR_REGISTRATION" />
+    <uses-permission android:name="com.hp.packagemanager.permission.READ_PROVIDERS" />
+    <uses-permission android:name="com.hp.packagemanager.permission.READ_WRITE_ATTESTATION" />
+
+    <uses-permission android:name="com.hp.datacollector.permission.READ_WRITE_PROVIDERS" />
+    <uses-permission android:name="com.hp.workpath.permission.sdk.ACCESS_STATISTICS_PERMISSION" />
+    <uses-permission android:name="com.hp.svcmanager.permission.ACCESS_PROVIDERS" />
+
+    <!-- For System app's event -->
+    <uses-permission android:name="com.hp.jetadvantage.link.system.SYSTEM_PERMISSION" />
+    <uses-permission android:name="com.hp.workpath.permission.ACCESS_CUSTOM_AUTH" />
+
+    <application
+        android:name="PackageManagerApplication"
+        android:allowBackup="false"
+        android:process=":PackageManager"
+        android:theme="@android:style/Theme.DeviceDefault.Light.DialogWhenLarge.NoActionBar" >
+
+        <activity android:name=".activities.PermissionActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <provider
+            android:name=".providers.PackageContentProvider"
+            android:permission="com.hp.packagemanager.permission.LIST_PACKAGES"
+            android:authorities="packages"
+            android:exported="true"
+            android:enabled="true"/>
+
+        <provider
+            android:name=".providers.PackageInstallerContentProvider"
+            android:permission="com.hp.packagemanager.permission.LIST_PACKAGES"
+            android:authorities="packages-installers"
+            android:exported="true"
+            android:enabled="true"/>
+
+        <provider
+            android:name=".providers.PackageProvidersProvider"
+            android:permission="com.hp.packagemanager.permission.READ_PROVIDERS"
+            android:authorities="providers"
+            android:exported="true"
+            android:enabled="true"/>
+
+        <provider
+            android:name=".providers.PackageAttestationContentProvider"
+            android:permission="com.hp.packagemanager.permission.READ_WRITE_ATTESTATION"
+            android:authorities="packages-attestation"
+            android:exported="true"
+            android:enabled="true"/>
+
+        <provider
+            android:name=".providers.EventReceiversContentProvider"
+            android:permission="com.hp.packagemanager.permission.LIST_PACKAGES"
+            android:authorities="event-receivers;packages-eventreceiver"
+            android:exported="true"
+            android:enabled="true"/>
+
+        <receiver android:name=".receivers.AttestationChangeBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.hp.jetadvantage.link.intent.action.ATTESTATION" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receivers.AppInstalledBroadcastReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.hp.packagemanager.intent.action.DUNE_PACKAGE_ADDED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".receivers.DeviceReadyReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.hp.jetadvantage.link.system.SYSTEM_PERMISSION">
+            <intent-filter>
+                <action android:name="com.hp.workpath.system.DEVICE_READY" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".receivers.AppUninstalledBroadcastReceiver"
+            android:exported="true"
+            android:permission="com.hp.packagemanager.permission.PACKAGE_LIFECYCLE_EVENTS">
+
+            <intent-filter>
+                <action android:name="com.hp.packagemanager.intent.action.UNINSTALL" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+
+        <service
+            android:name=".services.DuneCallbackService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.hp.packagemanager.permission.LIST_PACKAGES">
+            <intent-filter>
+                <action android:name="com.hp.jetadvantage.link.services.connect.WebsocketCallbackService"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+
+        <service android:name=".services.BootTasksService" />
+
+    </application>
+</manifest>

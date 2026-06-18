@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"إلغاء"</string>
+    <string name="install">"تثبيت"</string>
+    <string name="launch">"فتح"</string>
+    <string name="ok">"موافق"</string>
+    <string name="next">"التالي"</string>
+    <string name="done">"تم"</string>
+
+    <string name="install_confirm_dlg_title">"تثبيت"</string>
+    <string name="install_untrusted_dlg_title">"تثبيت (غير معروف)"</string>
+    <string name="install_confirm_dlg_text">"هل تريد تثبيت هذا التطبيق؟"</string>
+
+    <string name="uninstall_confirm_dlg_title">"إلغاء تثبيت التطبيق"</string>
+    <string name="uninstall_confirm_dlg_text">"هل تريد إزالة هذا التطبيق؟"</string>
+
+    <string name="error_dlg_title">"الخطأ"</string>
+
+    <string name="installing">"جارٍ التثبيت..."</string>
+    <string name="install_done">"تم تثبيت التطبيق."</string>
+    <string name="install_failed">"التطبيق ليس مثبتًا."</string>
+
+    <string name="install_confirm_question">"هل تريد تثبيت هذا التطبيق؟ سيكون بإمكانه الدخول إلى:"</string>
+    <string name="install_confirm_question_no_perms">"هل تريد تثبيت هذا التطبيق؟ إنه لا يتطلب أي دخول خاص."</string>
+    <string name="install_confirm_question_update">"هل تريد تثبيت تحديث لهذا التطبيق الحالي؟ لن تفقد بياناتك الحالية. سيكون بإمكان التطبيق المحدّث الدخول إلى:"</string>
+    <string name="install_confirm_question_update_system">"هل تريد تثبيت تحديث لهذا التطبيق المضمن؟ لن تفقد بياناتك الحالية. سيكون بإمكان التطبيق المحدّث الدخول إلى:"</string>
+    <string name="install_confirm_question_update_no_perms">"هل تريد تثبيت تحديث لهذا التطبيق الحالي؟ لن يتم فقد بياناتك الحالية. كما أنه لا يتطلب أي دخول خاص."</string>
+    <string name="install_confirm_question_update_system_no_perms">"هل تريد تثبيت تحديث لهذا التطبيق المضمن؟ لن يتم فقد بياناتك الحالية. كما أنه لا يتطلب أي دخول خاص."</string>
+
+    <string name="uninstall_application_title">"إلغاء تثبيت التطبيق"</string>
+    <string name="uninstall_update_title">"إزالة التحديث"</string>
+    <string name="uninstalling">"جارٍ الإزالة..."</string>
+    <string name="uninstall_done">"انتهت الإزالة."</string>
+    <string name="uninstall_failed">"تعذّر إلغاء التثبيت."</string>
+    <string name="uninstall_unauthorized">"غير مسموح للمستخدم الحالي بتنفيذ عملية إلغاء التثبيت هذه"</string>
+    <string name="out_of_space_dlg_text">"تعذر تثبيت <xliff:g id="APP_NAME">%1$s</xliff:g> يُرجى تحرير بعض المساحة والمحاولة مرة أخرى."</string>
+    <string name="newPerms">"جديد"</string>
+    <string name="allPerms">"الكل"</string>
+    <string name="privacyPerms">"الخصوصية"</string>
+    <string name="devicePerms">"الدخول إلى الجهاز"</string>
+    <string name="no_new_perms">"لا يتطلب هذا التحديث أي أذونات جديدة."</string>
+    <string name="manage_device_administrators">"إدارة تطبيقات مشرف الجهاز"</string>
+</resources>

@@ -1,0 +1,210 @@
+name: Scheduled Build and Test
+
+on:
+  schedule:
+    # Runs daily at 15:00 UTC. This corresponds to midnight (12:00 AM) KST.
+    - cron: '0 15 * * *'
+  # Add workflow_dispatch to allow manual execution
+  workflow_dispatch:
+
+jobs:
+  build-apk:
+    name: Build APK
+    runs-on: [ self-hosted ]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        sparse-checkout: |
+          /*
+        sparse-checkout-cone-mode: false
+    
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+    
+    - name: Clean before building
+      run: ./gradlew clean
+    
+    - name: Build SmartUXPackageManager app
+      run: ./gradlew :Apps:SmartUXPackageManager:assembleRelease --no-daemon
+    
+    - name: Upload APK artifacts
+      if: ${{ failure() || success() }}
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifacts
+        path: |
+          **/build/outputs/apk/**/*.apk
+        retention-days: 2
+
+  deploy-to-device:
+    name: Deploy to Remote Device
+    runs-on: [ self-hosted ]
+    needs: build-apk
+    
+    steps:
+    - name: Download APK artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: build-artifacts
+    
+    - name: Connect to remote device via ADB
+      run: |
+        adb connect ${{ vars.DUNE_EMU_IP }}:5555
+        Start-Sleep -Seconds 5
+        adb devices
+    
+    - name: Install APK on remote device
+      run: |
+        if ($env:RUNNER_OS -eq "Windows") {
+          $APK_PATH = Get-ChildItem -Path . -Filter "*.apk" -Recurse | Select-Object -First 1 -ExpandProperty FullName
+        } else {
+          $APK_PATH = $(find . -name "*.apk" | head -n 1)
+        }
+        Write-Output "Installing APK: $APK_PATH"
+        adb -s ${{ vars.DUNE_EMU_IP }}:5555 install -r "$APK_PATH"
+    
+    - name: Send Device Ready broadcast message
+      run: |
+        adb -s ${{ vars.DUNE_EMU_IP }}:5555 shell am broadcast -a com.hp.workpath.intent.action.CALL_DEVICE_READY  -n com.hp.jetadvantage.link.system/.receivers.CDMCallReceiver
+    
+    - name: Disconnect ADB
+      if: always()
+      run: adb disconnect ${{ vars.DUNE_EMU_IP }}:5555
+
+  run-tests:
+    name: Run Tests on Device
+    runs-on: [ self-hosted ]
+    needs: deploy-to-device
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        sparse-checkout: |
+          /*
+        sparse-checkout-cone-mode: false
+    
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+    
+    - name: Clean up old reports
+      run: |
+        if (Test-Path "${{ vars.TEST_REPORTS_DIR }}") {
+            Get-ChildItem -Path "${{ vars.TEST_REPORTS_DIR }}" -Recurse | Where-Object { $_.CreationTime -lt (Get-Date).AddDays(-7) } | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+        }
+        # Ensure reports directory exists for current run
+        if (-not (Test-Path "${{ vars.TEST_REPORTS_DIR }}")) {
+            New-Item -ItemType Directory -Force -Path "${{ vars.TEST_REPORTS_DIR }}" | Out-Null
+        }
+    
+    - name: Connect to remote device via ADB
+      run: |
+        adb connect ${{ vars.DUNE_EMU_IP }}:5555
+        Start-Sleep -Seconds 5
+        adb devices
+    
+    - name: Install Test APK (Instrumented Tests)
+      run: ./gradlew :Test:installDebugAndroidTest --no-daemon
+
+    - name: Run Presetting (Uninstall if exists)
+      env:
+        HPKTOOL2: ${{ vars.HPKTOOL2 }}
+        DUNE_EMU_IP: ${{ vars.DUNE_EMU_IP }}
+        DUNE_EMU_PW: ${{ vars.DUNE_EMU_PW }}
+      run: ./gradlew :Test:testReleaseUnitTest --tests "com.hp.jetadvantage.link.pkgmgt.PresettingTest" --continue --no-daemon
+      continue-on-error: true
+
+    - name: Run Scheduled Tests (Install) (Host)
+      env:
+        HPKTOOL2: ${{ vars.HPKTOOL2 }}
+        DUNE_EMU_IP: ${{ vars.DUNE_EMU_IP }}
+        DUNE_EMU_PW: ${{ vars.DUNE_EMU_PW }}
+        SAMPLE_FILE_DIR: ${{ vars.SAMPLE_FILE_DIR }}
+      run: |
+        ./gradlew :Test:testReleaseUnitTest --tests "com.hp.jetadvantage.link.pkgmgt.scheduled.ScheduledInstallTest" --continue --no-daemon
+        $gradleError = $LASTEXITCODE
+        $destDir = "${{ vars.TEST_REPORTS_DIR }}\scheduled\${{ github.run_number }}\install"
+        New-Item -ItemType Directory -Force -Path $destDir | Out-Null
+        if (Test-Path "tests/build/reports/tests/testReleaseUnitTest") {
+            Copy-Item -Path "tests/build/reports/tests/testReleaseUnitTest/*" -Destination $destDir -Recurse -Force
+        }
+        if ($gradleError -ne 0) { exit $gradleError }
+    
+    - name: Run instrumented tests on device
+      run: |
+        ./gradlew :Test:connectedDebugAndroidTest "-Pandroid.testInstrumentationRunnerArguments.package=com.hp.jetadvantage.link.pkgmgt.scheduled,com.hp.jetadvantage.link.pkgmgt.installer" --no-daemon
+        $gradleError = $LASTEXITCODE
+        $destDir = "${{ vars.TEST_REPORTS_DIR }}\scheduled\${{ github.run_number }}\data"
+        New-Item -ItemType Directory -Force -Path $destDir | Out-Null
+        if (Test-Path "tests/build/reports/androidTests/connected") {
+            Copy-Item -Path "tests/build/reports/androidTests/connected/*" -Destination $destDir -Recurse -Force
+        }
+        if ($gradleError -ne 0) { exit $gradleError }
+
+    - name: Run Scheduled Tests (UnInstall) (Host)
+      if: always()
+      env:
+        HPKTOOL2: ${{ vars.HPKTOOL2 }}
+        DUNE_EMU_IP: ${{ vars.DUNE_EMU_IP }}
+        DUNE_EMU_PW: ${{ vars.DUNE_EMU_PW }}
+      run: |
+        ./gradlew :Test:testReleaseUnitTest --tests "com.hp.jetadvantage.link.pkgmgt.scheduled.ScheduledUninstallTest" --continue --no-daemon
+        $gradleError = $LASTEXITCODE
+        $destDir = "${{ vars.TEST_REPORTS_DIR }}\scheduled\${{ github.run_number }}\uninstall"
+        New-Item -ItemType Directory -Force -Path $destDir | Out-Null
+        if (Test-Path "tests/build/reports/tests/testReleaseUnitTest") {
+            Copy-Item -Path "tests/build/reports/tests/testReleaseUnitTest/*" -Destination $destDir -Recurse -Force
+        }
+        if ($gradleError -ne 0) { exit $gradleError }
+    
+    - name: Uninstall test package
+      if: always()
+      run: |
+        $device = "${{ vars.DUNE_EMU_IP }}:5555"
+        $packages = adb -s $device shell pm list packages
+        
+        if ($packages | Select-String -Pattern "package:com.hp.jetadvantage.link.pkgmgt\s*$") {
+          Write-Output "Uninstalling com.hp.jetadvantage.link.pkgmgt"
+          adb -s $device uninstall com.hp.jetadvantage.link.pkgmgt
+        }
+        
+        if ($packages | Select-String -Pattern "package:com.hp.jetadvantage.link.pkgmgt.test\s*$") {
+          Write-Output "Uninstalling com.hp.jetadvantage.link.pkgmgt.test"
+          adb -s $device uninstall com.hp.jetadvantage.link.pkgmgt.test
+        }
+
+    - name: Send Device Ready broadcast message
+      run: |
+        adb -s ${{ vars.DUNE_EMU_IP }}:5555 shell am broadcast -a com.hp.workpath.intent.action.CALL_DEVICE_READY  -n com.hp.jetadvantage.link.system/.receivers.CDMCallReceiver
+    
+    
+    - name: Compress test results
+      if: ${{ failure() || success() }}
+      run: |
+        if ($env:RUNNER_OS -eq "Windows") {
+          Compress-Archive -Path "${{ vars.TEST_REPORTS_DIR }}" -DestinationPath "test-results.zip" -Force
+        } else {
+          tar -czf test-results.tar.gz reports
+        }
+    
+    - name: Upload test results
+      if: ${{ failure() || success() }}
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: |
+          test-results.zip
+          test-results.tar.gz
+        retention-days: 2
+    
+    - name: Disconnect ADB
+      if: always()
+      run: adb disconnect ${{ vars.DUNE_EMU_IP }}:5555

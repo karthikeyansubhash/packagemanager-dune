@@ -1,0 +1,92 @@
+{
+  "description": {
+    "date": "20231001",
+    "description": "Authentication Agent Sample ",
+    "name": "Authentication Agent Sample",
+    "supportEmail": "",
+    "supportPhone": "",
+    "supportUrl": "",
+    "vendor": "HP",
+    "version": "dune_test_0313"
+  },
+  "initializedState": "isSuccess",
+  "installCodeState": "icsPending",
+  "installationDetails": {
+    "installationDate": "2025-04-23T05:54:51.143Z",
+    "packageName": ""
+  },
+  "registrations": [
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.application.version.1.type.i18nAssetRegistrationRecord",
+        "value": {
+          "assetContent": {
+            "i18nAssetInlineContent": {
+              "languages": [
+                {
+                  "languageTag": "en-US",
+                  "strings": [
+                    {
+                      "stringId": "authentication_title",
+                      "value": "AuthenticationAgentSample"
+                    },
+                    {
+                      "stringId": "authentication_description",
+                      "value": "AuthenticationAgentSample Desc"
+                    }
+                  ]
+                },
+                {
+                  "languageTag": "fr-FR",
+                  "strings": [
+                    {
+                      "stringId": "authentication_title",
+                      "value": "echantillon"
+                    },
+                    {
+                      "stringId": "authentication_description",
+                      "value": "description de l'echantillon"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "assetId": "9bf2ecec-0989-47f1-ac76-9fe8e3bd46c7"
+        }
+      }
+    },
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.authentication.version.1.type.authenticationAgentRegistrationRecord",
+        "value": {
+          "agentId": "13a0ee28-6c80-4fec-9260-01de3a4c15ef",
+          "authenticationTarget": {
+            "workpath": {
+              "package": "com.hp.workpath.sample.authentication/.AuthenticationActivity"
+            }
+          },
+          "enablePrePromptCheck": false,
+          "localizedDescription": {
+            "i18nAssetId": "9bf2ecec-0989-47f1-ac76-9fe8e3bd46c7",
+            "stringId": "authentication_description"
+          },
+          "localizedName": {
+            "i18nAssetId": "9bf2ecec-0989-47f1-ac76-9fe8e3bd46c7",
+            "stringId": "authentication_title"
+          },
+          "name": "AuthenticationAgentSample"
+        }
+      }
+    }
+  ],
+  "solutionId": "11111111-1111-1111-9993-111111111111",
+  "state": "ssInstalled",
+  "trustedSites": {
+    "sites": {
+      "explicit": {
+        "explicitValue": "*"
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+include ':Libs:CpkLib'
+project(':Libs:CpkLib').projectDir = new File(settingsDir, "../../Libs/CpkLib")
+include ':hpktool'
+project(':hpktool').projectDir = new File(settingsDir, "../cpktool")

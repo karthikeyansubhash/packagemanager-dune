@@ -1,0 +1,159 @@
+{
+  "contextProfile": {
+    "contextDefinitions": []
+  },
+  "description": {
+    "date": "20240517",
+    "description": "Scan Sample Description",
+    "name": "Scan Sample",
+    "supportEmail": "",
+    "supportPhone": "",
+    "supportUrl": "",
+    "vendor": "HP",
+    "version": "2.0a"
+  },
+  "initializedState": "isSuccess",
+  "installCodeState": "icsPending",
+  "installationDetails": {
+    "installationDate": "2025-04-30T11:14:26.039Z",
+    "packageName": ""
+  },
+  "packages": [
+    {
+      "workpathPlatformPackage": {
+        "platformVersion": "31.8",
+        "workpathPackagePath": "ScanSample.apk"
+      }
+    }
+  ],
+  "registrations": [
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.application.version.1.type.i18nAssetRegistrationRecord",
+        "value": {
+          "assetContent": {
+            "i18nAssetInlineContent": {
+              "languages": [
+                {
+                  "languageTag": "en-US",
+                  "strings": [
+                    {
+                      "stringId": "application_title0",
+                      "value": "Scan Sample"
+                    },
+                    {
+                      "stringId": "application_description0",
+                      "value": "Scan Sample"
+                    },
+                    {
+                      "stringId": "scanAgent_title",
+                      "value": "Scan Sample_scanAgent"
+                    },
+                    {
+                      "stringId": "scanAgent_description",
+                      "value": "Scan Sample_scanAgent"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "assetId": "9b491f9a-58f6-4b1c-9fdf-fc3776041e29"
+        }
+      }
+    },
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.application.version.1.type.applicationAgentRegistrationRecord",
+        "value": {
+          "agentId": "5187d0aa-f86e-4f4e-a970-9595680752b4",
+          "category": "acStandardWalkup",
+          "icon": {
+            "localImage": {
+              "fileType": "image/png",
+              "path": "/assets/icons/ic_launcher.png"
+            }
+          },
+          "iconSet": [
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/140x140/ic_launcher.png"
+                }
+              },
+              "key": "140x140"
+            },
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/90x90/ic_launcher.png"
+                }
+              },
+              "key": "90x90"
+            },
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/179x179/ic_launcher.png"
+                }
+              },
+              "key": "179x179"
+            }
+          ],
+          "localizedDescription": {
+            "i18nAssetId": "9b491f9a-58f6-4b1c-9fdf-fc3776041e29",
+            "stringId": "application_description0"
+          },
+          "localizedName": {
+            "i18nAssetId": "9b491f9a-58f6-4b1c-9fdf-fc3776041e29",
+            "stringId": "application_title0"
+          },
+          "localizedTitle": {
+            "i18nAssetId": "9b491f9a-58f6-4b1c-9fdf-fc3776041e29",
+            "stringId": "application_title0"
+          },
+          "name": "Scan Sample",
+          "target": {
+            "workpathApplicationTarget": {
+              "package": "main=com.hp.workpath.sample.scansample/com.hp.workpath.sample.scansample.MainActivity"
+            }
+          }
+        }
+      }
+    },
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.scanJob.version.1.type.scanJobAgentRegistrationRecord",
+        "value": {
+          "agentId": "26c78c4c-b81b-4812-9e56-c8f8830589dd",
+          "localizedDescription": {
+            "i18nAssetId": "9b491f9a-58f6-4b1c-9fdf-fc3776041e29",
+            "stringId": "scanAgent_description"
+          },
+          "localizedName": {
+            "i18nAssetId": "9b491f9a-58f6-4b1c-9fdf-fc3776041e29",
+            "stringId": "scanAgent_title"
+          },
+          "name": "Scan Sample_scanAgent",
+          "scanNotificationTarget": {
+            "workpath": {
+              "package": "com.hp.workpath.sample.scansample"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "solutionId": "11111111-1111-1111-9999-111111111111",
+  "state": "ssInstalled",
+  "trustedSites": {
+    "sites": {
+      "explicit": {
+        "explicitValue": "*"
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Отмена"</string>
+    <string name="install">"Установить"</string>
+    <string name="launch">"Открыть"</string>
+    <string name="ok">"ОК"</string>
+    <string name="next">"Далее"</string>
+    <string name="done">"Готово"</string>
+
+    <string name="install_confirm_dlg_title">"Установить"</string>
+    <string name="install_untrusted_dlg_title">"Установить (Неизвестно)"</string>
+    <string name="install_confirm_dlg_text">"Хотите ли вы установить это приложение?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"Удаление приложения"</string>
+    <string name="uninstall_confirm_dlg_text">"Удалить приложение?"</string>
+
+    <string name="error_dlg_title">"Ошибка"</string>
+
+    <string name="installing">>"Установка..."</string>
+    <string name="install_done">"Приложение установлено."</string>
+    <string name="install_failed">"Приложение не установлено."</string>
+
+    <string name="install_confirm_question">"Хотите ли вы установить это приложение? Оно получит следующие разрешения:"</string>
+    <string name="install_confirm_question_no_perms">"Это приложение не требует специальных разрешений. Установить его?"</string>
+    <string name="install_confirm_question_update">"Хотите установить обновление для этого приложения? После обновления оно сможет выполнять следующие действия:"</string>
+    <string name="install_confirm_question_update_system">"Хотите установить обновление для этого приложения? После обновления оно сможет выполнять следующие действия:"</string>
+    <string name="install_confirm_question_update_no_perms">"Установить обновление этого приложения? На текущих данных это никак не отразится. Специальных прав доступа не требуется."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Установить обновление этого встроенного приложения? На текущих данных это никак не отразится. Специальных прав доступа не требуется."</string>
+
+    <string name="uninstall_application_title">"Удаление приложения"</string>
+    <string name="uninstall_update_title">"Удаление обновления"</string>
+    <string name="uninstalling">"Удаление..."</string>
+    <string name="uninstall_done">"Удаление завершено."</string>
+    <string name="uninstall_failed">"Ошибка при удалении."</string>
+    <string name="uninstall_unauthorized">"Этот пользователь не может удалить приложение."</string>
+    <string name="out_of_space_dlg_text">"Не удалось установить приложение \"<xliff:g id="APP_NAME">%1$s</xliff:g>\". Освободите место и повторите попытку."</string>
+    <string name="newPerms">"Новые"</string>
+    <string name="allPerms">"Все"</string>
+    <string name="privacyPerms">"Личные данные"</string>
+    <string name="devicePerms">"Доступ к устройству"</string>
+    <string name="no_new_perms">"Установка этого обновления не требует новых разрешений."</string>
+    <string name="manage_device_administrators">"Настроить приложения для администрир. устройства"</string>
+</resources>

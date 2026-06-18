@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="app_exceptions">
+        <item>@string/app_gallery_uuid</item>
+    </string-array>
+</resources>

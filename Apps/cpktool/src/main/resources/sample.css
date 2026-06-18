@@ -1,0 +1,135 @@
+.thebackground {
+    -fx-background-color : #FFFFFF;
+    }
+
+.detail{
+    -fx-background-color: #fff, #fff;
+}
+
+.detail .content {
+    -fx-background-color: #fff;
+}
+
+.detail:focused .content {
+    -fx-background-color: #fff;
+}
+
+.text-area .scroll-pane {
+    -fx-hbar-policy: never;
+}
+
+.sectionTitle {
+    -fx-text-fill   : #01579B;
+    -fx-font-weight : bolder;
+    -fx-font-size   : 14px;
+    }
+
+.warningText {
+    -fx-fill : #0277BD;
+    }
+
+.inputSection {
+    -fx-background-color : #E1F5FE;
+    }
+
+.button {
+    -fx-background-color : #006ac1;
+    -fx-text-fill        : #E1F5FE;
+    }
+
+.button:hover {
+    -fx-background-color : #01579B;
+    }
+
+.buttonWhite {
+    -fx-background-color : #c3c3c3;
+    -fx-text-fill        : #000000;
+    }
+
+.buttonWhite:hover {
+    -fx-background-color : #969696;
+    }
+
+.buttonRed {
+    -fx-background-color : #cd0000;
+    -fx-text-fill        : #E1F5FE;
+    }
+
+.buttonRed:hover {
+    -fx-background-color : #b40000;
+    }
+
+.list-cell{
+    -fx-cell-size: 24;
+}
+
+.list-box {
+    -fx-background-color: #c3c3c3;
+}
+
+.buttonRefresh {
+    -fx-background-color : #c3c3c3;
+    -fx-background-image: url("icon/ic_refresh.png");
+    -fx-background-size: 30 30;
+    -fx-background-repeat: no-repeat;
+    -fx-min-width: 30;
+    -fx-min-height: 30;
+}
+
+.buttonInformation {
+    -fx-background-color : #ffffff;
+    -fx-background-image: url("icon/ic_information_nor.png");
+    -fx-background-size: 20 20;
+    -fx-background-repeat: no-repeat;
+    -fx-min-width: 20;
+    -fx-min-height: 20;
+}
+
+.buttonInformation:hover {
+    -fx-background-color : #ffffff;
+    -fx-background-image: url("icon/ic_information_pre.png");
+    -fx-background-size: 20 20;
+    -fx-background-repeat: no-repeat;
+    -fx-min-width: 20;
+    -fx-min-height: 20;
+}
+
+.buttonUninstall {
+    -fx-background-color : #ffffff;
+    -fx-background-image: url("icon/ic_delete_nor.png");
+    -fx-background-size: 20 20;
+    -fx-background-repeat: no-repeat;
+    -fx-min-width: 20;
+    -fx-min-height: 20;
+}
+
+.buttonUninstall:hover {
+    -fx-background-color : #ffffff;
+    -fx-background-image: url("icon/ic_delete_pre.png");
+    -fx-background-size: 20 20;
+    -fx-background-repeat: no-repeat;
+    -fx-min-width: 20;
+    -fx-min-height: 20;
+}
+
+/**
+.menu-bar {
+    -fx-background-color: #FFFFFF;
+}
+
+.menu > .label {
+    -fx-text-fill: black;
+}
+
+.menu:focused .label, .menu:hover .label {
+    -fx-text-fill: white;
+}
+
+.menu-bar .menu-button .label {
+    -fx-text-fill: black;
+}
+
+.menu-bar .menu-button:hover .label, .menu-bar .menu-button:focused .label {
+    -fx-text-fill: white;
+}
+**/

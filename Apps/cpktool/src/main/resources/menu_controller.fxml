@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<MenuBar prefWidth="650.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.hp.jetadvantage.link.pkgmgt.hpkutil.activities.CommonController">
+    <menus>
+        <Menu text="%menu_file">
+            <items>
+                <MenuItem fx:id="menuNewDevice" onAction="#handleNewDeviceMenuAction" text="%menu_new" />  <!--//[OXPd block] Temporary -->
+                <MenuItem fx:id="menuOpen" onAction="#handleOpenMenuAction" text="%menu_open_hpk" />
+                <SeparatorMenuItem />
+                <MenuItem fx:id="menuExit" onAction="#handleExitMenuAction" text="%menu_exit"/>
+            </items>
+        </Menu>
+        <Menu text="%menu_tools">
+            <items>
+                <MenuItem fx:id="menuInstall" onAction="#handleOpenInstallAction" text="%menu_install_uninstall" />
+                <MenuItem fx:id="menuConfiguration" onAction="#handleConfigurationAction" text="%menu_configuration" />
+                <MenuItem fx:id="menuIconList" onAction="#handleGetIconListAction" text="%application_icon_list" />
+                <MenuItem fx:id="menuAttestation" onAction="#handleAttestationAction" text="%menu_attestation" />
+            </items>
+        </Menu>
+        <Menu text="%menu_help">
+            <items>
+                <MenuItem fx:id="menuItemAbout" onAction="#handleAboutMenuAction" text="%menu_about"/>
+                <MenuItem fx:id="menuSettings" onAction="#handleVersionMenuAction" text="%menu_settings"/>
+            </items>
+        </Menu>
+    </menus>
+</MenuBar>

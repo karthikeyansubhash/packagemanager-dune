@@ -1,0 +1,210 @@
+{
+  "archiveVersion": "2.0.0",
+  "configuration": {
+    "archiveDataPath": "/assets/configs/default.json",
+    "description": "Default configuration",
+    "mimeType": "application/json"
+  },
+  "contextProfile": {
+    "contextDefinitions": []
+  },
+  "description": {
+    "date": "20231001",
+    "description": "StatisticsSample Sample",
+    "name": "StatisticsSample Sample",
+    "vendor": "HP",
+    "version": "3",
+    "versionNumber": 1
+  },
+  "packages": [
+    {
+      "workpathPlatformPackage": {
+        "platformVersion": "31.8",
+        "workpathPackagePath": "StatisticsSample.apk"
+      }
+    }
+  ],
+  "registrations": [
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.application.version.1.type.i18nAssetRegistrationRecord",
+        "value": {
+          "assetContent": {
+            "i18nAssetInlineContent": {
+              "languages": [
+                {
+                  "languageTag": "en-US",
+                  "strings": [
+                    {
+                      "stringId": "application_title0",
+                      "value": "Statistics Sample"
+                    },
+                    {
+                      "stringId": "application_description0",
+                      "value": "Statistics Sample"
+                    },
+                    {
+                      "stringId": "copyAgent_title",
+                      "value": "StatisticsSample Sample_copyAgent"
+                    },
+                    {
+                      "stringId": "copyAgent_description",
+                      "value": "StatisticsSample Sample_copyAgent"
+                    },
+                    {
+                      "stringId": "printAgent_title",
+                      "value": "StatisticsSample Sample_printAgent"
+                    },
+                    {
+                      "stringId": "printAgent_description",
+                      "value": "StatisticsSample Sample_printAgent"
+                    },
+                    {
+                      "stringId": "scanAgent_title",
+                      "value": "StatisticsSample Sample_scanAgent"
+                    },
+                    {
+                      "stringId": "scanAgent_description",
+                      "value": "StatisticsSample Sample_scanAgent"
+                    },
+                    {
+                      "stringId": "deviceUsageAgent_title",
+                      "value": "StatisticsSample Sample_deviceUsageAgent"
+                    },
+                    {
+                      "stringId": "deviceUsageAgent_description",
+                      "value": "StatisticsSample Sample_deviceUsageAgent"
+                    },
+                    {
+                      "stringId": "suppliesAgent_title",
+                      "value": "StatisticsSample Sample_suppliesAgent"
+                    },
+                    {
+                      "stringId": "suppliesAgent_description",
+                      "value": "StatisticsSample Sample_suppliesAgent"
+                    },
+                    {
+                      "stringId": "securityAgent_title",
+                      "value": "StatisticsSample Sample_securityAgent"
+                    },
+                    {
+                      "stringId": "securityAgent_description",
+                      "value": "StatisticsSample Sample_securityAgent"
+                    },
+                    {
+                      "stringId": "solutionDiagnostics_title",
+                      "value": "StatisticsSample Sample_solutionDiagnosticsAgent"
+                    },
+                    {
+                      "stringId": "solutionDiagnostics_description",
+                      "value": "StatisticsSample Sample_solutionDiagnosticsAgent"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "assetId": "862b7610-1603-445a-b37e-456c82bc2d56"
+        }
+      }
+    },
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.application.version.1.type.applicationAgentRegistrationRecord",
+        "value": {
+          "category": "acStandardWalkup",
+          "icon": {
+            "localImage": {
+              "fileType": "image/png",
+              "path": "/assets/icons/ic_launcher.png"
+            }
+          },
+          "iconSet": [
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/140x140/ic_launcher.png"
+                }
+              },
+              "key": "140x140"
+            },
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/90x90/ic_launcher.png"
+                }
+              },
+              "key": "90x90"
+            },
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/179x179/ic_launcher.png"
+                }
+              },
+              "key": "179x179"
+            }
+          ],
+          "localizedTitle": {
+            "i18nAssetId": "862b7610-1603-445a-b37e-456c82bc2d56",
+            "stringId": "application_title0"
+          },
+          "platform": "apWorkpath",
+          "target": {
+            "workpathApplicationTarget": {
+              "package": "main=com.hp.workpath.sample.statisticsample/com.hp.workpath.sample.statisticsample.MainActivity"
+            }
+          },
+          "agentId": "14f1b5c5-7a6c-4365-ad7b-2a5ed5598250",
+          "localizedDescription": {
+            "i18nAssetId": "862b7610-1603-445a-b37e-456c82bc2d56",
+            "stringId": "application_description0"
+          },
+          "localizedName": {
+            "i18nAssetId": "862b7610-1603-445a-b37e-456c82bc2d56",
+            "stringId": "application_title0"
+          },
+          "name": "Statistics Sample"
+        }
+      }
+    },
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.jobStatistics.version.1.type.jobStatisticsAgentRegistrationRecord",
+        "value": {
+          "criticalSolution": true,
+          "defaultNotificationFilter": [
+            "(lastSequenceNumberProcessed, lastSequenceNumberNotified, missingSequenceNumbers)",
+            "jobDetails/(sequenceNumber, jobId)"
+          ],
+          "notificationTarget": {
+            "workpath": {
+              "package": "com.hp.workpath.sample.statisticsample"
+            }
+          },
+          "agentId": "c5b76ad9-dfba-4111-9245-832494bf5c89",
+          "localizedDescription": {
+            "i18nAssetId": "862b7610-1603-445a-b37e-456c82bc2d56",
+            "stringId": "statisticsJobAgent_description"
+          },
+          "localizedName": {
+            "i18nAssetId": "862b7610-1603-445a-b37e-456c82bc2d56",
+            "stringId": "statisticsJobAgent_description"
+          },
+          "name": "StatisticsSample Sample_statisticsJobAgent"
+        }
+      }
+    }
+  ],
+  "solutionId": "11111111-1111-1111-8888-111111111111",
+  "trustedSites": {
+    "sites": {
+      "explicit": {
+        "explicitValue": "*"
+      }
+    }
+  }
+}

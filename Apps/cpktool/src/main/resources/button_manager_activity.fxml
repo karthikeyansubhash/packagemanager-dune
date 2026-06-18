@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefWidth="650.0" styleClass="thebackground" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="com.hp.jetadvantage.link.pkgmgt.hpkutil.activities.ButtonManagerActivity" >
+    <children>
+        <VBox prefWidth="650.0">
+            <children>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                <children>
+                    <Label prefHeight="24.0" prefWidth="170.0" text="%menu_icon" />
+                    <VBox alignment="BOTTOM_LEFT" visible="false" maxWidth="0">
+                        <VBox alignment="TOP_RIGHT">
+                            <ImageView fx:id="btnWJ2dot7IconRemove" fitHeight="24.0" fitWidth="24.0" onMouseClicked="#handleIconRemove" visible="false">
+                                <image>
+                                    <Image url="@icon/ic_remove.png" />
+                                </image>
+                            </ImageView>
+                        </VBox>
+                        <Button fx:id="btnWJ2dot7Icon" onAction="#handleEditIconButtonAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: White; -fx-border-color: gray; -fx-text-fill: Black; -fx-font-size: 20.0; -fx-padding: 0.0" text="+" />
+                        <Label text="%wj2.7" />
+                        <Label text="%46x46" />
+                    </VBox>
+                    <VBox alignment="BOTTOM_LEFT" visible="false" maxWidth="0">
+                        <VBox alignment="TOP_RIGHT">
+                            <ImageView fx:id="btnWJ1dot5IconRemove" fitHeight="24.0" fitWidth="24.0" onMouseClicked="#handleIconRemove" visible="false">
+                                <image>
+                                    <Image url="@icon/ic_remove.png" />
+                                </image>
+                            </ImageView>
+                        </VBox>
+                        <Button fx:id="btnWJ1dot5Icon" onAction="#handleEditIconButtonAction" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: White; -fx-border-color: gray; -fx-text-fill: Black; -fx-font-size: 20.0; -fx-padding: 0.0" text="+" />
+                        <Label text="%wj1.5" />
+                        <Label text="%66x66" />
+                    </VBox>
+                    <VBox alignment="BOTTOM_LEFT">
+                        <VBox alignment="TOP_RIGHT">
+                            <ImageView fx:id="btnOmni90IconRemove" fitHeight="24.0" fitWidth="24.0" onMouseClicked="#handleIconRemove" visible="false">
+                                <image>
+                                    <Image url="@icon/ic_remove.png" />
+                                </image>
+                            </ImageView>
+                        </VBox>
+                        <Button fx:id="btnOmni90Icon" onAction="#handleEditIconButtonAction" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: White; -fx-border-color: gray; -fx-text-fill: Black; -fx-font-size: 20.0; -fx-padding: 0.0" text="+" />
+                        <Label text="%omni" />
+                        <Label text="%90x90" />
+                    </VBox>
+                    <VBox alignment="BOTTOM_LEFT">
+                        <VBox alignment="TOP_RIGHT">
+                            <ImageView fx:id="btnOmni140IconRemove" fitHeight="24.0" fitWidth="24.0" onMouseClicked="#handleIconRemove" visible="false">
+                                <image>
+                                    <Image url="@icon/ic_remove.png" />
+                                </image>
+                            </ImageView>
+                        </VBox>
+                        <Button fx:id="btnOmni140Icon" onAction="#handleEditIconButtonAction" prefHeight="80.0" prefWidth="80.0" style="-fx-background-color: White; -fx-border-color: gray; -fx-text-fill: Black; -fx-font-size: 20.0; -fx-padding: 0.0" text="+" />
+                        <Label text="%omni" />
+                        <Label text="%140x140" />
+                    </VBox>
+                    <VBox alignment="BOTTOM_LEFT">
+                        <VBox alignment="TOP_RIGHT">
+                            <ImageView fx:id="btnOmni179IconRemove" fitHeight="24.0" fitWidth="24.0" onMouseClicked="#handleIconRemove" visible="false">
+                                <image>
+                                    <Image url="@icon/ic_remove.png" />
+                                </image>
+                            </ImageView>
+                        </VBox>
+                        <Button fx:id="btnOmni179Icon" onAction="#handleEditIconButtonAction" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: White; -fx-border-color: gray; -fx-text-fill: Black; -fx-font-size: 20.0; -fx-padding: 0.0" text="+" />
+                        <Label text="%omni" />
+                        <Label text="%179x179" />
+                    </VBox>
+                </children>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </HBox>
+
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0" managed="false" visible="false">
+                    <children>
+                        <Label prefHeight="24.0" prefWidth="170.0" text="%menu_uuid" />
+                        <TextField fx:id="textUuid" promptText="%uuid_example" HBox.hgrow="ALWAYS" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </HBox>
+
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                    <children>
+                        <Label prefHeight="24.0" prefWidth="170.0" text="%icon_name_en_us" />
+                        <TextField fx:id="textName" promptText="%name_example" HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" onAction="#handleMoreNameAction" prefWidth="100.0" text="%btn_more" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </HBox>
+
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                    <children>
+                        <Label prefHeight="24.0" prefWidth="170.0" text="%description_en_us" />
+                        <TextField fx:id="textDescription" promptText="%description_example" HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" onAction="#handleMoreDescriptionAction" prefWidth="100.0" text="%btn_more" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </HBox>
+
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                    <children>
+                        <Label prefHeight="24.0" prefWidth="170.0" text="%requested_position" />
+                        <TextField fx:id="textRequestedPosition" promptText="%requestedPosition_example" HBox.hgrow="ALWAYS" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </HBox>
+
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                    <children>
+                        <Label prefHeight="24.0" prefWidth="170.0" text="%menu_uri" />
+                        <TextField fx:id="textUri" promptText="%uri_example" HBox.hgrow="ALWAYS" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </HBox>
+
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                    <children>
+                        <Label prefHeight="24.0" prefWidth="170.0" text="" />
+                        <Label prefHeight="24.0" prefWidth="100.0" text="%menu_user_name" />
+                        <TextField fx:id="textUserName" promptText="%example_user_name" HBox.hgrow="ALWAYS" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                    </padding>
+                </HBox>
+
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                    <children>
+                        <Label prefHeight="24.0" prefWidth="170.0" text="" />
+                        <Label prefHeight="24.0" prefWidth="100.0" text="%menu_user_password" />
+                        <TextField fx:id="textPassword" promptText="%example_password" HBox.hgrow="ALWAYS" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+                    </padding>
+                </HBox>
+
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0" visible="false">
+                    <children>
+                        <Label prefHeight="24.0" prefWidth="170.0" text="" />
+                        <Label prefHeight="24.0" prefWidth="100.0" text="%menu_domain" />
+                        <TextField fx:id="textDomain" promptText="%example_domain" HBox.hgrow="ALWAYS" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                    </padding>
+                </HBox>
+
+                <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                    <children>
+                        <Label prefHeight="24.0" prefWidth="170.0" text="%menu_init_req_query_str" />
+                        <TextField fx:id="textInitReqQueryStr" HBox.hgrow="ALWAYS" promptText="%example_macros"/>
+                        <Button fx:id="btnInitReqQueryStr" mnemonicParsing="false" onAction="#handleInitReqQueryStrButtonAction" prefWidth="120.0" text="%btn_macros" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+    <stylesheets>
+        <URL value="@sample.css" />
+    </stylesheets>
+</VBox>

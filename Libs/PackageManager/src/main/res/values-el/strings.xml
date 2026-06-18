@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Ακύρωση"</string>
+    <string name="install">"Εγκατάσταση"</string>
+    <string name="launch">"Άνοιγμα"</string>
+    <string name="ok">"OK"</string>
+    <string name="next">"Επόμενο"</string>
+    <string name="done">"Τέλος"</string>
+
+    <string name="install_confirm_dlg_title">"Εγκατάσταση"</string>
+    <string name="install_untrusted_dlg_title">"Εγκατάσταση (Άγνωστο)"</string>
+    <string name="install_confirm_dlg_text">"Θέλετε να εγκαταστήσετε αυτήν την εφαρμογή;"</string>
+
+    <string name="uninstall_confirm_dlg_title">"Κατάργηση εγκατάστασης εφαρμογής"</string>
+    <string name="uninstall_confirm_dlg_text">"Θέλετε να καταργήσετε την εγκατάσταση αυτής της εφαρμογής;"</string>
+
+    <string name="error_dlg_title">"Σφάλμα"</string>
+
+    <string name="installing">"Εγκατάσταση..."</string>
+    <string name="install_done">"Εγκατάσταση εφαρμογής."</string>
+    <string name="install_failed">"Η εφαρμογή δεν έχει εγκατασταθεί."</string>
+
+    <string name="install_confirm_question">"Θέλετε να εγκαταστήσετε αυτήν την εφαρμογή; Θα έχει πρόσβαση σε:"</string>
+    <string name="install_confirm_question_no_perms">"Θέλετε να εγκαταστήσετε αυτήν την εφαρμογή; Δεν απαιτείται οποιαδήποτε ειδική πρόσβαση."</string>
+    <string name="install_confirm_question_update">"Θέλετε να εγκαταστήσετε μια ενημέρωση σε αυτήν την υπάρχουσα εφαρμογή; Τα υπάρχοντα δεδομένα σας δεν θα χαθούν. Η ενημερωμένη εφαρμογή θα έχει πρόσβαση σε:"</string>
+    <string name="install_confirm_question_update_system">"Θέλετε να εγκαταστήσετε μια ενημέρωση σε αυτήν την ενσωματωμένη εφαρμογή; Τα υπάρχοντα δεδομένα σας δεν θα χαθούν. Η ενημερωμένη εφαρμογή θα έχει πρόσβαση σε:"</string>
+    <string name="install_confirm_question_update_no_perms">"Θέλετε να εγκαταστήσετε μια ενημέρωση για αυτήν την υπάρχουσα εφαρμογή; Τα υπάρχοντα δεδομένα σας δεν θα χαθούν. Δεν απαιτείται ειδική πρόσβαση."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Θέλετε να εγκαταστήσετε μια ενημέρωση για αυτήν την ενσωματωμένη εφαρμογή; Τα υπάρχοντα δεδομένα σας δεν θα χαθούν. Δεν απαιτείται ειδική πρόσβαση."</string>
+
+    <string name="uninstall_application_title">"Κατάργηση εγκατάστασης εφαρμογής"</string>
+    <string name="uninstall_update_title">"Κατάργηση εγκατάστασης ενημέρωσης"</string>
+    <string name="uninstalling">"Κατάργηση εγκατάστασης..."</string>
+    <string name="uninstall_done">"Η κατάργηση εγκατάστασης ολοκληρώθηκε."</string>
+    <string name="uninstall_failed">"Μη επιτυχής κατάργηση εγκατάστασης."</string>
+    <string name="uninstall_unauthorized">"Δεν επιτρέπεται στον τρέχοντα χρήση να εκτελέσει την απεγκατάσταση."</string>
+    <string name="out_of_space_dlg_text">"Δεν ήταν δυνατή η εγκατάσταση της εφαρμογής <xliff:g id="APP_NAME">%1$s</xliff:g>. Απελευθερώστε λίγο χώρο και προσπαθήστε ξανά."</string>
+    <string name="newPerms">"Νέο"</string>
+    <string name="allPerms">"Όλα"</string>
+    <string name="privacyPerms">"Απόρρητο"</string>
+    <string name="devicePerms">"Πρόσβαση συσκευής"</string>
+    <string name="no_new_perms">"Αυτή η ενημέρωση δεν απαιτεί νέες άδειες."</string>
+    <string name="manage_device_administrators">"Διαχείριση εφαρμογών διαχείρισης συσκευής"</string>
+</resources>

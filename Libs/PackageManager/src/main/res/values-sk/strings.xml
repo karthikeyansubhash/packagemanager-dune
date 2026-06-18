@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Zrušiť"</string>
+    <string name="install">"Inštalovať"</string>
+    <string name="launch">"Otvoriť"</string>
+    <string name="ok">"OK"</string>
+    <string name="next">"Ďalej"</string>
+    <string name="done">"Hotovo"</string>
+
+    <string name="install_confirm_dlg_title">"Inštalovať"</string>
+    <string name="install_untrusted_dlg_title">"Inštalovať (Neznáme)"</string>
+    <string name="install_confirm_dlg_text">"Chcete nainštalovať túto aplikáciu?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"Odinštalovať aplikáciu"</string>
+    <string name="uninstall_confirm_dlg_text">"Chcete túto aplikáciu odinštalovať?"</string>
+
+    <string name="error_dlg_title">"Chyba"</string>
+
+    <string name="installing">"Inštaluje sa..."</string>
+    <string name="install_done">"Aplikácia bola nainštalovaná."</string>
+    <string name="install_failed">"Aplikácia nebola nainštalovaná."</string>
+
+    <string name="install_confirm_question">"Chcete nainštalovať túto aplikáciu? Získa nasledujúce povolenia:"</string>
+    <string name="install_confirm_question_no_perms">"Chcete nainštalovať túto aplikáciu? Nevyžaduje žiadny zvláštny prístup."</string>
+    <string name="install_confirm_question_update">"Chcete nainštalovať aktualizáciu existujúcej aplikácie? Existujúce údaje sa nestratia. Aktualizovaná aplikácia získa nasledujúce povolenia:"</string>
+    <string name="install_confirm_question_update_system">"Chcete nainštalovať aktualizáciu tejto integrovanej aplikácie? Existujúce údaje sa nestratia. Aktualizovaná aplikácia získa nasledujúce povolenia:"</string>
+    <string name="install_confirm_question_update_no_perms">"Chcete nainštalovať aktualizáciu tejto existujúcej aplikácie? Vaše údaje nebudú stratené. Táto akcia nevyžaduje žiadny zvláštny prístup."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Chcete nainštalovať aktualizáciu tejto vstavanej aplikácie? Vaše údaje sa nestratia. Táto akcia nevyžaduje žiadny zvláštny prístup."</string>
+
+    <string name="uninstall_application_title">"Odinštalovať aplikáciu"</string>
+    <string name="uninstall_update_title">"Odinštalovať aktualizáciu"</string>
+    <string name="uninstalling">"Prebieha odinštalovanie..."</string>
+    <string name="uninstall_done">"Odinštalovanie bolo dokončené."</string>
+    <string name="uninstall_failed">"Odinštalovanie bolo neúspešné."</string>
+    <string name="uninstall_unauthorized">"Aktuálny používateľ nemá na odinštalovanie povolenie."</string>
+    <string name="out_of_space_dlg_text">"Aplikáciu <xliff:g id="APP_NAME">%1$s</xliff:g> sa nepodarilo nainštalovať. Uvoľnite miesto v pamäti a skúste to znova."</string>
+    <string name="newPerms">"Nové"</string>
+    <string name="allPerms">"Všetko"</string>
+    <string name="privacyPerms">"Ochrana súkromia"</string>
+    <string name="devicePerms">"Prístup k zariadeniu"</string>
+    <string name="no_new_perms">"Táto aktualizácia nevyžaduje žiadne nové povolenia."</string>
+    <string name="manage_device_administrators">"Spravovať aplikácie na ovládanie zariadenia"</string>
+</resources>

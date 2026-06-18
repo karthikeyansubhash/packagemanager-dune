@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified"
+	targetNamespace="http://www.hp.com/schemas/jetadvantage/link/hpk/v2.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.hp.com/schemas/jetadvantage/link/hpk/v2.1">
+
+	<xs:element name="hpk" type="HPK"/>
+	<xs:complexType name="HPK">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>Describes a hpk information.</summary>
+				<remarks>Root node v2 (04/26/2018)</remarks>
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element name="uuid" type="UUID" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>
+							<para>A unique identifier (UUID) for this top-level button.</para>
+							<para>Must be of the form: 8-4-4-4-12</para>
+							<para>Example: 3e39cbdc-8760-4dd2-b598-a2898c35e702</para>
+						</summary>
+						<remarks>
+							<para>Solutions must take care to generate unique ids for buttons using a proper uuid generator. The addition of multiple buttons with identical ids may result in erratic
+								device behavior.</para>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="name" type="LimitedString" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>The name of HPK file.</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="vendorName" type="LimitedString" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>The name of Software Vendor that created app.</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="date" type="DateType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>The date when Software Vendor created HPK file.</summary>
+						<remarks>
+							<para>Must be of the form: YYYYMMDD</para>
+							<Example>Example: 20180801</Example>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="platformType" type="PlatformType" default="LinkForDevice"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>This indicates the type of the platform.</summary>
+						<remarks>
+							<para>Examples:</para>
+							<list type="bullet">
+								<item>
+									<description>LinkForDevice</description>
+								</item>
+								<item>
+									<description>LinkForWeb</description>
+								</item>
+							</list>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="installFile" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>The file name that included detail</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+
+			<xs:element name="subApps" type="SubAppListType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>Applies to Apps with platformType=LinkForDevice. List of SubApps associated with App.</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="defaultConfig" type="xs:string" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>The file name that included configuration</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="configs" type="ConfigListType" maxOccurs="1" minOccurs="0" />
+			<xs:element name="mods" type="ModListType" maxOccurs="1" minOccurs="0" />
+			<xs:element name="postInstallActions" type="CommandListType" maxOccurs="1" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SubAppListType">
+		<xs:sequence>
+			<xs:element name="subApp" type="SubAppType" maxOccurs="256" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SubAppType">
+		<xs:sequence>
+			<xs:element name="uuid" type="UUID" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>
+							<para>A unique identifier (UUID) for subApp.</para>
+							<para>Must be of the form: 8-4-4-4-12</para>
+							<para>Example: 3e39cbdc-8760-4dd2-b598-a2898c35e702</para>
+						</summary>
+						<remarks>
+							<para>Solutions must take care to generate unique ids for buttons using a proper uuid generator. The addition of multiple buttons with identical ids may result in erratic
+								device behavior.</para>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="platformId" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>Map of UUID to Platform Id app is developed to.</summary>
+						<remarks>
+							<para>In case of LinkForDevice, it is component name of an activity.</para>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:element name="configs" type="ConfigListType"></xs:element>
+	<xs:complexType name="ConfigListType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>A collection of Configs.</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="config" type="ConfigType" maxOccurs="256" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConfigType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>List of Configs</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="resourceFile" type="xs:string" maxOccurs="1" minOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="key" type="xs:string" use="optional"></xs:attribute>
+		<xs:attribute name="schema" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="content-type" type="xs:string" use="optional">	</xs:attribute>
+	</xs:complexType>
+
+	<xs:element name="mods" type="ModListType"></xs:element>
+	<xs:complexType name="ModListType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>List of Mods</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mod" type="ModType" maxOccurs="256" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ModType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>The name of Mod resource</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="resourceFile" type="xs:string" maxOccurs="1" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="LimitedString">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>Restriction used for string values (min length=1, max length=1024, UTF-8).</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1024"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DateType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>The date when Software Vendor created app.</summary>
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:restriction base="xs:string">
+			<xs:minLength value="8"/>
+			<xs:maxLength value="8"/>
+			<xs:pattern value="\d{4}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="UUID">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>Universially Unique Identifier (UUID).</summary>
+				<remarks>
+					<para>Must be of the form: 8-4-4-4-12</para>
+					<para>Example: 3e39cbdc-8760-4dd2-b598-a2898c35e702</para>
+				</remarks>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<!-- This regular expression was copied from the IPG data dictionary -->
+			<xs:pattern value="[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PlatformType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>This indicates the type of the platform.</summary>
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="LinkForWeb" />
+			<xs:enumeration value="LinkForDevice" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="CommandListType">
+		<xs:sequence>
+			<xs:element name="command" type="CommandType" maxOccurs="256" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CommandType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>List of Commands</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="param" type="CommandParamType" maxOccurs="256" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="CommandParamType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>List of parameters for command</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="name" type="xs:string"></xs:attribute>
+		<xs:attribute name="value" type="xs:string"></xs:attribute>
+	</xs:complexType>
+</xs:schema>

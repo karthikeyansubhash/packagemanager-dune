@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "builtinApps": [
+    {
+      "agentId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "name": "Android Settings App",
+      "description": "Android Settings Test App mapped to the Dune Service App menu",
+      "packageName": "com.android.settings",
+      "activityName": ".Settings"
+    },
+    {
+      "agentId": "3c9f1b2e-8d4a-4e6f-9c3e-2f7a1e6b8d1f",
+      "name": "Android Test Suite App",
+      "description": "Android Test Suite App mapped to the Dune Service App menu",
+      "packageName": "com.hp.jetadvantage.link.systemtestsuite",
+      "activityName": ".MainActivity"
+    }
+  ]
+}

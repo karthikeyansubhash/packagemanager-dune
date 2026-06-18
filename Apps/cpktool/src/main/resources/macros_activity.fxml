@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<VBox prefWidth="500.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.hp.jetadvantage.link.pkgmgt.hpkutil.activities.MacrosActivity"
+      styleClass="thebackground">
+    <children>
+        <VBox>
+            <children>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <Label prefHeight="24.0" prefWidth="250.0" text="%device_macros" alignment="CENTER" style="-fx-font-size: 20px" />
+                        <Label prefHeight="24.0" prefWidth="250.0" text="%authuser_macros" alignment="CENTER" style="-fx-font-size: 20px" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <CheckBox fx:id="checkBoxIpAddress" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%ip_address_macros" onAction="#handleDeviceCheckBoxAction" />
+                        <CheckBox fx:id="checkBoxUserName" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%user_name_macros" onAction="#handleAuthUserCheckBoxAction" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <CheckBox fx:id="checkBoxHostName" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%hostname_macros" onAction="#handleDeviceCheckBoxAction" />
+                        <CheckBox fx:id="checkBoxFullyQualifiedUserName" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%fully_qualified_username_macros" onAction="#handleAuthUserCheckBoxAction"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <CheckBox fx:id="checkBoxModelName" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%model_name_macros" onAction="#handleDeviceCheckBoxAction" />
+                        <CheckBox fx:id="checkBoxDisplayName" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%display_name_macros" onAction="#handleAuthUserCheckBoxAction"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <CheckBox fx:id="checkBoxDate" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%date_macros" onAction="#handleDeviceCheckBoxAction" />
+                        <CheckBox fx:id="checkBoxDomain" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%domain_macros" onAction="#handleAuthUserCheckBoxAction"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <CheckBox fx:id="checkBoxTime" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%time_macros" onAction="#handleDeviceCheckBoxAction" />
+                        <!--<CheckBox fx:id="checkBoxPassword" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%password_macros" onAction="#handleAuthUserCheckBoxAction"/>-->
+                        <CheckBox fx:id="checkBoxEmail" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%email_macros" onAction="#handleAuthUserCheckBoxAction"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <CheckBox fx:id="checkBoxFormatterSerialNum" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%formatter_serial_num_macros" onAction="#handleDeviceCheckBoxAction" />
+                        <CheckBox fx:id="checkBoxExchangeMailBoxUri" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%exchange_mail_box_uri_macros" onAction="#handleAuthUserCheckBoxAction"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <CheckBox fx:id="checkBoxFwVersion" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%fw_version_macros" onAction="#handleDeviceCheckBoxAction" />
+                        <CheckBox fx:id="checkBoxHomeFolderPath" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%home_folder_path_macros" onAction="#handleAuthUserCheckBoxAction"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <CheckBox fx:id="checkBoxSerialNum" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%serial_num_macros" onAction="#handleDeviceCheckBoxAction" />
+                        <CheckBox fx:id="checkBoxAlias" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%alias_macros" onAction="#handleAuthUserCheckBoxAction"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <CheckBox fx:id="checkBoxProductNumber" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%product_number_macros" onAction="#handleDeviceCheckBoxAction" />
+                        <CheckBox fx:id="checkBoxLdapBindUser" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%ldap_bind_user_macros" onAction="#handleAuthUserCheckBoxAction"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <CheckBox fx:id="checkBoxMacAddress" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%macaddress_macros" onAction="#handleDeviceCheckBoxAction" />
+                        <CheckBox fx:id="checkBoxUserPrincipalName" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%user_principal_name_macros" onAction="#handleAuthUserCheckBoxAction"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <Label mnemonicParsing="false" prefWidth="250.0"/>
+                        <CheckBox fx:id="checkBoxSamAccountName" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%sam_account_name_macros" onAction="#handleAuthUserCheckBoxAction"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <Label mnemonicParsing="false" prefWidth="250.0"/>
+                        <CheckBox fx:id="checkBoxSidString" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%sid_string_macros" onAction="#handleAuthUserCheckBoxAction"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <Label mnemonicParsing="false" prefWidth="250.0"/>
+                        <CheckBox fx:id="checkBoxAuthenticationType" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%authentication_type_macros" onAction="#handleAuthUserCheckBoxAction"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                    <children>
+                        <Label mnemonicParsing="false" prefWidth="250.0"/>
+
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+
+    <padding>
+        <Insets top="10.0" />
+    </padding>
+
+    <stylesheets>
+        <URL value="@sample.css" />
+    </stylesheets>
+</VBox>

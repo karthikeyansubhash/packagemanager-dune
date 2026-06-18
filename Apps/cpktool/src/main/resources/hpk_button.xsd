@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified"
+           targetNamespace="http://www.hp.com/schemas/jetadvantage/link/hpk/v2.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.hp.com/schemas/jetadvantage/link/hpk/v2.1">
+
+    <xs:element name="FleetTopLevelButtonRecord" type="FleetTopLevelButtonRecord"/>
+    <xs:complexType name="FleetTopLevelButtonRecord">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>Describes a top-level button.</summary>
+                <remarks>Top level button records are stored in non-volatile memory on the device and are cleared by a disk init or restore factory settings.</remarks>
+            </xs:documentation>
+        </xs:annotation>
+
+
+        <xs:sequence>
+            <xs:element name="id" type="UUID" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>
+                            <para>A unique identifier (UUID) for this top-level button.</para>
+                            <para>Must be of the form: 8-4-4-4-12</para>
+                            <para>Example: 3e39cbdc-8760-4dd2-b598-a2898c35e702</para>
+                        </summary>
+                        <remarks>
+                            <para>Solutions must take care to generate unique ids for buttons using a proper uuid generator. The addition of multiple buttons with identical ids may result in erratic
+                                device behavior.</para>
+                        </remarks>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element name="name" type="LimitedString">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>The name of the top-level button.</summary>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element name="title" type="LocalizedStrings">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>The title of the top-level button. This is a collection of LocalizedString used to supply language-alternative strings to the device for display purposes (must contain
+                            at least one entry, but not more than 64).</summary>
+                        <remarks>
+                            <para>When the device requires a display string for a particular language, it will search the localized strings collection for a string with a matching language code. It
+                                will return the first localized string found in the collection with a matching language code. If no match is found, it will return the first string in the collection
+                                regardless of its language code.</para>
+                            <para>The matching algorithm used is &quot;exact match&quot;. No attempt to find a &quot;closest match&quot; will be made. In other words, if the search key
+                                is &quot;fr-FR&quot;, and the localized string collection is
+                                {(&quot;en-US&quot;,&quot;book&quot;),(&quot;fr-CA&quot;,&quot;livre&quot;)}, no match will be found and &quot;book&quot; will
+                                be returned.</para>
+                            <para>Existing devices support a relatively small subset of language codes, and the subset may vary by device. A web application may include localized strings for all
+                                languages important to its users to all target devices, and the devices will choose the appropriate strings based on their individual capabilities.</para>
+                        </remarks>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element name="description" type="LocalizedStrings">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>The description of the top-level button shown to the user. This is a collection of LocalizedString used to supply language-alternative strings to the device for
+                            display purposes (must contain at least one entry, but not more than 64).</summary>
+                        <remarks>
+                            <para>When the device requires a display string for a particular language, it will search the localized strings collection for a string with a matching language code. It
+                                will return the first localized string found in the collection with a matching language code. If no match is found, it will return the first string in the collection
+                                regardless of its language code.</para>
+                            <para>The matching algorithm used is &quot;exact match&quot;. No attempt to find a &quot;closest match&quot; will be made. In other words, if the search key
+                                is &quot;fr-FR&quot;, and the localized string collection is
+                                {(&quot;en-US&quot;,&quot;book&quot;),(&quot;fr-CA&quot;,&quot;livre&quot;)}, no match will be found and &quot;book&quot; will
+                                be returned.</para>
+                            <para>Existing devices support a relatively small subset of language codes, and the subset may vary by device. A web application may include localized strings for all
+                                languages important to its users to all target devices, and the devices will choose the appropriate strings based on their individual capabilities.</para>
+                        </remarks>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element name="requestedPosition" type="Position">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>The requested position of this top-level button [1,65535]. This value will help determine where the button is located relative to other buttons on the home screen.</summary>
+                        <remarks>
+                            <para>Position 1 is in the upper-left location and position 2 is in the upper-right location, in a &quot;Z&quot;-order layout.</para>
+                            <para>All device implementations will make a best effort to place the button at the requested position, but the actual position of the button may differ from the requested
+                                position if:</para>
+                            <list type="bullet">
+                                <item>
+                                    <description>another homescreen button is registered subsequently, &quot;bumping&quot; this button to a higher numbered position</description>
+                                </item>
+                                <item>
+                                    <description>upon a reboot, buttons are placed on the homescreen by the device implementation in a different order than they were originally
+                                        registered</description>
+                                </item>
+                                <item>
+                                    <description>the device administrator manually reorders the buttons</description>
+                                </item>
+                                <item>
+                                    <description>the device implementation is unable to place a button in the requested position</description>
+                                </item>
+                            </list>
+                        </remarks>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element name="browserTarget" type="BrowserTarget">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>The web application to access when the top-level button is pressed.</summary>
+                        <remarks>
+                            <para>After the walkup user presses the top-level button (and after the walkup user has been authenticated, if required by the top-level button's security settings), the
+                                embedded browser will generate a UI context ID.</para>
+                            <para>The embedded browser will perform an HTTP post (if initialPostQueryFormatString is not null) or get (if initialPostQueryFormatString is null) request to the specified
+                                URI (using the credentials if specified).</para>
+                            <para>The UI context ID will be provided in an OXPd.UIContextId header.</para>
+                            <para>The UI context ID will consist of characters from the set [a-zA-Z0-9] (min length=32, max length=128).</para>
+                            <para>The web application will return xhtml content to be displayed to the walkup user, thereby beginning the walkup user's browser-based workflow experience.</para>
+                            <para>The web application may retain and use the UI context ID to access methods of other OXPd web services (e.g. Accessories, Scan, etc.), until it is invalidated when the
+                                embedded browser is closed.</para>
+                        </remarks>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element name="lookAndFeelSpecificIcons" type="LookAndFeelSpecificIcons"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="UUID">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>Universially Unique Identifier (UUID).</summary>
+                <remarks>
+                    <para>Must be of the form: 8-4-4-4-12</para>
+                    <para>Example: 3e39cbdc-8760-4dd2-b598-a2898c35e702</para>
+                </remarks>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <!-- This regular expression was copied from the IPG data dictionary -->
+            <xs:pattern value="[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="LimitedString">
+        <xs:annotation>
+            <xs:documentation><summary>Restriction used for string values (min length=1, max length=1024, UTF-8).</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="1024"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="LocalizedStrings">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>A collection of LocalizedStrings used to supply language-alternative strings to the device for display purposes (must contain at least one entry, but not more than 64).</summary>
+                <remarks>
+                    <para>When the device requires a display string for a particular language, it will search the localized strings collection for a string with a matching language code. It will
+                        return the first localized string found in the collection with a matching language code. If no match is found, it will return the first string in the collection regardless of
+                        its language code.</para>
+                    <para>The matching algorithm used is &quot;exact match&quot;. No attempt to find a &quot;closest match&quot; will be made. In other words, if the search key is
+                        &quot;fr-FR&quot;, and the localized string collection is {(&quot;en-US&quot;,&quot;book&quot;),(&quot;fr-CA&quot;,&quot;livre&quot;)},
+                        no match will be found and &quot;book&quot; will be returned.</para>
+                    <para>Existing devices support a relatively small subset of language codes, and the subset may vary by device. A web application may include localized strings for all languages
+                        important to its users to all target devices, and the devices will choose the appropriate strings based on their individual capabilities.</para>
+                </remarks>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="64" name="LocalizedString" type="LocalizedString"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LocalizedString">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>A localized string, including both a language code and a string value.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="code" type="LanguageCode">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>Specifies the language for which the corresponding string value has been localized.</summary>
+                        <remarks>
+                            <para>A language code is case sensitive and must be of the form: &quot;xx-YY&quot;.</para>
+                            <para>xx (2-letter primary subtag) is interpreted according to assignments found in ISO standard 639 part 1.</para>
+                            <para>YY (2-letter secondary subtag) is interpreted according to assignments found in ISO 3166.</para>
+                        </remarks>
+                        <example>
+                            <list type="table">
+                                <listheader>
+                                    <term>code</term>
+                                    <description>language</description>
+                                </listheader>
+                                <item>
+                                    <term>en-US</term>
+                                    <description>English as spoken in the United States</description>
+                                </item>
+                                <item>
+                                    <term>fr-FR</term>
+                                    <description>French as spoken in France</description>
+                                </item>
+                                <item>
+                                    <term>fr-CA</term>
+                                    <description>French as spoken in Canada</description>
+                                </item>
+                                <item>
+                                    <term>es-ES</term>
+                                    <description>Spanish as spoken in Spain</description>
+                                </item>
+                                <item>
+                                    <term>ca-ES</term>
+                                    <description>Catalan as spoken in Spain</description>
+                                </item>
+                                <item>
+                                    <term>zh-CN</term>
+                                    <description>Chinese as spoken in China</description>
+                                </item>
+                                <item>
+                                    <term>zh-TW</term>
+                                    <description>Chinese as spoken in Taiwan</description>
+                                </item>
+                            </list>
+                        </example>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="value" type="LimitedString">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>A string value, localized for the corresponding language code (min length=1, max length=1024, UTF-8).</summary>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="LanguageCode">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>Restriction used for language codes.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-z]{2}\-[A-Z]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Position">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>Restriction used for positions.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:unsignedShort">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="65535"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="BrowserTarget">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>Describes a browser target.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="initialPostQueryFormatString" type="InitialPostQueryFormatString">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>Format string to be used as the body of the initial HTTP post from the embedded browser to the web application when the top-level button is pressed (may be null, min
+                            length=1, max length=1024, UTF-8).</summary>
+                        <remarks>
+                            <para>The format string is a &quot;free form&quot; string, that may contain OXPd defined macros.</para>
+                            <para>If the format string is null, the embedded browser will perform an initial HTTP get request to the web application.</para>
+                            <para>If the format string is not null, the embedded browser will perform an initial HTTP post request to the web application, using the format string to construct the post
+                                body.</para>
+                            <para>When the initial HTTP post request is being constructed, the device will expand all macros, urlencode the values, and insert the urlencoded values into the format
+                                string. It will then use the result as the body of the HTTP post (application/x-www-form-urlencoded). The solution is responsible for ensuring that the remainder of the
+                                string is properly encoded.</para>
+                            <para>Through the format string, the web application has complete control over the content of the post body.</para>
+                            <para>The following table lists all macros defined by OXPd for use in the initial post query format string. A substring of the form $somestring$, where <b>somestring</b> is
+                                not an OXPd macro will not be expanded (i.e. it will remain $somestring$ after macro expansion), but will be urlencoded (i.e. it will be inserted as %24somestring%24).
+                                An OXPd macro that currently has no value associated with it on the target device will expand to the empty string.</para>
+                            <para>Two consecutive dollar signs (&quot;$$&quot;), where the first dollar sign is not the terminal delimiter for a macro, will be replaced with a single dollar
+                                sign. A single dollar sign at the end of the format string, where the dollar sign is not the terminal delimiter for a macro, will be left unchanged. <b>Note that both
+                                    of these cases result in an invalid urlencoded query string.</b> To produce a valid query string with a dollar sign, use the urlencoded dollar sign
+                                (&quot;%24&quot;) in the format string.</para>
+                            <list type="table">
+                                <listheader>
+                                    <term>Supported Macros</term>
+                                    <description>Description</description>
+                                </listheader>
+                                <item>
+                                    <term>
+                                        <b>Device scope</b>
+                                    </term>
+                                    <description> </description>
+                                </item>
+                                <item>
+                                    <term>$DEVICE_IP_ADDRESS$</term>
+                                    <description>
+                                        <para>The IP address of the device in IPv6 format.</para>
+                                        <para>When a device has multiple IP addresses, only one address will be provided.</para>
+                                        <para>An IPv4 address 1.2.3.4 will be represented in IPv6 format as: ::ffff:1.2.3.4</para>
+                                    </description>
+                                </item>
+                                <item>
+                                    <term>$DEVICE_HOSTNAME$</term>
+                                    <description>The fully qualified hostname of the device</description>
+                                </item>
+                                <item>
+                                    <term>$DEVICE_MODELNAME$</term>
+                                    <description>The model name of the device. Example: &quot;HP LaserJet M3035 MFP&quot;</description>
+                                </item>
+                                <item>
+                                    <term>$DEVICE_DATE$</term>
+                                    <description>The local date on the device as of the construction of the post body, of the format YYYY-MM-DD (ISO 8601 Extended format)</description>
+                                </item>
+                                <item>
+                                    <term>$DEVICE_TIME$</term>
+                                    <description>The local time on the device as of the construction of the post body, of the format HH:mm:ss+hh:mm or HH:mm:ss-hh:mm (ISO 8601 Extended
+                                        format)</description>
+                                </item>
+                                <item>
+                                    <term>$DEVICE_FORMATTER_SERIAL_NUM$</term>
+                                    <description>The device's formatter's serial number</description>
+                                </item>
+                                <item>
+                                    <term>$DEVICE_FW_VERSION$</term>
+                                    <description>The device's firmware version</description>
+                                </item>
+                                <item>
+                                    <term>$DEVICE_SERIAL_NUM$</term>
+                                    <description>The device's serial number</description>
+                                </item>
+                                <item>
+                                    <term>$DEVICE_ID$</term>
+                                    <description>(Added in Release 1.7) A unique ID (GUID) for the device. No two devices shall have the same ID.</description>
+                                </item>
+                                <item>
+                                    <term>$DEVICE_PRODUCTNUMBER$</term>
+                                    <description>(Added in Release 1.7) Product number of the product, represented typically as &quot;CXXXXA&quot;.</description>
+                                </item>
+                                <item>
+                                    <term>$DEVICE_MACADDRESS$</term>
+                                    <description>
+                                        <para>(Added in Release 1.7) The MAC address of the device.</para>
+                                        <para>When a device has multiple MAC addresses, only one address will be provided.</para>
+                                    </description>
+                                </item>
+                                <item>
+                                    <term>
+                                        <b>Authentication session scope</b>
+                                    </term>
+                                    <description> </description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_USERNAME$</term>
+                                    <description>The authenticated walkup user's user name. Example: &quot;jdoe&quot;</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_FULLYQUALIFIEDUSERNAME$</term>
+                                    <description>(Added in Release 1.7) The authenticated walkup user's OXP standardized username. Ensures that even when there are minor differences in formatting, the
+                                        same username will be used consistently in audit logs, job accounting, etc. This is especially important when trying to match usernames provided in print jobs
+                                        to usernames entered on the control panel. Example: &quot;MYSERVER\jpublic&quot;</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_DISPLAYNAME$</term>
+                                    <description>(Added in Release 1.7) The authenticated walkup user's friendly user name for display purposes. Example: &quot;John Doe&quot;</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_DOMAIN$</term>
+                                    <description>The authenticated walkup user's domain</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_PASSWORD$</term>
+                                    <description>The authenticated walkup user's password</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_EMAIL$</term>
+                                    <description>The authenticated walkup user's email address. Example: &quot;john.doe@hp.com&quot;</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_EXCHANGEMAILBOXURI$</term>
+                                    <description>(Added in Release 1.7) The authenticated walkup user's exchange mailbox (URI). Example:
+                                        &quot;http://E299-MIT/exchange/user1&quot;</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_HOMEFOLDERPATH$</term>
+                                    <description>(Added in Release 1.7) The authenticated walkup user's home folder path. Example: &quot;\\myserver\user1&quot;</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_ALIAS$</term>
+                                    <description>(Deprecated in Release 1.7, use AUTHUSER_DISPLAYNAME) The authenticated walkup user's email alias. Example: &quot;John Doe&quot;</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_LDAPBINDUSER$</term>
+                                    <description>(Added in Release 1.7) The authenticated walkup user's LDAP Bind User atttribute.</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_USERPRINCIPALNAME$</term>
+                                    <description>(Added in Release 1.7) The authenticated walkup user's userPrincipalName atttribute.</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_SAMACCOUNTNAME$</term>
+                                    <description>(Added in Release 1.7) The authenticated walkup user's sAMAccountName atttribute.</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_SIDSTRING$</term>
+                                    <description>(Added in Release 1.7) The authenticated walkup user's Microsoft Security Descriptor in text format (SDDL).</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_AUTHTYPE$</term>
+                                    <description>(Deprecated in Release 1.7, use AUTHUSER_AUTHENTICATIONTYPE) Authentication agent used to authenticate the current user. Known possible values are NT,
+                                        Novell, NovellBindery, and LDAP; though other values could be used.</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_AUTHENTICATIONTYPE$</term>
+                                    <description>(Added in Release 1.7) Authentication agent type used to authenticate the current user. Possible values are derived from
+                                        OXPd.Domain.Security.AuthenticationType.</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_NDSSERVER$</term>
+                                    <description>(Deprecated in Release 1.7) NDS Server</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_TREE$</term>
+                                    <description>NDS tree</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_CONTEXT$</term>
+                                    <description>NDS context</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_BINDERYSERVER$</term>
+                                    <description>(Deprecated in Release 1.7) Novell bindery server</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_DEPARTMENT$</term>
+                                    <description>(Deprecated in Release 1.7, use a custom attribute tag) The authenticated walkup user's department code</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_DEPARTMENTACCESSCODE$</term>
+                                    <description>(Deprecated in Release 1.7, use a custom attribute tag) The authenticated walkup user's department access code</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_JOBACCT13$</term>
+                                    <description>(Deprecated in Release 1.7, use a custom attribute tag) Reserved for 3rd party use</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_JOBACCT14$</term>
+                                    <description>(Deprecated in Release 1.7, use a custom attribute tag) Reserved for 3rd party use</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_JOBACCT15$</term>
+                                    <description>(Deprecated in Release 1.7, use a custom attribute tag) Reserved for 3rd party use</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_JOBACCT16$</term>
+                                    <description>(Deprecated in Release 1.7, use a custom attribute tag) Reserved for 3rd party use</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_ATTR_{tagname}$</term>
+                                    <description>Attribute {tagname} for the authenticated walkup user. Tagname is case sensitive. Tagname must not contain a ‘$’. If the tagname is not
+                                        recognized/defined on the device, the macro will expand to an empty string.</description>
+                                </item>
+                                <item>
+                                    <term>$AUTHUSER_OPAQUEAUTHNTOKEN$</term>
+                                    <description>
+                                        <para>(Added in Release 1.7) The authenticated walkup user's Opaque Authentication Token</para>
+                                        <para>Due to its potential expanded size, an OPAQUEAUTHNTOKEN macro should never be used more than once in a format string.</para>
+                                    </description>
+                                </item>
+                                <item>
+                                    <term>
+                                        <b>Scan job scope</b>
+                                    </term>
+                                    <description> </description>
+                                </item>
+                                <item>
+                                    <term>$SCAN_JOBID$</term>
+                                    <description>This scan job's ID</description>
+                                </item>
+                                <item>
+                                    <term>$SCAN_FILELIST$</term>
+                                    <description>
+                                        <para>The list of scan files, as they were named when sent to the destination. When expanded, the file names will be separated with the metadata file list
+                                            delimiter. (See examples below.)</para>
+                                        <para>For jobs where multiple image files are sent to the destination in separate atomic operations, a web application can use this macro to verify that all of
+                                            the image files associated with the job were received at the destination.</para>
+                                    </description>
+                                </item>
+                                <item>
+                                    <term>$SCAN_TOTALIMAGES$</term>
+                                    <description>The total number of images (sides of a sheet) scanned for this scan job</description>
+                                </item>
+                                <item>
+                                    <term>$SCAN_TOTALIMAGESTRANSMITTED$</term>
+                                    <description>
+                                        <para>(Added in Release 1.7)The total number of images (sides of a sheet) transmitted for this scan job</para>
+                                        <para>This value will equal SCAN_TOTALIMAGES minus the number of images removed either automatically by blank image removal or manually by a user (using the
+                                            device's built-in scan preview feature).</para>
+                                    </description>
+                                </item>
+                                <item>
+                                    <term>$SCAN_COLORMODE$</term>
+                                    <description> Most useful when the scan ticket specifies an Auto color mode. If all scanned images are color, the macro expands to &quot;Color&quot;. If all
+                                        scanned images are monochrome, it expands to &quot;Mono&quot;. If some images are auto-detected as color, while others are auto-detected as monochrome,
+                                        it expands to &quot;Various&quot;.</description>
+                                </item>
+                                <item>
+                                    <term> $SCAN_MEDIASIZE$</term>
+                                    <description>Most useful when the scan ticket specifies a MixedLetterLegal media size. If all scanned images are Letter size, the macro expands to
+                                        &quot;Letter&quot;. If all scanned images are Legal size, it expands to &quot;Legal&quot;. If some images are auto-detected as Letter Size,
+                                        while others are auto-detected as Legal size, it expands to &quot;Various&quot;.</description>
+                                </item>
+                                <item>
+                                    <term> $SCAN_MEDIASOURCE$</term>
+                                    <description>Most useful when the scan ticket specifies an Auto media source. If all images are scanned from the automatic document feeder, the macro expands to
+                                        &quot;Adf&quot;. If all images are scanned from the glass, the macro expands to &quot;Flatbed&quot;. If some images are scanned from the
+                                        automatic document feeder, while others are scanned from the glass, it expands to &quot;Various&quot;.</description>
+                                </item>
+                                <item>
+                                    <term>
+                                        <b>Quota context scope</b>
+                                    </term>
+                                    <description> </description>
+                                </item>
+                                <item>
+                                    <term>$QUOTA_TOTALCOST$</term>
+                                    <description>(Added in Release 1.7) The total cost of the job so far.</description>
+                                </item>
+                                <item>
+                                    <term>$QUOTA_MONOIMPRESSIONCOST$</term>
+                                    <description>(Added in Release 1.7) The total monochrome impression cost of the job so far.</description>
+                                </item>
+                                <item>
+                                    <term>$QUOTA_COLORIMPRESSIONCOST$</term>
+                                    <description>(Added in Release 1.7) The total color impression cost of the job so far.</description>
+                                </item>
+                            </list>
+                        </remarks>
+                        <example>
+                            <b>Inputs:</b>
+                            <para>formatString=&quot;Model%20Name=$DEVICE_MODELNAME$&amp;User%20Name=$AUTHUSER_DISPLAYNAME$&amp;Email=$AUTHUSER_EMAIL$&amp;ABC=$abc$&quot;</para>
+                            <para>DEVICE_MODELNAME=&quot;HP LaserJet M3035 MFP&quot;</para>
+                            <para>AUTHUSER_DISPLAYNAME=&quot;John Doe&quot;</para>
+                            <para>AUTHUSER_EMAIL=&quot;John.Doe@hp.com&quot;</para>
+                            <b>Post request:</b>
+                            <para>POST /myWebApp.aspx HTTP/1.1</para>
+                            <para>Host: www.mySite.com</para>
+                            <para>OXPd.UIContextId: 02923408230498593845303423452345</para>
+                            <para>&lt;Other OXPd Context IDs may be included here&gt;</para>
+                            <para>Content-Length: 56</para>
+                            <para>Content-Type: application/x-www-form-urlencoded; charset=utf-8</para>
+                            <para>&#8629;</para>
+                            <para>Model%20Name=HP+LaserJet+M3035+MFP&amp;User%20Name=John+Doe&amp;Email=John.Doe%40hp.com&amp;ABC=%24abc%24</para>
+                        </example>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="webApplication" type="WebResource">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>The web resource for the web application that the browser will access when the top-level button is pressed.</summary>
+                        <remarks>
+                            <para>The specified scheme must be HTTP or HTTPS and specified binding method must be Plain.</para>
+                            <para>After the walkup user presses the top-level button (and after the walkup user has been authenticated, if required by the top-level button's security settings), the
+                                embedded browser will generate a UI context ID.</para>
+                            <para>The embedded browser will perform an HTTP post (if initialPostQueryFormatString is not null) or get (if initialPostQueryFormatString is null) request to the specified
+                                URI (using the credentials if specified).</para>
+                            <para>The UI context ID will be provided in an OXPd.UIContextId header.</para>
+                            <para>The UI context ID will consist of characters from the set [a-zA-Z0-9] (min length=32, max length=128).</para>
+                            <para>The web application will return xhtml content to be displayed to the walkup user, thereby beginning the walkup user's browser-based workflow experience.</para>
+                            <para>The web application may retain and use the UI context ID to access methods of other OXPd web services (e.g. Accessories, Scan, etc.), until it is invalidated when the
+                                embedded browser is closed.</para>
+                        </remarks>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="InitialPostQueryFormatString">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>Restriction used for file list delimiters.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="1024"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="WebResource">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>A web resource specifies where (URI) and how (binding and credentials) to access a resource on the network.</summary>
+                <remarks>
+                    <para>The validity of a given web resource (specified scheme and binding) is context dependent. For example, a particular scheme (e.g. FTP, HTTP, HTTPS, FILE) may or may not be
+                        supported depending on the context in which it is being used. Likewise, a particular binding (e.g. Soap 1.2, Plain) may or may not be supported depending on the context in
+                        which it is being used.</para>
+                </remarks>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="uri" type="LimitedUri">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>The URI (must match the pattern '(https?|file|ftp)://([^@]*/.*|[^@]*\?.*|[^@]*)'; case sensitive, max length=256).</summary>
+                        <remarks>
+                            <para>Note that the value must start with 'http://', 'https://', 'file://', or 'ftp://'.</para>
+                            <para>OXPd disallows URIs with embedded authentication credentials (e.g. ftp://username:password@domain/path) by explicitly prohibiting the use of &quot;@&quot; in
+                                the domain part of the URI. If authentication credentials are required to access the URI, they must be specified in a network credentials property.</para>
+                        </remarks>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="binding" type="Binding">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>The binding to use when accessing the URI.</summary>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="networkCredentials" type="NetworkCredentials">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>The network credentials to be used when accessing the URI (may be null if no credentials are needed to access the URI).</summary>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="LimitedUri">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>Restriction used for URIs.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:anyURI">
+            <xs:maxLength value="256"/>
+            <xs:pattern value="(https?|file|ftp)://([^@]*/.*|[^@]*\?.*|[^@]*)"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Binding">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>An enumeration of supported bindings.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Plain">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>No special binding will be used to communicate to this URI.</summary>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Soap12">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>A SOAP 1.2 binding will be used to communicate to this URI.</summary>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="NetworkCredentials">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>The authentication credentials to use when accessing the URI.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="userName" type="UserName">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>The username credential (min length=1, max length=128). While some restrictions are imposed by the schema, the caller is responsible for any additional length, format,
+                            character, or other restrictions that may be required by the actual network or solution server.</summary>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="password" type="Password">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>The password credential (min length=1, max length=128, must match the regular expression
+                            '([a-zA-Z]([a-zA-Z0-9]0,61[a-zA-Z0-9])?.)*[a-zA-Z]([a-zA-Z0-9]0,61[a-zA-Z0-9])?'). While some restrictions are imposed by the schema, the caller is responsible for any
+                            additional length, format, character, or other restrictions that may be required by the actual network or solution server.</summary>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="domain" type="Domain">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>The domain to which the credentials apply (min length=1, max length=256, must match the regular expresion
+                            '([a-zA-Z]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)*[a-zA-Z]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?', may be null). Use domain only in combination with URIs using the FILE scheme. For
+                            all other schemes, domain must be null. While some restrictions are imposed by the regular expression, the caller is responsible for any additional length, format,
+                            character, or other restrictions that may be required by the actual network or solution server.</summary>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="UserName">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>Restriction used for user names.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="128"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Password">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>Restriction used for passwords.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="128"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Domain">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>Restriction used for domains.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="256"/>
+            <!-- This regular expression was copied from the IPG data dictionary -->
+            <xs:pattern value="([a-zA-Z]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)*[a-zA-Z]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="LookAndFeelSpecificIcons">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>A collection of LookAndFeelSpecificIcons.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="256" name="lookAndFeelSpecificIcon" type="LookAndFeelSpecificIcon"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LookAndFeelSpecificIcon">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>Describes a look and feel icon.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="lookAndFeel" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>Indicates the type of look and feel exhibited by the device. (See the latest 'OXPd Look and Feel Comparison Guide' for details on all Look and Feel versions.)</summary>
+                        <remarks>
+                            <para>Examples (this list may be incomplete):</para>
+                            <list type="bullet">
+                                <item>
+                                    <description>WJ1.5</description>
+                                </item>
+                                <item>
+                                    <description>WJ2.1</description>
+                                </item>
+                                <item>
+                                    <description>WJ2.6</description>
+                                </item>
+                                <item>
+                                    <description>WJ2.7</description>
+                                </item>
+                                <item>
+                                    <description>WJ4.0</description>
+                                </item>
+                                <item>
+                                    <description>MF1.0</description>
+                                </item>
+                                <item>
+                                    <description>MF1.5</description>
+                                </item>
+                                <item>
+                                    <description>Omni:90x90</description>
+                                </item>
+                                <item>
+                                    <description>Omni:140x140</description>
+                                </item>
+                                <item>
+                                    <description>Omni:179x179</description>
+                                </item>
+                            </list>
+                        </remarks>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="icon" type="Icon">
+                <xs:annotation>
+                    <xs:documentation>
+                        <summary>The icon to be displayed in the center of the top-level button (may be null, min size=1, max size=65535).</summary>
+                        <remarks>
+                            <para>As of MinorRevision 1.1, solutions shall retrieve the UIProfile and use the lookAndFeel value to determine which icon formats are supported by the target device. (See
+                                the 'OXPd Look and Feel Comparison Guide' to determine the icon formats supported by each Look and Feel version.)</para>
+                            <para>If the icon data is null, the device will display a default button icon (most likely blank).</para>
+                            <para>If the icon data is corrupt, the device will display a default button icon.</para>
+                            <para>If the icon's height exceeds the device's top-level button icon height, the device will display a default button icon.</para>
+                            <para>If the icon's width exceeds the device's top-level button icon width, the device will display a default button icon.</para>
+                            <para>If the icon's height and/or width is smaller than the device's top-level button icon dimensions, the icon will be centered in the available space.</para>
+                        </remarks>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="Icon">
+        <xs:annotation>
+            <xs:documentation>
+                <summary>Restriction used for icons.</summary>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:base64Binary">
+            <xs:minLength value="1"/>
+            <!--<xs:maxLength value="65535"/>-->
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

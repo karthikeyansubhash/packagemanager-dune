@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- added non-translatable items below -->
+
+    <!-- local receiver port number -->
+    <integer name="default_local_receiver_port" tranlatable="false">3000</integer>
+</resources>

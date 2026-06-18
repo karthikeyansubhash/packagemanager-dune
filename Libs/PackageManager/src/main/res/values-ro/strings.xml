@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Anulați"</string>
+    <string name="install">"Instalați"</string>
+    <string name="launch">"Deschideți"</string>
+    <string name="ok">"OK"</string>
+    <string name="next">"Înainte"</string>
+    <string name="done">"Terminat"</string>
+
+    <string name="install_confirm_dlg_title">"Instalați"</string>
+    <string name="install_untrusted_dlg_title">"Instalați (Necunoscut)"</string>
+    <string name="install_confirm_dlg_text">"Doriți să instalați această aplicație?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"Dezinstalați aplicația"</string>
+    <string name="uninstall_confirm_dlg_text">"Doriți să dezinstalați această aplicație?"</string>
+
+    <string name="error_dlg_title">"Eroare"</string>
+
+    <string name="installing">"În curs de instalare..."</string>
+    <string name="install_done">"Aplicație instalată."</string>
+    <string name="install_failed">"Aplicația nu este instalată."</string>
+
+    <string name="install_confirm_question">"Doriți să instalați această aplicație? Aceasta va avea acces la:"</string>
+    <string name="install_confirm_question_no_perms">"Doriți să instalați această aplicație? Aplicația nu solicită un acces special."</string>
+    <string name="install_confirm_question_update">"Doriți să instalați o actualizare pentru această aplicație existentă? Datele existente nu vor fi pierdute. Aplicația actualizată va avea acces la:"</string>
+    <string name="install_confirm_question_update_system">"Doriți să instalați o actualizare pentru această aplicație încorporată? Datele existente nu vor fi pierdute. Aplicația actualizată va avea acces la:"</string>
+    <string name="install_confirm_question_update_no_perms">"Doriți să instalați o actualizare pentru această aplicație existentă? Datele existente nu vor fi pierdute. Actualizarea nu are nevoie de acces special."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Doriți să instalați o actualizare pentru această aplicație încorporată? Datele existente nu vor fi pierdute. Actualizarea nu are nevoie de acces special."</string>
+
+    <string name="uninstall_application_title">"Dezinstalați aplicația"</string>
+    <string name="uninstall_update_title">"Dezinstalați actualizarea"</string>
+    <string name="uninstalling">"În curs de dezinstalare..."</string>
+    <string name="uninstall_done">"Dezinstalare finalizată."</string>
+    <string name="uninstall_failed">"Dezinstalare nefinalizată."</string>
+    <string name="uninstall_unauthorized">"Utilizatorul actual nu are permisiune pentru a face această dezinstalare."</string>
+    <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g> nu a putut fi instalată. Eliberați spațiu și încercați din nou."</string>
+    <string name="newPerms">"Noi"</string>
+    <string name="allPerms">"Toate"</string>
+    <string name="privacyPerms">"Confidențialitate"</string>
+    <string name="devicePerms">"Acces la dispozitiv"</string>
+    <string name="no_new_perms">"Această actualizare nu necesită permisiuni noi."</string>
+    <string name="manage_device_administrators">"Gestionați aplicațiile de administrare dispozitiv"</string>
+</resources>

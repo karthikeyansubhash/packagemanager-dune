@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified"
+	targetNamespace="http://www.hp.com/schemas/jetadvantage/link/hpk/v2.3"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+	xmlns="http://www.hp.com/schemas/jetadvantage/link/hpk/v2.3">
+
+	<xs:element name="hpk" type="HPK"/>
+	<xs:complexType name="HPK">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>Describes a hpk information.</summary>
+				<remarks>Root node v3 (11/30/2018)</remarks>
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element name="uuid" type="UUID" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>
+							<para>A unique identifier (UUID) for this top-level button.</para>
+							<para>Must be of the form: 8-4-4-4-12</para>
+							<para>Example: 3e39cbdc-8760-4dd2-b598-a2898c35e702</para>
+						</summary>
+						<remarks>
+							<para>Solutions must take care to generate unique ids for buttons using a proper uuid generator. The addition of multiple buttons with identical ids may result in erratic
+								device behavior.</para>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="name" type="LimitedString" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>The name of HPK file.</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="vendorName" type="LimitedString" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>The name of Software Vendor that created app.</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="date" type="DateType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>The date when Software Vendor created HPK file.</summary>
+						<remarks>
+							<para>Must be of the form: YYYYMMDD</para>
+							<Example>Example: 20180801</Example>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="platformType" type="PlatformType" default="LinkForDevice"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>This indicates the type of the platform.</summary>
+						<remarks>
+							<para>Examples:</para>
+							<list type="bullet">
+								<item>
+									<description>LinkForDevice</description>
+								</item>
+								<item>
+									<description>LinkForWeb</description>
+								</item>
+							</list>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="installFile" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>The file name that included detail</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+
+			<xs:element name="subApps" type="SubAppListType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>Applies to Apps with platformType=LinkForDevice. List of SubApps associated with App.</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="defaultConfig" type="xs:string" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>The file name that included configuration</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="configs" type="ConfigListType" maxOccurs="1" minOccurs="0" />
+			<xs:element name="mods" type="ModListType" maxOccurs="1" minOccurs="0" />
+			<xs:element name="providers" type="ProviderListType" maxOccurs="1" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SubAppListType">
+		<xs:sequence>
+			<xs:element name="subApp" type="SubAppType" maxOccurs="256" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SubAppType">
+		<xs:sequence>
+			<xs:element name="uuid" type="UUID" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>
+							<para>A unique identifier (UUID) for subApp.</para>
+							<para>Must be of the form: 8-4-4-4-12</para>
+							<para>Example: 3e39cbdc-8760-4dd2-b598-a2898c35e702</para>
+						</summary>
+						<remarks>
+							<para>Solutions must take care to generate unique ids for buttons using a proper uuid generator. The addition of multiple buttons with identical ids may result in erratic
+								device behavior.</para>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="platformId" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>Map of UUID to Platform Id app is developed to.</summary>
+						<remarks>
+							<para>In case of LinkForDevice, it is component name of an activity.</para>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:element name="configs" type="ConfigListType"></xs:element>
+	<xs:complexType name="ConfigListType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>A collection of Configs.</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="config" type="ConfigType" maxOccurs="256" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConfigType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>List of Configs</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="resourceFile" type="xs:string" maxOccurs="1" minOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="key" type="xs:string" use="optional"></xs:attribute>
+		<xs:attribute name="schema" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="content-type" type="xs:string" use="optional">	</xs:attribute>
+	</xs:complexType>
+
+	<xs:element name="mods" type="ModListType"></xs:element>
+	<xs:complexType name="ModListType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>List of Mods</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="mod" type="ModType" maxOccurs="256" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ModType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>The name of Mod resource</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="resourceFile" type="xs:string" maxOccurs="1" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="LimitedString">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>Restriction used for string values (min length=1, max length=1024, UTF-8).</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1024"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DateType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>The date when Software Vendor created app.</summary>
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:restriction base="xs:string">
+			<xs:minLength value="8"/>
+			<xs:maxLength value="8"/>
+			<xs:pattern value="\d{4}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="UUID">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>Universially Unique Identifier (UUID).</summary>
+				<remarks>
+					<para>Must be of the form: 8-4-4-4-12</para>
+					<para>Example: 3e39cbdc-8760-4dd2-b598-a2898c35e702</para>
+				</remarks>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<!-- This regular expression was copied from the IPG data dictionary -->
+			<xs:pattern value="[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PlatformType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>This indicates the type of the platform.</summary>
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="LinkForWeb" />
+			<xs:enumeration value="LinkForDevice" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="ProviderListType">
+		<xs:sequence>
+			<xs:element name="provider" type="ProviderType" maxOccurs="256" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ProviderType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>List of Providers</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uuid" type="UUID" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>
+							<para>A unique identifier (UUID) for this top-level button.</para>
+							<para>Must be of the form: 8-4-4-4-12</para>
+							<para>Example: 3e39cbdc-8760-4dd2-b598-a2898c35e702</para>
+						</summary>
+						<remarks>
+							<para>Solutions must take care to generate unique ids for buttons using a proper uuid generator. The addition of multiple buttons with identical ids may result in erratic
+								device behavior.</para>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="title" type="LocalizedStrings" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>The title of the provider. This is a collection of LocalizedString used to supply language-alternative strings to the device for display purposes (must contain
+							at least one entry, but not more than 64).</summary>
+						<remarks>
+							<para>When the device requires a display string for a particular language, it will search the localized strings collection for a string with a matching language code. It
+								will return the first localized string found in the collection with a matching language code. If no match is found, it will return the first string in the collection
+								regardless of its language code.</para>
+							<para>The matching algorithm used is &quot;exact match&quot;. No attempt to find a &quot;closest match&quot; will be made. In other words, if the search key
+								is &quot;fr-FR&quot;, and the localized string collection is
+								{(&quot;en-US&quot;,&quot;book&quot;),(&quot;fr-CA&quot;,&quot;livre&quot;)}, no match will be found and &quot;book&quot; will
+								be returned.</para>
+							<para>Existing devices support a relatively small subset of language codes, and the subset may vary by device. A web application may include localized strings for all
+								languages important to its users to all target devices, and the devices will choose the appropriate strings based on their individual capabilities.</para>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="description" type="LocalizedStrings" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>The description of the provider shown to the user. This is a collection of LocalizedString used to supply language-alternative strings to the device for
+							display purposes (must contain at least one entry, but not more than 64).</summary>
+						<remarks>
+							<para>When the device requires a display string for a particular language, it will search the localized strings collection for a string with a matching language code. It
+								will return the first localized string found in the collection with a matching language code. If no match is found, it will return the first string in the collection
+								regardless of its language code.</para>
+							<para>The matching algorithm used is &quot;exact match&quot;. No attempt to find a &quot;closest match&quot; will be made. In other words, if the search key
+								is &quot;fr-FR&quot;, and the localized string collection is
+								{(&quot;en-US&quot;,&quot;book&quot;),(&quot;fr-CA&quot;,&quot;livre&quot;)}, no match will be found and &quot;book&quot; will
+								be returned.</para>
+							<para>Existing devices support a relatively small subset of language codes, and the subset may vary by device. A web application may include localized strings for all
+								languages important to its users to all target devices, and the devices will choose the appropriate strings based on their individual capabilities.</para>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="authenticationUrl" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>Url to be launched for Sign In.</summary>
+						<remarks>
+							<para>In case of LinkForDevice, it is component name of an activity.</para>
+						</remarks>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="enablePrePromptCheck" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>Allows to provide preprompt service to be called before launching Sign In.</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="enableHomeScreenMode" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>Enable homescreenmode.</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="configOnInstall" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>Configure application as homescreen for launching automatically after installation.</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="registrationType" type="RegistrationType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>Registration type of the accessory.</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="vendorId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>VendorId of the accessory</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="productId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>ProductId of the accessory</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="serialNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>SerialNumber of the accessory</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="type" type="ProviderTypeDetail" />
+	</xs:complexType>
+
+	<xs:simpleType name="RegistrationType">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>This indicates the registration type of the accessory.</summary>
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OWNED" />
+			<xs:enumeration value="SHARED" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ProviderTypeDetail">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>This indicates the type of the provider.</summary>
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AUTHN" />
+			<xs:enumeration value="HOMESCREEN" />
+			<xs:enumeration value="ACCESSORIES" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="LocalizedStrings">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>A collection of LocalizedStrings used to supply language-alternative strings to the device for display purposes (must contain at least one entry, but not more than 64).</summary>
+				<remarks>
+					<para>When the device requires a display string for a particular language, it will search the localized strings collection for a string with a matching language code. It will
+						return the first localized string found in the collection with a matching language code. If no match is found, it will return the first string in the collection regardless of
+						its language code.</para>
+					<para>The matching algorithm used is &quot;exact match&quot;. No attempt to find a &quot;closest match&quot; will be made. In other words, if the search key is
+						&quot;fr-FR&quot;, and the localized string collection is {(&quot;en-US&quot;,&quot;book&quot;),(&quot;fr-CA&quot;,&quot;livre&quot;)},
+						no match will be found and &quot;book&quot; will be returned.</para>
+					<para>Existing devices support a relatively small subset of language codes, and the subset may vary by device. A web application may include localized strings for all languages
+						important to its users to all target devices, and the devices will choose the appropriate strings based on their individual capabilities.</para>
+				</remarks>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="64" name="LocalizedString" type="LocalizedString"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LocalizedString">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>A localized string, including both a language code and a string value.</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="code" type="LanguageCode">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>Specifies the language for which the corresponding string value has been localized.</summary>
+						<remarks>
+							<para>A language code is case sensitive and must be of the form: &quot;xx-YY&quot;.</para>
+							<para>xx (2-letter primary subtag) is interpreted according to assignments found in ISO standard 639 part 1.</para>
+							<para>YY (2-letter secondary subtag) is interpreted according to assignments found in ISO 3166.</para>
+						</remarks>
+						<example>
+							<list type="table">
+								<listheader>
+									<term>code</term>
+									<description>language</description>
+								</listheader>
+								<item>
+									<term>en-US</term>
+									<description>English as spoken in the United States</description>
+								</item>
+								<item>
+									<term>fr-FR</term>
+									<description>French as spoken in France</description>
+								</item>
+								<item>
+									<term>fr-CA</term>
+									<description>French as spoken in Canada</description>
+								</item>
+								<item>
+									<term>es-ES</term>
+									<description>Spanish as spoken in Spain</description>
+								</item>
+								<item>
+									<term>ca-ES</term>
+									<description>Catalan as spoken in Spain</description>
+								</item>
+								<item>
+									<term>zh-CN</term>
+									<description>Chinese as spoken in China</description>
+								</item>
+								<item>
+									<term>zh-TW</term>
+									<description>Chinese as spoken in Taiwan</description>
+								</item>
+							</list>
+						</example>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value" type="LimitedString">
+				<xs:annotation>
+					<xs:documentation>
+						<summary>A string value, localized for the corresponding language code (min length=1, max length=1024, UTF-8).</summary>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="LanguageCode">
+		<xs:annotation>
+			<xs:documentation>
+				<summary>Restriction used for language codes.</summary>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-z]{2}\-[A-Z]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,163 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id "org.panteleyev.jpackageplugin" version "1.5.2"
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://maven.restlet.talend.com'
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:linux"
+    implementation "org.openjfx:javafx-swing:$javafx.version"
+    implementation 'net.sf.jopt-simple:jopt-simple:5.0.4'
+    implementation 'org.restlet.android:org.restlet:2.3.12'
+    implementation 'org.restlet.android:org.restlet.ext.html:2.3.12'
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.14'
+    implementation 'org.apache.httpcomponents:httpmime:4.5.14'
+    implementation 'commons-io:commons-io:2.13.0'
+    implementation("org.simpleframework:simple-xml:2.7.1") {
+        exclude group: 'stax'
+        exclude module: 'stax-api'
+        exclude group: 'xpp3'
+    }
+    implementation project(':Libs:CpkLib')
+}
+
+javafx {
+    version = 21
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+mainClassName = 'com.hp.jetadvantage.link.pkgmgt.hpkutil.HpkTool'
+
+application {
+    mainClass = mainClassName
+    applicationDefaultJvmArgs = ["--add-opens", "java.base/java.util=ALL-UNNAMED"]
+}
+
+run {
+    if (project.hasProperty("appArgs")) {
+        args Eval.me(appArgs)
+    }
+}
+
+shadowJar {
+    archiveBaseName.set('hpktool')
+    archiveVersion.set('1.6.2.1')
+    archiveFileName.set('hpktool.jar')
+}
+
+tasks.register('makeFilesWriteable', Exec) {
+    if (System.getProperty('os.name').toLowerCase().contains('win')) {
+        workingDir = "$buildDir"
+        commandLine 'attrib', '-r', '/s'
+        ignoreExitValue = true
+    } else if (System.getProperty('os.name').toLowerCase().contains('linux')) {
+//        workingDir = "$buildDir"
+        commandLine "chmod", "-R", "777", "$buildDir"
+        ignoreExitValue = true
+    }
+}
+
+tasks.register('cleanJpackage', Exec) {
+    dependsOn(makeFilesWriteable)
+    description = "Clean jpackage output"
+    if (System.getProperty('os.name').toLowerCase().contains('win')) {
+        workingDir = "$buildDir"
+        commandLine 'rm', '-r', 'HPKTool_win'
+        ignoreExitValue = true
+    } else if (System.getProperty('os.name').toLowerCase().contains('linux')) {
+//        workingDir = "$buildDir"
+        commandLine "rm", "-r", "$buildDir/HPKTool_linux"
+        ignoreExitValue = true
+    }
+}
+
+jpackage {
+    dependsOn(cleanJpackage)
+    dependsOn(shadowJar)
+    appName = 'HPKTool'
+    vendor = "HP Development Company, L.P."
+    appVersion = "1.6.2.1"
+    copyright = "\"(c) 2018 HP Development Company, L.P.\""
+    mainJar = 'hpktool.jar'
+    input = "$buildDir/libs"
+    addModules = ['java.base','java.datatransfer','java.desktop','java.logging','java.naming','java.prefs','java.scripting','java.security.jgss','java.sql','java.xml','jdk.jfr','jdk.unsupported','jdk.unsupported.desktop','jdk.crypto.ec']
+    javaOptions = ["--add-opens", "java.base/java.util=ALL-UNNAMED"]
+    windows {
+        type = 'APP_IMAGE'
+        icon = 'src/main/resources/icon/hp.ico'
+        destination = "$buildDir/HPKTool_win"
+    }
+    linux {
+        type = 'APP_IMAGE'
+        icon = 'src/main/resources/icon/hp.png'
+        destination = "$buildDir/HPKTool_linux"
+    }
+}
+
+tasks.register('jpackageWinCli', org.panteleyev.jpackage.JPackageTask) {
+    dependsOn(jpackage)
+    appName = 'HPKTool_Cli'
+    vendor = "HP Development Company, L.P."
+    appVersion = "1.6.2.1"
+    copyright = "\"(c) 2018 HP Development Company, L.P.\""
+    mainJar = 'hpktool.jar'
+    input = "$buildDir/libs"
+    type = 'APP_IMAGE'
+    addModules = ['java.base','java.datatransfer','java.desktop','java.logging','java.naming','java.prefs','java.scripting','java.security.jgss','java.sql','java.xml','jdk.jfr','jdk.unsupported','jdk.unsupported.desktop','jdk.crypto.ec']
+    javaOptions = ["--add-opens", "java.base/java.util=ALL-UNNAMED"]
+    windows {
+        icon = 'src/main/resources/icon/hp.ico'
+        destination = "$buildDir/HPKTool_win"
+        winConsole = true
+    }
+}
+
+tasks.register('jpackageWinCopy', Copy) {
+    dependsOn(makeFilesWriteable)
+    dependsOn(jpackageWinCli)
+    from "$buildDir/HPKTool_win/HPKTool_Cli"
+    into "$buildDir/HPKTool_win/HPKTool"
+    include '*.exe', 'app/*.cfg'
+}
+
+tasks.register('jpackageWinZip', Zip) {
+    dependsOn(jpackageWinCopy)
+    from "$buildDir/HPKTool_win/HPKTool"
+    include '**'
+    archiveFileName = "HPKTool_win.zip"
+    destinationDirectory = file("$buildDir")
+}
+
+tasks.register('jpackageLinuxCopy', Copy) {
+    dependsOn(jpackage)
+    from "${projectDir.absolutePath}"
+    into "$buildDir/HPKTool_linux/HPKTool/bin"
+    include 'hpktool.sh'
+}
+
+tasks.register('jpackageLinuxCopy2', Exec) {
+    dependsOn(jpackageLinuxCopy)
+    commandLine "chmod", "+x", "$buildDir/HPKTool_linux/HPKTool/bin/hpktool.sh"
+    ignoreExitValue = true
+}
+
+tasks.register('jpackageLinuxZip', Zip) {
+    dependsOn(makeFilesWriteable)
+    dependsOn(jpackageLinuxCopy2)
+    from "$buildDir/HPKTool_linux"
+    include '**'
+    archiveFileName = "HPKTool_linux.zip"
+    destinationDirectory = file("$buildDir")
+}

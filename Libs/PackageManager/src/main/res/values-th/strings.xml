@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"ยกเลิก"</string>
+    <string name="install">"ติดตั้ง"</string>
+    <string name="launch">"เปิด"</string>
+    <string name="ok">"ตกลง"</string>
+    <string name="next">"ถัดไป"</string>
+    <string name="done">"เสร็จสิ้น"</string>
+
+    <string name="install_confirm_dlg_title">"ติดตั้ง"</string>
+    <string name="install_untrusted_dlg_title">"ติดตั้ง (ไม่ทราบ)"</string>
+    <string name="install_confirm_dlg_text">"คุณต้องการจะติดตั้งแอปพลิเคชันนี้หรือไม่"</string>
+
+    <string name="uninstall_confirm_dlg_title">"ถอนการติดตั้งแอปพลิเคชัน"</string>
+    <string name="uninstall_confirm_dlg_text">"คุณต้องการถอนการติดตั้งแอปพลิเคชันนี้หรือไม่"</string>
+
+    <string name="error_dlg_title">"พบข้อผิดพลาด"</string>
+
+    <string name="installing">"กำลังติดตั้ง..."</string>
+    <string name="install_done">"ติดตั้งแอปพลิเคชันแล้ว"</string>
+    <string name="install_failed">"ไม่ได้ติดตั้งแอปพลิเคชัน"</string>
+
+    <string name="install_confirm_question">"คุณต้องการติดตั้งแอปพลิเคชันนี้หรือไม่ แอปพลิเคชันจะเข้าถึง:"</string>
+    <string name="install_confirm_question_no_perms">"คุณต้องการจะติดตั้งแอปพลิเคชันนี้หรือไม่ แอปพลิเคชันไม่ต้องมีการเข้าถึงพิเศษใดๆ"</string>
+    <string name="install_confirm_question_update">"คุณต้องการติดตั้งการอัปเดตของแอปพลิเคชันที่มีอยู่นี้หรือไม่ ข้อมูลที่มีอยู่ของคุณจะไม่สูญหายไป แอปพลิเคชันที่อัปเดตแล้วจะเข้าถึง:"</string>
+    <string name="install_confirm_question_update_system">"คุณต้องการจะติดตั้งการอัปเดตของแอปพลิเคชันในระบบนี้หรือไม่ ข้อมูลที่มีอยู่ของคุณจะไม่สูญหาย แอปพลิเคชันที่อัปเดตแล้วจะเข้าถึง:"</string>
+    <string name="install_confirm_question_update_no_perms">"คุณต้องการติดตั้งการอัปเดตไปยังแอปพลิเคชันที่มีอยู่นี้หรือไม่ ข้อมูลที่มีอยู่ของคุณจะไม่สูญหาย การอัปเดตนี้ไม่จำเป็นต้องใช้การเข้าถึงใดๆ เป็นพิเศษ"</string>
+    <string name="install_confirm_question_update_system_no_perms">"คุณต้องการติดตั้งการอัปเดตไปยังแอปพลิเคชันในตัวนี้หรือไม่ ข้อมูลที่มีอยู่ของคุณจะไม่สูญหาย การอัปเดตนี้ไม่จำเป็นต้องใช้การเข้าถึงใดๆ เป็นพิเศษ"</string>
+
+    <string name="uninstall_application_title">"ถอนการติดตั้งแอปพลิเคชัน"</string>
+    <string name="uninstall_update_title">"ถอนการติดตั้งการอัปเดต"</string>
+    <string name="uninstalling">"กำลังถอนการติดตั้ง..."</string>
+    <string name="uninstall_done">"ถอนการติดตั้งเสร็จแล้ว"</string>
+    <string name="uninstall_failed">"ถอนการติดตั้งไม่สำเร็จ"</string>
+    <string name="uninstall_unauthorized">"ผู้ใช้ปัจจุบันไม่ได้รับอนุญาตให้ทำการถอนการติดตั้งนี้"</string>
+    <string name="out_of_space_dlg_text">"ติดตั้ง <xliff:g id="APP_NAME">%1$s</xliff:g> ไม่ได้ เพิ่มพื้นที่ว่างแล้วลองอีกครั้ง"</string>
+    <string name="newPerms">"ใหม่"</string>
+    <string name="allPerms">"ทั้งหมด"</string>
+    <string name="privacyPerms">"ข้อมูลส่วนบุคคล"</string>
+    <string name="devicePerms">"การเข้าถึงอุปกรณ์"</string>
+    <string name="no_new_perms">"การอัปเดตนี้ไม่จำเป็นต้องมีการอนุญาตใหม่"</string>
+    <string name="manage_device_administrators">"จัดการแอปผู้ดูแลระบบอุปกรณ์"</string>
+</resources>

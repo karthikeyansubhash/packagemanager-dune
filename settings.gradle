@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "PackageManager"
+include ':Libs:CpkLib'
+include ':Libs:PackageManager'
+include ':Libs:oxpd2'
+include ':Apps:SmartUXPackageManager'
+include ':Test'
+project(':Test').projectDir = new File(settingsDir, 'tests')
+//include ':tools:DbViewerBridge'

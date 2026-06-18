@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.CheckBox?>
+<VBox prefWidth="650.0" styleClass="thebackground" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hp.jetadvantage.link.pkgmgt.hpkutil.activities.ProviderForAccessoryActivity">
+   <children>
+      <VBox prefWidth="650.0">
+         <children>
+            <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="24.0" prefWidth="130.0" text="%accessory_type" />
+                   <CheckBox fx:id="checkOwned" mnemonicParsing="false" prefHeight="25.0" text="%accessory_type_owned" onAction="#handleCheckOwned" selected="true"/>
+                   <CheckBox fx:id="checkShared" mnemonicParsing="false" prefHeight="25.0" text="%accessory_type_shared" onAction="#handleCheckShared" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+
+             <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                 <children>
+                     <Label prefHeight="24.0" prefWidth="130.0" text="%accessory_vendor_id" />
+                     <TextField fx:id="textVendorId" promptText="%accessory_vendor_id" HBox.hgrow="ALWAYS" />
+                 </children>
+                 <VBox.margin>
+                     <Insets />
+                 </VBox.margin>
+                 <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+             </HBox>
+
+             <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                 <children>
+                     <Label prefHeight="24.0" prefWidth="130.0" text="%accessory_product_id" />
+                     <TextField fx:id="textProductId" promptText="%accessory_product_id" HBox.hgrow="ALWAYS" />
+                 </children>
+                 <VBox.margin>
+                     <Insets />
+                 </VBox.margin>
+                 <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+             </HBox>
+
+             <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                 <children>
+                     <Label prefHeight="24.0" prefWidth="130.0" text="%accessory_serial_number" />
+                     <TextField fx:id="textSerialNumber" promptText="%accessory_serial_number" HBox.hgrow="ALWAYS" />
+                     <CheckBox fx:id="checkSerialNull" mnemonicParsing="false" prefHeight="25.0" text="%accessory_null" onAction="#handleCheckSerialNull" />
+                 </children>
+                 <VBox.margin>
+                     <Insets />
+                 </VBox.margin>
+                 <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+             </HBox>
+
+             <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                 <children>
+                     <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#handleAdd" prefWidth="100.0" text="%btn_add" />
+                     <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#handleCancel" prefWidth="100.0" styleClass="buttonWhite" text="%btn_cancel" />
+                 </children>
+                 <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+             </HBox>
+         </children>
+      </VBox>
+   </children>
+    <stylesheets>
+        <URL value="@sample.css" />
+    </stylesheets>
+</VBox>

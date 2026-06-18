@@ -1,0 +1,172 @@
+{
+  "contextProfile": {
+    "contextDefinitions": []
+  },
+  "description": {
+    "date": "20240730",
+    "description": "Accessory Sample",
+    "name": "Accessory Sample",
+    "supportEmail": "",
+    "supportPhone": "",
+    "supportUrl": "",
+    "vendor": "HP",
+    "version": "1.6.2"
+  },
+  "initializedState": "isSuccess",
+  "installCodeState": "icsPending",
+  "installationDetails": {
+    "installationDate": "2025-04-30T08:59:07.524Z",
+    "packageName": ""
+  },
+  "packages": [
+    {
+      "workpathPlatformPackage": {
+        "platformVersion": "31.8",
+        "workpathPackagePath": "AccessorySample.apk"
+      }
+    }
+  ],
+  "registrations": [
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.application.version.1.type.i18nAssetRegistrationRecord",
+        "value": {
+          "assetContent": {
+            "i18nAssetInlineContent": {
+              "languages": [
+                {
+                  "languageTag": "en-US",
+                  "strings": [
+                    {
+                      "stringId": "application_title0",
+                      "value": "Accessory Sample"
+                    },
+                    {
+                      "stringId": "application_description0",
+                      "value": "Accessory Sample"
+                    },
+                    {
+                      "stringId": "accessories_title",
+                      "value": "Accessory Sample_accessories"
+                    },
+                    {
+                      "stringId": "accessories_description",
+                      "value": "Accessory Sample_accessories"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "assetId": "22b3066c-df8e-4d24-b0ac-061a1b0872ce"
+        }
+      }
+    },
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.application.version.1.type.applicationAgentRegistrationRecord",
+        "value": {
+          "agentId": "d8534a8f-68d9-46d5-8d71-9ad475321aba",
+          "category": "acStandardWalkup",
+          "icon": {
+            "localImage": {
+              "fileType": "image/png",
+              "path": "/assets/icons/ic_launcher.png"
+            }
+          },
+          "iconSet": [
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/140x140/ic_launcher.png"
+                }
+              },
+              "key": "140x140"
+            },
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/90x90/ic_launcher.png"
+                }
+              },
+              "key": "90x90"
+            },
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/179x179/ic_launcher.png"
+                }
+              },
+              "key": "179x179"
+            }
+          ],
+          "localizedDescription": {
+            "i18nAssetId": "22b3066c-df8e-4d24-b0ac-061a1b0872ce",
+            "stringId": "application_description0"
+          },
+          "localizedName": {
+            "i18nAssetId": "22b3066c-df8e-4d24-b0ac-061a1b0872ce",
+            "stringId": "application_title0"
+          },
+          "localizedTitle": {
+            "i18nAssetId": "22b3066c-df8e-4d24-b0ac-061a1b0872ce",
+            "stringId": "application_title0"
+          },
+          "name": "Accessory Sample",
+          "target": {
+            "workpathApplicationTarget": {
+              "package": "main=com.hp.workpath.sample.accessorysample/com.hp.workpath.sample.accessorysample.MainActivity"
+            }
+          }
+        }
+      }
+    },
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.usbAccessories.version.1.type.usbAccessoriesAgentRegistrationRecord",
+        "value": {
+          "agentId": "5ba4db8b-e4ef-4bac-984c-319920fff9d6",
+          "localizedDescription": {
+            "i18nAssetId": "22b3066c-df8e-4d24-b0ac-061a1b0872ce",
+            "stringId": "accessories_description"
+          },
+          "localizedName": {
+            "i18nAssetId": "22b3066c-df8e-4d24-b0ac-061a1b0872ce",
+            "stringId": "accessories_title"
+          },
+          "name": "Accessory Sample_accessories",
+          "registrationTarget": {
+            "workpath": {
+              "package": "com.hp.workpath.sample.accessorysample"
+            }
+          },
+          "registrations": [
+            {
+              "productId": 69,
+              "registrationKind": "rkOwned",
+              "serialNumber": "NULL",
+              "vendorId": 1008
+            },
+            {
+              "productId": 70,
+              "registrationKind": "rkShared",
+              "vendorId": 1009
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "solutionId": "11111111-1111-1111-9991-111111111111",
+  "state": "ssInstalled",
+  "trustedSites": {
+    "sites": {
+      "explicit": {
+        "explicitValue": "*"
+      }
+    }
+  }
+}

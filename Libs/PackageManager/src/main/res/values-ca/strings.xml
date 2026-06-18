@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Cancel·la"</string>
+    <string name="install">"Instal·la"</string>
+    <string name="launch">"Obre"</string>
+    <string name="ok">"D\'acord"</string>
+    <string name="next">"Següent"</string>
+    <string name="done">"Fet"</string>
+
+    <string name="install_confirm_dlg_title">"Instal·la"</string>
+    <string name="install_untrusted_dlg_title">"Instal·la (Desconegut)"</string>
+    <string name="install_confirm_dlg_text">"Vols instal·lar aquesta aplicació?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"Desinstal·la l\'aplicació"</string>
+    <string name="uninstall_confirm_dlg_text">"Vols desinstal·lar aquesta aplicació?"</string>
+
+    <string name="error_dlg_title">"Error"</string>
+
+    <string name="installing">"S\'està instal·lant..."</string>
+    <string name="install_done">"Aplicació instal·lada."</string>
+    <string name="install_failed">"L\'aplicació no s\'ha instal·lat."</string>
+
+    <string name="install_confirm_question">"Vols instal·lar aquesta aplicació? Tindrà els permisos següents:"</string>
+    <string name="install_confirm_question_no_perms">"Vols instal·lar aquesta aplicació? No requereix cap accés especial."</string>
+    <string name="install_confirm_question_update">"Vols instal·lar una actualització per a aquesta aplicació? No es perdran les teves dades existents. L\'aplicació actualitzada tindrà els permisos següents:"</string>
+    <string name="install_confirm_question_update_system">"Vols instal·lar una actualització d\'aquesta aplicació integrada? No es perdran les teves dades. L\'aplicació actualitzada tindrà els permisos següents:"</string>
+    <string name="install_confirm_question_update_no_perms">"Vols instal·lar una actualització a aquesta aplicació existent? Les dades existents no es perdran. No cal cap tipus d\'accés especial."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Vols instal·lar una actualització a aquesta aplicació integrada? Les teves dades existents no es perdran. No cal cap tipus d\'accés especial."</string>
+
+    <string name="uninstall_application_title">"Desinstal·la l\'aplicació"</string>
+    <string name="uninstall_update_title">"Desinstal·la l\'actualització"</string>
+    <string name="uninstalling">"S\'està desinstal·lant..."</string>
+    <string name="uninstall_done">"Desinstal·lació finalitzada."</string>
+    <string name="uninstall_failed">"S\'ha produït un error en la desinstal·lació."</string>
+    <string name="uninstall_unauthorized">"L\'usuari actual no té permís per dur a terme aquesta desinstal·lació.".</string>
+    <string name="out_of_space_dlg_text">"No s\'ha pogut instal·lar <xliff:g id="APP_NAME">%1$s</xliff:g>. Allibera espai i torna-ho a provar."</string>
+    <string name="newPerms">"Nous"</string>
+    <string name="allPerms">"Tots"</string>
+    <string name="privacyPerms">"Privadesa"</string>
+    <string name="devicePerms">"Accés al dispositiu"</string>
+    <string name="no_new_perms">"Aquesta actualització no requereix permisos nous."</string>
+    <string name="manage_device_administrators">"Gestiona aplicacions d\'administració del dispositiu"</string>
+</resources>

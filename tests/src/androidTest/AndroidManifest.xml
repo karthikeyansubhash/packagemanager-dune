@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="com.hp.packagemanager.permission.LIST_PACKAGES" />
+    <uses-permission android:name="com.hp.packagemanager.permission.READ_PROVIDERS" />
+
+    <permission
+        android:name="com.hp.workpath.permission.ACCESS_CUSTOM_AUTH"
+        tools:node="remove" />
+    <permission
+        android:name= "com.hp.packagemanager.permission.READ_WRITE_ATTESTATION"
+        tools:node="remove" />
+    <permission
+        android:name= "com.hp.packagemanager.permission.READ_PROVIDERS"
+        tools:node="remove" />
+    <permission
+        android:name= "com.hp.packagemanager.permission.READ_WRITE_AVATAR_REGISTRATION"
+        tools:node="remove" />
+    <permission
+        android:name= "com.hp.packagemanager.permission.READ_WRITE_SYSTEMCONFIG"
+        tools:node="remove" />
+    <permission
+        android:name= "com.hp.packagemanager.permission.READ_WRITE_CONFIG"
+        tools:node="remove" />
+    <permission
+        android:name= "com.hp.packagemanager.permission.LIST_PACKAGES"
+        tools:node="remove" />
+    <permission
+        android:name= "com.hp.packagemanager.permission.PACKAGE_LIFECYCLE_EVENTS"
+        tools:node="remove" />
+    <application>
+        <provider
+            android:name="com.hp.jetadvantage.link.pkgmgt.providers.PackageContentProvider"
+            android:authorities="${applicationId}.test.packages"
+            tools:node="replace"
+            android:exported="true"
+            android:enabled="true" />
+
+        <provider
+            android:name="com.hp.jetadvantage.link.pkgmgt.providers.PackageInstallerContentProvider"
+            android:authorities="test.packages-installers"
+            android:exported="true"
+            tools:node="replace"/>
+
+        <provider
+            android:name="com.hp.jetadvantage.link.pkgmgt.providers.PackageProvidersProvider"
+            android:authorities="test.providers"
+            android:exported="true"
+            tools:node="replace"/>
+
+        <provider
+            android:name="com.hp.jetadvantage.link.pkgmgt.providers.PackageAttestationContentProvider"
+            android:authorities="test.packages-attestation"
+            android:exported="true"
+            tools:node="replace"/>
+
+        <provider
+            android:name="com.hp.jetadvantage.link.pkgmgt.providers.EventReceiversContentProvider"
+            android:authorities="test.event-receivers;test.packages-eventreceiver"
+            android:exported="true"
+            tools:node="replace"/>
+    </application>
+
+</manifest>

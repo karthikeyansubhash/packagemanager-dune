@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Avbryt"</string>
+    <string name="install">"Installera"</string>
+    <string name="launch">"Öppna"</string>
+    <string name="ok">"OK"</string>
+    <string name="next">"Nästa"</string>
+    <string name="done">"Färdig"</string>
+
+    <string name="install_confirm_dlg_title">"Installera"</string>
+    <string name="install_untrusted_dlg_title">"Installera (Okänd)"</string>
+    <string name="install_confirm_dlg_text">"Vill du installera den här appen?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"Avinstallera appen"</string>
+    <string name="uninstall_confirm_dlg_text">"Vill du avinstallera appen?"</string>
+
+    <string name="error_dlg_title">"Fel"</string>
+
+    <string name="installing">"Installerar…"</string>
+    <string name="install_done">"Appen har installerats."</string>
+    <string name="install_failed">"Appen har inte installerats."</string>
+
+    <string name="install_confirm_question">"Vill du installera den här appen? Den får åtkomst till:"</string>
+    <string name="install_confirm_question_no_perms">"Vill du installera den här appen? Den kräver ingen särskild åtkomst."</string>
+    <string name="install_confirm_question_update">"Vill du installera en uppdatering till den här befintliga appen? Dina befintliga data försvinner inte. Den uppdaterade appen får åtkomst till:"</string>
+    <string name="install_confirm_question_update_system">"Vill du installera en uppdatering till den här befintliga förinstallerade appen? Dina befintliga data försvinner inte. Den uppdaterade appen får åtkomst till:"</string>
+    <string name="install_confirm_question_update_no_perms">"Vill du installera en uppdatering av den befintliga appen? Dina befintliga data försvinner inte. Ingen särskild åtkomst krävs."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Vill du installera en uppdatering av den inbyggda appen? Dina befintliga data försvinner inte. Ingen särskild åtkomst krävs."</string>
+
+    <string name="uninstall_application_title">"Avinstallera appen"</string>
+    <string name="uninstall_update_title">"Avinstallera uppdateringen"</string>
+    <string name="uninstalling">"Avinstallerar…"</string>
+    <string name="uninstall_done">"Avinstallationen har slutförts."</string>
+    <string name="uninstall_failed">"Det gick inte att avinstallera."</string>
+    <string name="uninstall_unauthorized">"Den aktuella användaren har inte behörighet att utföra avinstallationen."</string>
+    <string name="out_of_space_dlg_text">"Det gick inte att installera <xliff:g id="APP_NAME">%1$s</xliff:g>. Frigör minne och försök igen."</string>
+    <string name="newPerms">"Nytt"</string>
+    <string name="allPerms">"Alla"</string>
+    <string name="privacyPerms">"Sekretess"</string>
+    <string name="devicePerms">"Enhetsåtkomst"</string>
+    <string name="no_new_perms">"Det krävs inga nya behörigheter för den här uppdateringen."</string>
+    <string name="manage_device_administrators">"Hantera appar för enhetsadministratör"</string>
+</resources>

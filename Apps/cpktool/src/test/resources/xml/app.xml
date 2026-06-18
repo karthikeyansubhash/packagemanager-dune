@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE app>
+
+<app  
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.hp.com/schemas/imaging/OXPm/service/apps/2017/01/31"
+	xsi:schemaLocation=
+		"http://www.hp.com/schemas/imaging/OXPm/service/apps/2017/01/31/app.xsd"
+>
+	
+	<uuid>cd3a44d7-bd44-4e35-b6d9-27de323b45b8</uuid>
+	<name>OXPd Sample 10 app</name>
+	<version>1.0.0</version>
+	<vendorName>Sample 10 ISV</vendorName>
+	<date>20170206</date>
+	<type>Custom</type>
+	<platformType>OXPd</platformType>
+	<installFile>buttonFile.xml</installFile>
+	<minApiVersion>1.0</minApiVersion>
+</app>

@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"취소"</string>
+    <string name="install">"설치"</string>
+    <string name="launch">"열기"</string>
+    <string name="ok">"확인"</string>
+    <string name="next">"다음"</string>
+    <string name="done">"완료"</string>
+
+    <string name="install_confirm_dlg_title">"설치"</string>
+    <string name="install_untrusted_dlg_title">"설치 (알 수 없음)"</string>
+    <string name="install_confirm_dlg_text">"이 애플리케이션을 설치하시겠습니까?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"앱 제거"</string>
+    <string name="uninstall_confirm_dlg_text">"이 앱을 제거하시겠습니까?"</string>
+
+    <string name="error_dlg_title">"오류"</string>
+
+    <string name="installing">"설치 중..."</string>
+    <string name="install_done">"앱이 설치되었습니다."</string>
+    <string name="install_failed">"앱이 설치되지 않았습니다."</string>
+
+    <string name="install_confirm_question">"이 애플리케이션을 설치하시겠습니까? 애플리케이션이 다음에 액세스할 수 있습니다."</string>
+    <string name="install_confirm_question_no_perms">"이 애플리케이션을 설치하시겠습니까? 특별한 액세스 권한이 필요하지 않습니다."</string>
+    <string name="install_confirm_question_update">"기존 애플리케이션에 업데이트를 설치하시겠습니까? 기존 데이터는 손실되지 않습니다. 업데이트된 애플리케이션이 다음에 액세스할 수 있습니다."</string>
+    <string name="install_confirm_question_update_system">"내장 애플리케이션에 업데이트를 설치하시겠습니까? 기존 데이터는 손실되지 않습니다. 업데이트된 애플리케이션이 다음에 액세스할 수 있습니다."</string>
+    <string name="install_confirm_question_update_no_perms">"기존의 애플리케이션 업데이트를 설치하시겠습니까? 기존의 데이터는 손실되지 않으며 특별한 액세스 권한이 필요하지 않습니다."</string>
+    <string name="install_confirm_question_update_system_no_perms">"내장 애플리케이션 업데이트를 설치하시겠습니까? 기존의 데이터는 손실되지 않으며 특별한 액세스 권한이 필요하지 않습니다."</string>
+
+    <string name="uninstall_application_title">"앱 제거"</string>
+    <string name="uninstall_update_title">"업데이트 제거"</string>
+    <string name="uninstalling">"제거 중..."</string>
+    <string name="uninstall_done">"제거를 완료했습니다."</string>
+    <string name="uninstall_failed">"제거하지 못했습니다."</string>
+    <string name="uninstall_unauthorized">"현재 사용자는 이 제거를 수행할 수 없습니다."</string>
+    <string name="out_of_space_dlg_text">"<xliff:g id="APP_NAME">%1$s</xliff:g> 앱을 설치할 수 없습니다. 여유 공간을 늘린 후에 다시 시도하세요."</string>
+    <string name="newPerms">"새 권한"</string>
+    <string name="allPerms">"전체"</string>
+    <string name="privacyPerms">"개인정보 보호"</string>
+    <string name="devicePerms">"기기 액세스"</string>
+    <string name="no_new_perms">"이 업데이트에는 새로운 권한이 필요하지 않습니다."</string>
+    <string name="manage_device_administrators">"기기 관리자 앱 관리"</string>
+</resources>

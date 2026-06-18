@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.CheckBox?>
+<VBox prefWidth="650.0" styleClass="thebackground" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hp.jetadvantage.link.pkgmgt.hpkutil.activities.ProviderForStatisticsActivity">
+   <children>
+      <VBox prefWidth="650.0">
+         <children>
+             <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                 <children>
+                     <Label prefHeight="24.0" prefWidth="170.0" text="%name_en_us" />
+                     <TextField fx:id="textName" promptText="%statistics_name_example" HBox.hgrow="ALWAYS" />
+                     <Button mnemonicParsing="false" onAction="#handleMoreNameAction" prefWidth="100.0" text="%btn_more" />
+                 </children>
+                 <VBox.margin>
+                     <Insets />
+                 </VBox.margin>
+                 <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+             </HBox>
+
+             <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                 <children>
+                     <Label prefHeight="24.0" prefWidth="170.0" text="%description_en_us" />
+                     <TextField fx:id="textDescription" promptText="%statistics_description_example" HBox.hgrow="ALWAYS" />
+                     <Button mnemonicParsing="false" onAction="#handleMoreDescriptionAction" prefWidth="100.0" text="%btn_more" />
+                 </children>
+                 <VBox.margin>
+                     <Insets />
+                 </VBox.margin>
+                 <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+             </HBox>
+
+             <HBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                 <children>
+                     <Label prefHeight="24.0" prefWidth="170.0" text="%menu_critical_solution" />
+                     <CheckBox fx:id="checkCriticalSolution" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="%chk_enable" />
+                 </children>
+                 <VBox.margin>
+                     <Insets />
+                 </VBox.margin>
+                 <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+             </HBox>
+
+             <HBox layoutX="20.0" layoutY="20.0" spacing="20.0">
+                 <children>
+                     <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#handleAdd" prefWidth="100.0" text="%btn_add" />
+                     <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#handleCancel" prefWidth="100.0" styleClass="buttonWhite" text="%btn_cancel" />
+                 </children>
+                 <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+             </HBox>
+
+         </children>
+      </VBox>
+   </children>
+    <stylesheets>
+        <URL value="@sample.css" />
+    </stylesheets>
+</VBox>

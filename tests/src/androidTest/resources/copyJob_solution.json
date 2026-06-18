@@ -1,0 +1,152 @@
+{
+  "contextProfile": {
+    "contextDefinitions": []
+  },
+  "description": {
+    "date": "20240509",
+    "description": "Copy Sample Description",
+    "name": "Copy Sample",
+    "supportEmail": "",
+    "supportPhone": "",
+    "supportUrl": "",
+    "vendor": "HP",
+    "version": "2.0alpha"
+  },
+  "initializedState": "isSuccess",
+  "installCodeState": "icsPending",
+  "installationDetails": {
+    "installationDate": "2025-04-30T11:31:30.604Z",
+    "packageName": ""
+  },
+  "packages": [
+    {
+      "workpathPlatformPackage": {
+        "platformVersion": "31.8",
+        "workpathPackagePath": "CopySample.apk"
+      }
+    }
+  ],
+  "registrations": [
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.application.version.1.type.i18nAssetRegistrationRecord",
+        "value": {
+          "assetContent": {
+            "i18nAssetInlineContent": {
+              "languages": [
+                {
+                  "languageTag": "en-US",
+                  "strings": [
+                    {
+                      "stringId": "application_title0",
+                      "value": "Copy Sample"
+                    },
+                    {
+                      "stringId": "application_description0",
+                      "value": "Copy Sample"
+                    },
+                    {
+                      "stringId": "copyAgent_title",
+                      "value": "Copy Sample_copyAgent"
+                    },
+                    {
+                      "stringId": "copyAgent_description",
+                      "value": "Copy Sample_copyAgent"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "assetId": "d5b2e8e8-38a6-450c-b9e8-3d7b3184d5be"
+        }
+      }
+    },
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.application.version.1.type.applicationAgentRegistrationRecord",
+        "value": {
+          "agentId": "d7859df8-e162-4eab-b410-f9a453a9434d",
+          "category": "acStandardWalkup",
+          "icon": {
+            "localImage": {
+              "fileType": "image/png",
+              "path": "/assets/icons/ic_launcher.png"
+            }
+          },
+          "iconSet": [
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/140x140/ic_launcher.png"
+                }
+              },
+              "key": "140x140"
+            },
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/90x90/ic_launcher.png"
+                }
+              },
+              "key": "90x90"
+            },
+            {
+              "icon": {
+                "localImage": {
+                  "fileType": "image/png",
+                  "path": "/assets/icons/179x179/ic_launcher.png"
+                }
+              },
+              "key": "179x179"
+            }
+          ],
+          "localizedDescription": {
+            "i18nAssetId": "d5b2e8e8-38a6-450c-b9e8-3d7b3184d5be",
+            "stringId": "application_description0"
+          },
+          "localizedName": {
+            "i18nAssetId": "d5b2e8e8-38a6-450c-b9e8-3d7b3184d5be",
+            "stringId": "application_title0"
+          },
+          "localizedTitle": {
+            "i18nAssetId": "d5b2e8e8-38a6-450c-b9e8-3d7b3184d5be",
+            "stringId": "application_title0"
+          },
+          "name": "Copy Sample",
+          "target": {
+            "workpathApplicationTarget": {
+              "package": "main=com.hp.workpath.sample.copysample/com.hp.workpath.sample.copysample.MainActivity"
+            }
+          }
+        }
+      }
+    },
+    {
+      "record": {
+        "typeGUN": "com.hp.ext.service.copy.version.1.type.copyAgentRegistrationRecord",
+        "value": {
+          "agentId": "ff66f4f6-dae5-4d5f-9380-42287cb751e4",
+          "copyNotificationTarget": {
+            "workpath": {
+              "package": "com.hp.workpath.sample.copysample"
+            }
+          },
+          "localizedDescription": {
+            "i18nAssetId": "d5b2e8e8-38a6-450c-b9e8-3d7b3184d5be",
+            "stringId": "copyAgent_description"
+          },
+          "localizedName": {
+            "i18nAssetId": "d5b2e8e8-38a6-450c-b9e8-3d7b3184d5be",
+            "stringId": "copyAgent_title"
+          },
+          "name": "Copy Sample_copyAgent"
+        }
+      }
+    }
+  ],
+  "solutionId": "11111111-1111-1111-9996-111111111111",
+  "state": "ssInstalled"
+}

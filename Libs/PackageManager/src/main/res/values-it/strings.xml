@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Annulla"</string>
+    <string name="install">"Installa"</string>
+    <string name="launch">"Apri"</string>
+    <string name="ok">"OK"</string>
+    <string name="next">"Avanti"</string>
+    <string name="done">"Fine"</string>
+
+    <string name="install_confirm_dlg_title">"Installa"</string>
+    <string name="install_untrusted_dlg_title">"Installa (Sconosciuto)"</string>
+    <string name="install_confirm_dlg_text">"Vuoi installare questa applicazione?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"Disinstalla applicazione"</string>
+    <string name="uninstall_confirm_dlg_text">"Vuoi disinstallare questa applicazione?"</string>
+
+    <string name="error_dlg_title">"Errore"</string>
+
+    <string name="installing">"Installazione..."</string>
+    <string name="install_done">"App installata."</string>
+    <string name="install_failed">"App non installata."</string>
+
+    <string name="install_confirm_question">"Vuoi installare questa applicazione? Avrà accesso a:"</string>
+    <string name="install_confirm_question_no_perms">"Vuoi installare questa applicazione? Non richiede alcun accesso speciale."</string>
+    <string name="install_confirm_question_update">"Vuoi installare un aggiornamento per questa applicazione esistente? I tuoi dati esistenti non andranno persi. L\'applicazione aggiornata avrà accesso a:"</string>
+    <string name="install_confirm_question_update_system">"Vuoi installare un aggiornamento per questa applicazione integrata? I tuoi dati esistenti non andranno persi. L\'applicazione aggiornata avrà accesso a:"</string>
+    <string name="install_confirm_question_update_no_perms">"Vuoi installare un aggiornamento di questa applicazione esistente? I dati correnti verranno conservati. Non occorrono accessi speciali."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Vuoi installare un aggiornamento di questa applicazione integrata? I dati correnti verranno conservati. Non occorrono accessi speciali."</string>
+
+    <string name="uninstall_application_title">"Disinstalla applicazione"</string>
+    <string name="uninstall_update_title">"Disinstalla aggiornamento"</string>
+    <string name="uninstalling">"Disinstallazione..."</string>
+    <string name="uninstall_done">"Disinstallazione completata."</string>
+    <string name="uninstall_failed">"Disinstallazione non riuscita."</string>
+    <string name="uninstall_unauthorized">"L\'utente corrente non è autorizzato a eseguire questa disinstallazione."</string>
+    <string name="out_of_space_dlg_text">"Impossibile installare <xliff:g id="APP_NAME">%1$s</xliff:g>. Libera dello spazio e riprova."</string>
+    <string name="newPerms">"Nuove"</string>
+    <string name="allPerms">"Tutte"</string>
+    <string name="privacyPerms">"Privacy"</string>
+    <string name="devicePerms">"Accesso dispositivo"</string>
+    <string name="no_new_perms">"Questo aggiornamento non richiede nuove autorizzazioni."</string>
+    <string name="manage_device_administrators">"Gestisci app di amministrazione del dispositivo"</string>
+</resources>

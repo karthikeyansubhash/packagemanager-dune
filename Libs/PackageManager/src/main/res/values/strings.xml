@@ -1,0 +1,135 @@
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">Cancel</string>
+    <string name="install">Install</string>
+    <string name="launch">Open</string>
+    <string name="ok">OK</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
+
+    <string name="install_confirm_dlg_title">Install</string>
+    <string name="install_untrusted_dlg_title">Install (unknown)</string>
+    <string name="install_confirm_dlg_text">Do you want to install this application?</string>
+
+    <string name="uninstall_confirm_dlg_title">Uninstall</string>
+    <string name="uninstall_confirm_dlg_text">Do you want to uninstall this app?</string>
+
+    <!-- Dialog attributes for errors -->
+    <string name="error_dlg_title">Error</string>
+
+    <!-- From Device activity -->
+    <string name="installing">Installing\u2026</string>
+    <string name="install_done">App installed.</string>
+    <string name="install_failed">App not installed.</string>
+
+    <!-- Message for installing a new app that requires some permissions [CHAR LIMIT=NONE] -->
+    <string name="install_confirm_question">Do you want to install this application?
+            It will get access to:</string>
+    <!-- Message for installing a new app that does not require permissions [CHAR LIMIT=NONE] -->
+    <string name="install_confirm_question_no_perms">Do you want to install this application?
+            It does not require any special access.</string>
+    <!-- Message for updating an existing app [CHAR LIMIT=NONE] -->
+    <string name="install_confirm_question_update">Do you want to install an update
+            to this existing application?  Your existing data will not
+            be lost.  The updated application will get access to:</string>
+    <!-- Message for updating an existing system app [CHAR LIMIT=NONE] -->
+    <string name="install_confirm_question_update_system">Do you want to install an update
+            to this built-in application?  Your existing data will not
+            be lost.  The updated application will get access to:</string>
+    <!-- Message for updating an existing app, no permissions [CHAR LIMIT=NONE] -->
+    <string name="install_confirm_question_update_no_perms">Do you want to install an update
+            to this existing application?  Your existing data will not
+            be lost.  It does not require any special access.</string>
+    <!-- Message for updating an existing system app, no permissions [CHAR LIMIT=NONE] -->
+    <string name="install_confirm_question_update_system_no_perms">Do you want to install an update
+            to this built-in application?  Your existing data will not
+            be lost.  It does not require any special access.</string>
+
+    <string name="uninstall_application_title">Uninstall app</string>
+    <string name="uninstall_update_title">Uninstall update</string>
+    <string name="uninstalling">Uninstalling\u2026</string>
+    <string name="uninstall_done">Uninstall finished.</string>
+    <string name="uninstall_failed">Uninstall unsuccessful.</string>
+    <string name="uninstall_unauthorized">You are not authorized to uninstall an app.</string>
+
+    <string name="out_of_space_dlg_text"><xliff:g id="app_name">%1$s</xliff:g> couldn\'t be installed. Free up some space and try again.</string>
+
+    <!-- Tab label for new permissions being added to an existing app [CHAR LIMIT=20] -->
+    <string name="newPerms">New</string>
+    <!-- Tab label for all permissions of an app being installed [CHAR LIMIT=20] -->
+    <string name="allPerms">All</string>
+    <!-- Tab label for permissions related to user privacy [CHAR LIMIT=20] -->
+    <string name="privacyPerms">Privacy</string>
+    <!-- Tab label for permissions related to device behavior [CHAR LIMIT=20] -->
+    <string name="devicePerms">Device Access</string>
+
+    <!-- Body text for new tab when there are no new permissions [CHAR LIMIT=NONE] -->
+    <string name="no_new_perms">This update requires no new permissions.</string>
+
+    <!-- String on a button that leads to the "device administrator" configuration setting where a
+        user will be able to disable the device administrator in order to uninstall
+        it. [CHAR LIMIT=50] -->
+    <string name="manage_device_administrators">Manage device administrators</string>
+
+
+    <!-- No translate strings -->
+    <string name="error_file_io" translatable="false">Error occurred while saving the file</string>
+    <string name="error_not_enough_space" translatable="false">Storage is full</string>
+    <string name="error_invalid_package" translatable="false">The package format is not valid or no connector was found</string>
+    <string name="error_cert_not_valid" translatable="false">Certificate is invalid</string>
+    <string name="error_cert_expired" translatable="false">Certificate is expired</string>
+    <string name="error_config_max_size_exceeded" translatable="false">Configuration data exceeds max %1$d allowed</string>
+    <string name="error_config_is_not_valid_json" translatable="false">Configuration data is not valid JSON</string>
+    <string name="error_mandatory_params_missing" translatable="false">Mandatory parameters are missing</string>
+    <string name="error_install_file_missing" translatable="false" tools:ignore="ExtraTranslation">Install files are missing</string>
+    <string name="error_params_not_valid" translatable="false">Parameters are not valid</string>
+    <string name="error_update_not_allowed" translatable="false">Re-install/downgrade is not allowed</string>
+    <string name="error_not_applicable" translatable="false">Not applicable</string>
+    <string name="error_authorization_not_valid" translatable="false">Authorization is not valid</string>
+    <string name="error_incompatible_version" translatable="false">PlatformVersion is not valid</string>
+
+    <string name="error_installation_failed" translatable="false">Installation failed</string>
+    <string name="error_connector_not_found" translatable="false">Connector not found</string>
+
+    <!-- Permissions -->
+    <string name="use_smartux_pacman_install_desc" translatable="false">Allow this application to access HP Workpath Package Manager for installing connectors</string>
+    <string name="use_smartux_pacman_install_label" translatable="false">Use Smart UX Package Manager installation service</string>
+    <string name="use_smartux_pacman_uninstall_desc" translatable="false">Allow this application to access HP Workpath Package Manager for uninstalling connectors</string>
+    <string name="use_smartux_pacman_uninstall_label" translatable="false">Use Smart UX Package Manager uninstallation service</string>
+    <string name="use_smartux_pacman_get_packages_desc" translatable="false">Allow this application to access HP Workpath Package Manager for retrieving details about installed connectors</string>
+    <string name="use_smartux_pacman_get_packages_label" translatable="false">Use Smart UX Package Manager package details service</string>
+    <string name="use_smartux_pacman_get_config_desc" translatable="false">Allow this application to access HP Workpath Package Manager for retrieving configuration of installed connectors</string>
+    <string name="use_smartux_pacman_get_config_label" translatable="false">Use Smart UX Package Manager package configuration service</string>
+    <string name="use_smartux_pacman_get_systemconfig_desc" translatable="false">Allow this application to access HP Workpath Package Manager for retrieving system configuration of installed connectors</string>
+    <string name="use_smartux_pacman_get_systemconfig_label" translatable="false">Use Smart UX Package Manager system configuration service</string>
+    <string name="use_smartux_pacman_avatar_desc" translatable="false">Allow this application to access HP Workpath Package Manager for retrieving avatar registration</string>
+    <string name="use_smartux_pacman_avatar_label" translatable="false">Use Smart UX Package Manager avatar registration service</string>
+    <string name="use_smartux_pacman_get_providers_desc" translatable="false">Allow this application to access HP Workpath Package Manager for retrieving providers</string>
+    <string name="use_smartux_pacman_get_providers_label" translatable="false">Use Smart UX Package Manager providers details service</string>
+    <string name="smartux_pacman_permissions" translatable="false">Workpath Package Manager permissions</string>
+    <string name="smartux_pacman_permissions_desc" translatable="false">Permissions required for using HP Workpath Package Manager</string>
+
+    <!-- Reason displayed when installation fails because there is no free space left -->
+    <string name="install_failed_no_space" translatable="false">Storage is full.</string>
+    <!-- Reason displayed when installation fails because the installation package itself is invalid
+        in some way (e.g., corrupt) [CHAR LIMIT=100] -->
+    <string name="install_failed_invalid_apk" translatable="false">The package appears to be corrupt.</string>
+    <!-- Reason displayed when installation fails because the package an existing package is
+        installed with a conflicting package author signature [CHAR LIMIT=100] -->
+    <string name="install_failed_inconsistent_certificates" translatable="false">An existing package by the same name
+        with a conflicting signature is already installed.</string>
+    <!-- Reason displayed when installation fails because the package specifies a minimum compatible
+        OS version that is newer than our current OS version. [CHAR LIMIT=100] -->
+    <string name="install_failed_older_sdk" translatable="false">The package only works on newer versions.</string>
+    <!-- Reason displayed when installation fails because the package could not be verified
+        because the package verifier rejected it. [CHAR LIMIT=100] -->
+    <string name="install_failed_verify_failed" translatable="false">The package did not pass verification and cannot
+        be installed.</string>
+    <!-- Reason displayed when installation fails because the package specifies it is compatible
+        only with a CPU that the current tablet doesn't have. [CHAR LIMIT=100] -->
+    <string name="install_failed_cpu_abi_incompatible" translatable="false">This app isn\'t compatible with your device.</string>
+    <string name="install_failed_unknown_code" translatable="false">Install failed with code %1$d</string>
+    <string name="uninstall_failed_device_policy_manager" translatable="false">Uninstall failed because application is a device admin</string>
+    <string name="uninstall_failed_internal_error" translatable="false">Uninstall failed because of internal error</string>
+    <string name="uninstall_failed_unknown_code" translatable="false">Uninstall failed with code %1$d</string>
+
+</resources>

@@ -1,0 +1,24 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '8.2.2' apply false
+    id 'com.android.library' version '8.2.2' apply false
+}
+
+ext {
+    compileSdkVersion = 31
+    buildToolsVersion = "34.0.0"
+    minSdkVersion = 29
+    targetSdkVersion = 29
+    support_v4 = 'androidx.appcompat:appcompat:1.4.1'
+    proguardFile = new File(projectDir.absolutePath.concat(File.separator).concat("proguard-project.txt"))
+
+    //------ Test tool versions
+    junitVersion = "junit:junit:4.12"
+    mockitoCoreVersion = "org.mockito:mockito-core:4.8.0"
+    mockWebserverVersion = "com.squareup.okhttp3:mockwebserver:4.8.1"
+    orgJsonVersion = "org.json:json:20210307"
+    androidxJunitVersion = "androidx.test.ext:junit:1.1.2"
+    mockitoInlineVersion = "org.mockito:mockito-inline:4.8.0"
+    androidxTestCore = "androidx.test:core:1.4.0"
+    androidxEspressoVersion = "androidx.test.espresso:espresso-core:3.5.1"
+}

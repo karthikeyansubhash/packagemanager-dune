@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.hp.jetadvantage.link.pkgmgt'
+    compileSdk 31
+
+    signingConfigs {
+        debug {
+            storeFile file("../Platform/platform.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+    }
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
+    }
+
+    buildTypes {
+
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    packagingOptions {
+        exclude 'META-INF/com.hp.workpath.permission.ACCESS_CUSTOM_AUTH'
+    }
+    useLibrary 'android.test.base' // for AndroidTestCase
+    useLibrary 'android.test.runner' // for ProviderTestCase2
+    useLibrary 'android.test.mock' // for MockContentProvider
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    //implementation 'com.google.android.material:material:1.10.0'
+    //implementation project(':Libs:PackageManager')
+    implementation project(':Libs:oxpd2')
+    implementation project(':Libs:CpkLib')
+    implementation 'com.google.code.gson:gson:2.13.2'
+
+    testImplementation rootProject.ext.junitVersion
+    testImplementation rootProject.ext.mockitoCoreVersion
+    testImplementation rootProject.ext.mockWebserverVersion
+    testImplementation rootProject.ext.orgJsonVersion
+    testImplementation rootProject.ext.mockitoInlineVersion
+
+//    testImplementation project(':Libs:PackageManager')
+//    testImplementation project(':Libs:oxpd2')
+//    testImplementation project(':Libs:CpkLib')
+
+    androidTestImplementation project(':Libs:PackageManager')
+    androidTestImplementation rootProject.ext.androidxJunitVersion
+    androidTestImplementation rootProject.ext.androidxEspressoVersion
+    androidTestImplementation 'org.mockito:mockito-android:3.12.4'
+}

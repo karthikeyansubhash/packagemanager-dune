@@ -1,0 +1,93 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'com.hp.jetadvantage.link.pkgmgt'
+
+    compileSdk rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+
+        // Enabling multidex support.
+        multiDexEnabled true
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            assets.srcDirs = ['src/main/assets']
+            aidl.srcDirs = ['src/main/aidl']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.includeAndroidResources = true
+    }
+
+    buildFeatures {
+        aidl true
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), rootProject.ext.proguardFile
+        }
+
+        releaseForSim {
+            initWith release
+        }
+
+        debugForSim {
+            initWith debug
+        }
+    }
+}
+
+gradle.taskGraph.whenReady {
+    tasks.each { task ->
+        if (task.name == 'mockableAndroidJar') {
+            task.enabled = false
+        }
+    }
+}
+
+dependencies {
+    implementation rootProject.ext.support_v4
+    implementation 'com.google.code.gson:gson:2.13.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.8'
+
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation fileTree(include: '*.jar', dir: 'libs')
+
+    implementation project(':Libs:CpkLib')
+    implementation project(':Libs:oxpd2')
+
+    implementation ('org.simpleframework:simple-xml:2.7.1') {
+        exclude group: 'stax'
+        exclude module: 'stax-api'
+        exclude group: 'xpp3'
+    }
+
+    testImplementation rootProject.ext.junitVersion
+    testImplementation rootProject.ext.mockitoCoreVersion
+    testImplementation rootProject.ext.mockitoInlineVersion
+    testImplementation rootProject.ext.androidxTestCore
+    testImplementation 'org.robolectric:robolectric:4.11.1'
+}

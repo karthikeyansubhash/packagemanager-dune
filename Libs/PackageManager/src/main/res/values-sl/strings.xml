@@ -1,0 +1,42 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cancel">"Prekliči"</string>
+    <string name="install">"Namesti"</string>
+    <string name="launch">"Odpri"</string>
+    <string name="ok">"V redu"</string>
+    <string name="next">"Naprej"</string>
+    <string name="done">"Dokončano"</string>
+
+    <string name="install_confirm_dlg_title">"Namesti"</string>
+    <string name="install_untrusted_dlg_title">"Namesti (Neznano)"</string>
+    <string name="install_confirm_dlg_text">"Ali želite namestiti to aplikacijo?"</string>
+
+    <string name="uninstall_confirm_dlg_title">"Odstrani aplikacijo"</string>
+    <string name="uninstall_confirm_dlg_text">"Ali želite odstraniti to aplikacijo?"</string>
+
+    <string name="error_dlg_title">"Napaka"</string>
+
+    <string name="installing">"Nameščanje …"</string>
+    <string name="install_done">"Aplikacija je nameščena."</string>
+    <string name="install_failed">"Aplikacija ni nameščena."</string>
+
+    <string name="install_confirm_question">"Ali želite namestiti to aplikacijo? Imela bo dostop do:"</string>
+    <string name="install_confirm_question_no_perms">"Ali želite namestiti to aplikacijo? Poseben dostop ni potreben."</string>
+    <string name="install_confirm_question_update">"Ali želite namestiti posodobitev te obstoječe aplikacije? Obstoječi podatki ne bodo izgubljeni. Posodobljena aplikacija bo imela dostop do:"</string>
+    <string name="install_confirm_question_update_system">"Ali želite namestiti posodobitev za to vgrajeno aplikacijo? Obstoječi podatki ne bodo izgubljeni. Posodobljena aplikacija bo imela dostop do:"</string>
+    <string name="install_confirm_question_update_no_perms">"Ali želite namestiti posodobitev te obstoječe aplikacije? Obstoječi podatki ne bodo izgubljeni. Za namestitev ne potrebujete posebnega dostopa."</string>
+    <string name="install_confirm_question_update_system_no_perms">"Ali želite namestiti posodobitev te vgrajene aplikacije? Obstoječi podatki ne bodo izgubljeni. Za namestitev ne potrebujete posebnega dostopa."</string>
+
+    <string name="uninstall_application_title">"Odstrani aplikacijo"</string>
+    <string name="uninstall_update_title">"Odstrani posodobitev"</string>
+    <string name="uninstalling">"Odstranjevanje ..."</string>
+    <string name="uninstall_done">"Odstranitev je končana."</string>
+    <string name="uninstall_failed">"Odstranitev ni uspela."</string>
+    <string name="uninstall_unauthorized">"Trenutni uporabnik nima dovoljenja za izvedbo te odstranitve."</string>
+    <string name="out_of_space_dlg_text">"Aplikacije <xliff:g id="APP_NAME">%1$s</xliff:g> ni bilo mogoče namestiti. Sprostite prostor in poskusite znova."</string>
+    <string name="newPerms">"Novo"</string>
+    <string name="allPerms">"Vse"</string>
+    <string name="privacyPerms">"Zasebnost"</string>
+    <string name="devicePerms">"Dostop do naprave"</string>
+    <string name="no_new_perms">"Za to posodobitev niso potrebna nova dovoljenja."</string>
+    <string name="manage_device_administrators">"Upravljanje skrbniških aplikacij naprave"</string>
+</resources>
