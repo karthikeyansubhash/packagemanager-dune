@@ -1,1 +1,2 @@
-# packagemanager-dune
+# packagemanager for DUNE
+packagemanager for DUNE
